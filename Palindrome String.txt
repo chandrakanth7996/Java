@@ -1,0 +1,28 @@
+//Palindrome String
+/*************************
+ * Steps: Reverse a String 
+ * Then compare the string with original String
+ * **************************/
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String word = "aba";
+        String ans = "";
+        for(int i=word.length()-1;i>=0;i--){
+        ans = ans + word.charAt(i);
+        }
+        System.out.println(ans); //aba
+        
+        if(word.equals(ans)){
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a palindrome");
+        }
+    }
+}
+
+/* output: 
+aba
+Palindrome
+*/
+
