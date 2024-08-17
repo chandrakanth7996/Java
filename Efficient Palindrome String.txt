@@ -1,0 +1,25 @@
+//Palindrome String
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String word = "dcba";
+        int n = word.length(); //find a length of the string
+        boolean palindrome = true;  //set true by default
+       for(int i=0;i<n/2;i++){   //check until middle of length of the String
+           if(word.charAt(i) != word.charAt(n-i-1)){  //check first and last postion characters
+               palindrome = false;  // if it is not match, set it false
+               break; // if it is false then break, bcz no need to check the whole string
+           }
+       }
+       if(palindrome){
+           System.out.println("Yes, it is a palindrome");
+       } else {
+           System.out.println("No, it is not a palindrome");
+       }
+    }
+}
+
+/* output: 
+No, it is not a palindrome
+*/
+
