@@ -23,12 +23,16 @@ class Solution {
     public int scoreOfString(String s) {
        int sum=0;
         for(int i=0;i<s.length()-1;i++){
+         //indices
           int a = i;
           int b = i+1;
+        // characters of string
           char first = s.charAt(a);
           char second = s.charAt(b);
+       // ASCII values of characters
           int aAscii = first;
           int bAscii = second;
+      // difference of characters and sum of result 
           int temp = Math.abs(aAscii - bAscii);
           sum += temp;
           
