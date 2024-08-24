@@ -1,0 +1,22 @@
+
+class HelloWorld {
+    public static void main(String[] args) {
+        int n=5;
+        for(int i=0;i<n;i++){ //row
+            for(int j=i;j<n;j++){ //column 
+               System.out.print(" "); //descending stars pattern
+            }
+            for(int k=0;k<n;k++){  //stars
+                System.out.print("*");
+            }
+            System.out.println(" ");
+        }
+    }
+}
+
+//output:
+     ***** 
+    ***** 
+   ***** 
+  ***** 
+ ***** 
