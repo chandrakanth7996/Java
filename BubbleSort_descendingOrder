@@ -1,0 +1,33 @@
+// Bubble sort descending order
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {124,431,144,12,03,14};
+        boolean swap = false;
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr.length-1;j++){
+                if(arr[j]<arr[j+1]){
+                    int temp = arr[j+1];
+                    arr[j+1] = arr[j];
+                    arr[j] = temp;
+                    swap = true;
+                }
+            }
+            if(swap == false){
+                break;
+            }
+        }
+        //1st way to print array
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+" "); // 431 144 124 14 12 3
+        }
+        //2nd way to print array
+        System.out.print(Arrays.toString(arr)); //[431, 144, 124, 14, 12, 3]
+        //3rd way to print array
+        for(int a : arr){
+            System.out.print(a+" "); //431 144 124 14 12 3 
+        }
+    }
+}
+
+
