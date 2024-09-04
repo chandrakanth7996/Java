@@ -2,7 +2,7 @@ package JavaPrograms;
 
 import java.util.Scanner;
 
-public class LinearSearch {
+public class sample {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -28,3 +28,27 @@ public class LinearSearch {
 12 23 45 43 32 
  */
 
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<arr.length;i++){
+            arr[i] = sc.nextInt();
+        }
+        for(int a: arr){
+            System.out.print(a+" ");
+        }
+    }
+}
+
+//output:
+5
+98
+90
+97
+87
+76
+98 90 97 87 76 
