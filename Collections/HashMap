@@ -1,0 +1,23 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        HashMap<Integer,Integer> hs = new HashMap<>();
+        hs.put(1,100);
+        hs.put(2,200);
+        hs.put(3,300);
+        System.out.print(hs+" "); // {1=100, 2=200, 3=300} 
+        hs.put(4,400);
+        hs.put(5,500);
+        int afterElement = hs.get(5);
+        System.out.println(afterElement+1); // 501
+        System.out.println(hs.get(4)); // 400
+    }
+}
+
+// output:
+{1=100, 2=200, 3=300} 501
+400
+
+HashMap : key value pair
+put : inserting an element
+get : retrieving an element
