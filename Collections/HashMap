@@ -27,6 +27,10 @@ class HelloWorld {
         } else {
             System.out.println("Not Found"); // Not Found
         }
+        // printing all keys 
+         for(int res : hs.keySet()){
+            System.out.print(res+" "); // 1 2 3 4 5 
+        }
     }
 }
 
@@ -35,6 +39,7 @@ class HelloWorld {
 400
 205
 Not Found
+1 2 3 4 5 
 
 HashMap : key value pair
 put : inserting an element
