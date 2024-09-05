@@ -11,12 +11,30 @@ class HelloWorld {
         int afterElement = hs.get(5);
         System.out.println(afterElement+1); // 501
         System.out.println(hs.get(4)); // 400
+
+        // checking the key if it is present or not in the elements
+        // if it is present, then add 5 to the element
+        if(hs.containsKey(9)){
+            int prev = hs.get(2);
+            System.out.println(prev+5); // 205
+        } else {
+            System.out.println("Not Found");
+        }
+        
+         if(hs.containsKey(9)){
+            int prev = hs.get(2);
+            System.out.println(prev+5); 
+        } else {
+            System.out.println("Not Found"); // Not Found
+        }
     }
 }
 
 // output:
 {1=100, 2=200, 3=300} 501
 400
+205
+Not Found
 
 HashMap : key value pair
 put : inserting an element
