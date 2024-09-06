@@ -1,0 +1,16 @@
+// Majority element in the array using Arrays
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+    int[] nums = {2,2,1,1,1,2,2,1,1,1};
+    int res = sample(nums);
+    System.out.println(res);
+}
+public static int sample(int[] nums){
+    Arrays.sort(nums);
+    int n = nums.length/2;
+    return nums[n];
+    }
+}
+
+//output: 1
