@@ -25,3 +25,32 @@ helloWorld -> 2
 hey -> 4
 Hey -> 1
 bye -> 2
+
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+       HashMap<String,Integer> hs = new HashMap<>();
+       String[] str = {"hello", "hi", "hi", "bye", "bye","helloWorld","helloWorld","hey","hey","hey","hey","Hey"};
+       for(int i=0;i<str.length;i++){
+           String key = str[i];
+        //   if(hs.containsKey(s)){
+        //       int prev = hs.get(s);
+        //       hs.put(s,prev+1);
+        //   } else {
+        //       hs.put(s,1);
+        //   }
+           hs.put(key,hs.getOrDefault(key,0)+1);
+       }
+       for(String strs : hs.keySet()){
+           System.out.println(strs+" -> "+hs.get(strs));
+    }
+}
+}
+//output:
+hi -> 2
+hello -> 1
+helloWorld -> 2
+hey -> 4
+Hey -> 1
+bye -> 2
