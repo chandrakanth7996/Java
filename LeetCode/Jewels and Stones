@@ -7,7 +7,22 @@ Example 2:
 Input: jewels = "z", stones = "ZZ"
 Output: 0 */
 
-//2nd way of solution using HashMap
+//1st way of solution using brute force O(n2) - time complexity
+class Solution {
+    public int numJewelsInStones(String jewels, String stones) {
+        int count = 0;
+        for(int i=0;i<jewels.length();i++){
+           for(int j=0;j<stones.length();j++){
+            if(jewels.charAt(i) == stones.charAt(j)){
+                count++;
+            }
+           }
+        }
+        return count;
+    }
+}
+
+//2nd way of solution using HashMap O(n) - time complexity
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
         HashMap<Character,Integer> hs = new HashMap<>();
