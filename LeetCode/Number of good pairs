@@ -27,7 +27,7 @@ class Solution {
     }
 }
 
-// O(n) - HashMap solution 
+// O(n) - 1st way of solution using HashMap
 import java.util.*;
 class HelloWorld {
     public static void main(String[] args) {
@@ -43,5 +43,22 @@ class HelloWorld {
             }
         }
         System.out.println(ans);
+    }
+}
+
+// 2nd way of solution using HashMap - sum of n natural numbers formula
+class Solution {
+    public int numIdenticalPairs(int[] nums) {
+        HashMap<Integer,Integer> hs = new HashMap<>();
+        int ans = 0;
+        for(int i=0;i<nums.length;i++){
+            int key = nums[i];
+            hs.put(key,hs.getOrDefault(key,0)+1);
+        }
+        for(int res : hs.keySet()){
+            int val = hs.get(res);
+            ans = ans + val*(val-1)/2;  // sum of natural numbers
+        }
+        return ans;
     }
 }
