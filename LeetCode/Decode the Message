@@ -1,0 +1,43 @@
+/* 2325. Decode the Message
+You are given the strings key and message, which represent a cipher key and a secret message, respectively. The steps to decode message are as follows:
+
+Use the first appearance of all 26 lowercase English letters in key as the order of the substitution table.
+Align the substitution table with the regular English alphabet.
+Each letter in message is then substituted using the table.
+Spaces ' ' are transformed to themselves.
+For example, given key = "happy boy" (actual key would have at least one instance of each letter in the alphabet), we have the partial substitution table of ('h' -> 'a', 'a' -> 'b', 'p' -> 'c', 'y' -> 'd', 'b' -> 'e', 'o' -> 'f').
+Return the decoded message.
+Example 1:
+Input: key = "the quick brown fox jumps over the lazy dog", message = "vkbs bs t suepuv"
+Output: "this is a secret"
+Explanation: The diagram above shows the substitution table.
+It is obtained by taking the first appearance of each letter in "the quick brown fox jumps over the lazy dog". */
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String key = "the quick brown fox jumps over the lazy dog";
+        String message = "vkbs bs t suepuv";
+        HashMap<Character,Character> hs = new HashMap<>();
+        char temp = 'a';
+        for(int i=0;i<key.length();i++){
+            char ch = key.charAt(i);
+            if(ch!=' ' && !hs.containsKey(ch)){  // checking the space and key in Hashmap
+                hs.put(ch,temp);  // if it is not present then map
+                temp++;
+            }
+        }
+        
+        StringBuilder ans = new StringBuilder();
+        for(int i=0;i<message.length();i++){
+            char ch = message.charAt(i);
+            if(ch!=' '){
+                char val = hs.get(ch);   // getting the hashMap values into val
+                ans.append(val);
+            } else {
+                ans.append(' ');
+            }
+        }
+        System.out.print(ans.toString());
+    }
+}
