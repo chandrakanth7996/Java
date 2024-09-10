@@ -21,8 +21,8 @@ class Solution {
             }
         }
         int missing = -1;
-        for(int i=1;i<=nums.length;i++){           
-            if(!hs.contains(i)){            // checking the elements are present in hashSet
+        for(int i=1;i<=nums.length;i++){    // nums length = 4       
+            if(!hs.contains(i)){            // checking the elements of length with the presented elements in hashSet
                 missing = i;
             }
         }
