@@ -1,0 +1,20 @@
+//Checking the element is present in HashSet or not ?
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {0,1,4,3,7,676,948,54};
+        int find = 948;
+        HashSet<Integer> hs = new HashSet<>();
+        for(int n: arr){
+            hs.add(n);
+        }
+        if(hs.contains(find)){
+            System.out.println("found "+ find);
+        } else {
+            System.out.println("Not found "+find);
+        }
+    }
+}
+//output:
+found 948
