@@ -14,6 +14,7 @@ class HelloWorld {
             System.out.print(Arrays.toString(res)); // [1, 2, 9][2, 2, 9]
         }
         System.out.println();
+        // to get 1st array of 2D array
         for(int i=0;i<=matrix.length;i++){
             System.out.print(matrix[0][i]+" "); // 1 2 9 
         }
