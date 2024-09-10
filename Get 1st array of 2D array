@@ -1,0 +1,22 @@
+//To get 1st array of 2D array
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[][] matrix = {{1,2,9},{2,2,9}};
+
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[i].length;j++){
+                System.out.print(matrix[i][j]+" "); // 1 2 9 2 2 9 
+            }
+        }
+        System.out.println();
+        for(int[] res: matrix){
+            System.out.print(Arrays.toString(res)); // [1, 2, 9][2, 2, 9]
+        }
+        System.out.println();
+        for(int i=0;i<=matrix.length;i++){
+            System.out.print(matrix[0][i]+" "); // 1 2 9 
+        }
+    }
+}
+
