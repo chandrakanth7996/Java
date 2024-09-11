@@ -21,3 +21,26 @@ class HelloWorld {
     }
 }
 // output : 1 1 1 true
+
+// 2nd diagonal elements are same or not ?
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[][] arr = {{1,2,3,10},{4,1,6,11},{7,8,1,12}};
+        int r = arr.length;
+        int c = arr[0].length;
+        int i=0,j=1;
+        boolean isValid = true;
+        int temp = arr[i][j];
+        while(i<r && i<c-1){
+            if(arr[i][j]!=temp){
+                isValid = false;
+            }
+            System.out.print(arr[i][j]+" ");
+            i++;
+            j++;
+        }
+        System.out.println(isValid);
+    }
+}
+// output : 2 6 12 false
