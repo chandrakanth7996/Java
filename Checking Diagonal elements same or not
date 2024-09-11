@@ -32,7 +32,7 @@ class HelloWorld {
         int i=0,j=1;
         boolean isValid = true;
         int temp = arr[i][j];
-        while(i<r && i<c-1){
+        while(i<r && i<c){    // if the matrix is 3*3 then here mention c-1 length due to avoid arrayOutofBound Exception
             if(arr[i][j]!=temp){
                 isValid = false;
             }
