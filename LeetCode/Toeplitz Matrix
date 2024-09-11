@@ -1,0 +1,31 @@
+/* 766. Toeplitz Matrix
+Given an m x n matrix, return true if the matrix is Toeplitz. Otherwise, return false.
+A matrix is Toeplitz if every diagonal from top-left to bottom-right has the same elements.
+Example 1:
+Input: matrix = [[1,2,3,4],[5,1,2,3],[9,5,1,2]]
+Output: true
+Explanation:
+In the above grid, the diagonals are:
+"[9]", "[5, 5]", "[1, 1, 1]", "[2, 2, 2]", "[3, 3]", "[4]".
+In each diagonal all elements are the same, so the answer is True. */
+
+// 1st way of solution using for loop. Time complexity - O(n2)
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[][] arr = {{11,74,0,93},{40,11,74,0}};
+        int r = arr.length;
+        int c = arr[0].length;
+        boolean flag = true;
+        for(int i=0;i<r-1;i++){
+            for(int j=0;j<c-1;j++){
+// Inside the inner loop, the condition if (matrix[i][j] != matrix[i + 1][j + 1]) checks if the current element matrix[i][j] is equal to the element diagonally down-right matrix[i + 1][j + 1].
+If they are not equal, set b to false.
+                if(arr[i][j]!=arr[i+1][j+1]){ 
+                    flag = false;
+                }
+            }
+        }
+        System.out.println(flag); // true
+    }
+}
