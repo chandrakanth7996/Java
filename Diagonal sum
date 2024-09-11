@@ -1,4 +1,5 @@
 // sum of diagonal matrix
+// 1st way of diagonal sum - O(n2)
 import java.util.*;
 class HelloWorld {
     public static void main(String[] args) {
@@ -20,6 +21,30 @@ class HelloWorld {
                 }
             }
         }
+        System.out.println(sum1); // 15
+    }
+}
+
+// efficient 2nd way of diagonal sum - O(n)
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[][] arr = {{1,2,3},{4,5,6},{7,8,9}};
+        int row = arr.length; // 3
+        int column = arr[0].length; // 3
+        int sum=0;
+        int sum1=0;
+        for(int i=0;i<row;i++){
+            System.out.print(arr[i][i]+" "); // 1 5 9 
+            sum+=arr[i][i];
+        }
+        System.out.println();
+        for(int i=row-1;i>=0;i--){
+            System.out.print(arr[i][i]+" "); // 9 5 1
+            sum1+=arr[i][i];
+        }
+        System.out.println();
+        System.out.println(sum); // 15
         System.out.println(sum1); // 15
     }
 }
