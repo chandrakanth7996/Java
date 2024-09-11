@@ -1,0 +1,23 @@
+// checking the diagonal elements are same or not ?
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[][] arr = {{1,2,3},{4,1,6},{7,8,1}};
+        int r = arr.length;
+        int c = arr[0].length;
+        int i=0,j=0;
+        boolean isValid = true;
+        int temp = arr[i][j];
+        while(i<r && i<c){
+            if(arr[i][j]!=temp){
+                isValid = false;
+            }
+            System.out.print(arr[i][j]+" ");
+            sum+=arr[i][j];
+            i++;
+            j++;
+        }
+        System.out.println(isValid);
+    }
+}
+// output : 1 1 1 true
