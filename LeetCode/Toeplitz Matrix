@@ -29,3 +29,42 @@ If they are not equal, set b to false.
         System.out.println(flag); // true
     }
 }
+
+// 2nd way of solution using function
+class Solution {
+    public boolean isValidFun(int[][] matrix, int y, int x){
+        int r = matrix.length;
+        int c = matrix[0].length;
+        boolean flag = true;
+        int i=y,j=x;
+        int temp = matrix[i][j];
+        while(i<r && j<c){
+            if(matrix[i][j]!=temp){
+                flag = false;
+            }
+            i++;
+            j++;
+        }
+        return flag;
+    }
+    public boolean isToeplitzMatrix(int[][] matrix) {
+        boolean ans = true;
+        int r = matrix.length;
+        int c = matrix[0].length;
+        // Check diagonals starting from the top row
+        for(int j=0;j<c;j++){
+            boolean temp = isValidFun(matrix,0,j);
+            if(temp==false){
+                ans = false;
+            }
+        }
+        // Check diagonals starting from the leftmost column
+        for(int i=0;i<r;i++){
+            boolean temp = isValidFun(matrix,i,0);
+            if(temp==false){
+                ans = false;
+            }
+        }
+        return ans;
+    }
+}
