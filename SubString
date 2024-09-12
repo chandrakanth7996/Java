@@ -1,0 +1,38 @@
+//SubString
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String str = "chandu";
+        int n= str.length();
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                for(int k=i;k<=j;k++){
+                    System.out.print(str.charAt(k)+" ");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
+// output:
+c 
+c h 
+c h a 
+c h a n 
+c h a n d 
+c h a n d u 
+h 
+h a 
+h a n 
+h a n d 
+h a n d u 
+a 
+a n 
+a n d 
+a n d u 
+n 
+n d 
+n d u 
+d 
+d u 
+u 
