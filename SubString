@@ -37,7 +37,7 @@ d
 d u 
 u 
 
-// 2nd way of solution using substring() method
+// 2nd way of solution using substring() method: time complexity - O(n3)
 import java.util.*;
 class HelloWorld {
     public static void main(String[] args) {
@@ -73,7 +73,7 @@ d
 du
 u
 
-// 3rd way of solution storing the values into ArrayList
+// 3rd way of solution storing the values into ArrayList : time complexity - O(n3)
 import java.util.*;
 class HelloWorld {
     public static void main(String[] args) {
