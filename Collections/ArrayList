@@ -21,5 +21,29 @@ class HelloWorld {
         
         System.out.println(ar); // [[10, 20], [30, 40]]
         System.out.println(ar.size()); // 2
+
+    // 3D ArrayList
+        ArrayList<ArrayList<ArrayList<Integer>>> ar = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> temp = new ArrayList<>();
+        ArrayList<Integer> innertemp = new ArrayList<>();
+        innertemp.add(10);
+        innertemp.add(20);
+        temp.add(innertemp);
+        
+        ArrayList<Integer> temp1 = new ArrayList<>();
+        temp1.add(30);
+        temp1.add(40);
+        temp.add(temp1);
+        System.out.println(ar); 
+        System.out.println(ar.size());
+        
+        ArrayList<Integer> temp2 = new ArrayList<>();
+        temp2.add(50);
+        temp2.add(60);
+        temp.add(temp2);
+        
+        ar.add(temp);
+        System.out.println(ar);  // [[[10, 20], [30, 40], [50, 60]]]
+        System.out.println(ar.size()); // 1
     }
 }
