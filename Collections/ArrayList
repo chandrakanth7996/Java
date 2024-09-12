@@ -1,0 +1,25 @@
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(5);
+        arr.add(6);
+        arr.add(7);
+        System.out.println(arr); // [5, 6, 7]
+        System.out.println(arr.size()); // 3
+
+    // 2D arrayList
+        ArrayList<ArrayList<Integer>> ar = new ArrayList<>();
+        ArrayList<Integer> temp = new ArrayList<>();
+        temp.add(10);
+        temp.add(20);
+        ar.add(temp);
+        ArrayList<Integer> temp1 = new ArrayList<>();
+        temp1.add(30);
+        temp1.add(40);
+        ar.add(temp1);
+        
+        System.out.println(ar); // [[10, 20], [30, 40]]
+        System.out.println(ar.size()); // 2
+    }
+}
