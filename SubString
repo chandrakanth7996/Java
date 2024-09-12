@@ -72,3 +72,22 @@ ndu
 d
 du
 u
+
+// 3rd way of solution storing the values into ArrayList
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String str = "abcd";
+        ArrayList<String> arr = new ArrayList<>();
+        int n= str.length();
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                String temp = str.substring(i,j+1);
+                arr.add(temp);
+            }
+        }
+        System.out.println(arr);
+    }
+}
+// output: 
+[a, ab, abc, abcd, b, bc, bcd, c, cd, d]
