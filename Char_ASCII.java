@@ -17,3 +17,14 @@ public class Char_ASCII {
 	}
 
 }
+
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println(((char)97));
+        char ch = 'a';
+        System.out.println((int)ch);
+    }
+}
+// output:
+a
+97
