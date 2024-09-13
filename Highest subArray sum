@@ -1,0 +1,21 @@
+// Highest subArray of sum
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {5,9,1,8,7};
+        int r = arr.length;
+        int sum=0;
+        for(int i=0;i<r;i++){
+            for(int j=i;j<r;j++){
+                int temp=0;
+                for(int k=i;k<=j;k++){
+                    temp += arr[k];
+                }
+                sum = Math.max(sum,temp);
+            }
+        }
+        System.out.println(sum);
+    }
+}
+
+// output: 30
