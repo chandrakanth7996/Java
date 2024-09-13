@@ -7,10 +7,10 @@ class HelloWorld {
         int n = arr.length;
         int sl = 3;
         int sum = 0;
-        for(int i=0;i<=n-sl;i++){
-            int j=i+sl-1;
+        for(int i=0;i<=n-sl;i++){     // Loop through each possible starting point of the subarray of length 'sl'
+            int j=i+sl-1;             // Calculate the ending index of the subarray
             int temp=0;
-            for(int k=i;k<=j;k++){
+            for(int k=i;k<=j;k++){    // Loop through the current subarray and calculate its sum
                 temp+=arr[k];
             }
             sum = Math.max(sum,temp);
