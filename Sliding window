@@ -1,0 +1,27 @@
+// Sliding window and two pointers
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+       int[] arr = {5,9,1,8};
+       int n = arr.length;
+       int l = 0, r= 0;
+       int temp = 0;
+       int res = 0;
+       int sl = 3;
+       for(r=0;r<n;r++){
+           temp += arr[r];
+           if(r-l == sl){
+               temp -= arr[l];
+               l++;
+           }
+           if(r-l+1 == sl){
+               res = Math.max(res,temp);
+           }
+       }
+        System.out.println(res);
+    }
+}
+
+// output : 18
+
