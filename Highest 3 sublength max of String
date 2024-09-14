@@ -1,0 +1,49 @@
+// Highest 3 sublength max of String
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String str = "hello";
+        int n = str.length();
+        int sl = 3;
+        int sum=0;
+        for(int i=0;i<=n-sl;i++){
+            int temp=0;
+            for(int j=i;j<i+sl;j++){
+                temp += str.charAt(j);
+            }
+            sum = Math.max(sum,temp);
+        }
+        System.out.println(sum);
+    }
+}
+
+// explanation:
+1. **Initialize Variables:**
+   - `str = "hello"`
+   - `n = str.length() = 5`
+   - `sl = 3`
+   - `sum = 0`
+
+2. **Iterate Over Possible Substrings of Length 3:**
+   
+   - For `i = 0`:
+     - Substring: `"hel"`
+     - ASCII values: `h = 104`, `e = 101`, `l = 108`
+     - Sum: `104 + 101 + 108 = 313`
+     - Update `sum`: `sum = Math.max(0, 313) = 313`
+
+   - For `i = 1`:
+     - Substring: `"ell"`
+     - ASCII values: `e = 101`, `l = 108`, `l = 108`
+     - Sum: `101 + 108 + 108 = 317`
+     - Update `sum`: `sum = Math.max(313, 317) = 317`
+
+   - For `i = 2`:
+     - Substring: `"llo"`
+     - ASCII values: `l = 108`, `l = 108`, `o = 111`
+     - Sum: `108 + 108 + 111 = 327`
+     - Update `sum`: `sum = Math.max(317, 327) = 327`
+
+3. **Final Result:**
+   - The maximum sum of ASCII values for any substring of length 3 is `327`.
