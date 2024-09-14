@@ -10,13 +10,13 @@ class HelloWorld {
        int res = 0;
        int sl = 3;
        for(r=0;r<n;r++){
-           temp += arr[r];
-           if(r-l == sl){
-               temp -= arr[l];
-               l++;
+           temp += arr[r];        // Add the current element to the sum (temp)
+           if(r-l == sl){         // Check if the window size has reached the fixed length (sl)
+               temp -= arr[l];    // Subtract the element that is leaving the window (starting element)
+               l++;               // Move the left boundary of the window to the right
            }
-           if(r-l+1 == sl){
-               res = Math.max(res,temp);
+           if(r-l+1 == sl){        // Check if the current window size equals the fixed length (sl)
+               res = Math.max(res,temp);    // Update the maximum sum (res) 
            }
        }
         System.out.println(res);
