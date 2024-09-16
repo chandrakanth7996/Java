@@ -42,3 +42,31 @@ class HelloWorld {
 //The code counts the number of substrings of a given length `sl` from the input string `str` that contain exactly `sl` unique characters. 
 //It uses a `HashSet` to track unique characters in each substring and increments a counter for each valid substring. Finally, it prints the count of such substrings.
 
+// 2nd way of solution using HashMap : O(n)
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String s = "xyzzaz";
+        int n = s.length();
+        HashMap<Character,Integer> hm = new HashMap<>();
+        int l=0,r=0;
+        int ans = 0;
+        int sl = 3;
+        for(r=0;r<n;r++){
+            char ch = s.charAt(r);
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+            if(r-l == sl){                       // checks if the window size is exactly sl (which is 3 in this case).
+                char tch = s.charAt(l);          // tch is the character at the left end of the window (s.charAt(l)).
+                hm.put(tch,hm.get(tch)-1);       //  decrements the count of tch in the HashMap
+                if(hm.get(tch)==0){
+                    hm.remove(tch);
+                }
+                l++;
+            }
+            if(hm.size()==sl){       // checks if the number of unique characters in the HashMap is equal to sl.
+                ans+=1;
+            }
+        }
+        System.out.println(ans);
+    }
+}
