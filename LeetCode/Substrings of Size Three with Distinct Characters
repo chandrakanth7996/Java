@@ -36,7 +36,9 @@ class HelloWorld {
                 ans+=1;
             }
         }
-        System.out.println(ans);
+        System.out.println(ans);     //output: 1
     }
 }
-//output: 1
+//The code counts the number of substrings of a given length `sl` from the input string `str` that contain exactly `sl` unique characters. 
+//It uses a `HashSet` to track unique characters in each substring and increments a counter for each valid substring. Finally, it prints the count of such substrings.
+
