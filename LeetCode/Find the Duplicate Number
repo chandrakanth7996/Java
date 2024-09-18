@@ -58,3 +58,24 @@ class HelloWorld {
         
     }
 }
+
+//4th way of solution using HashSet
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 4};
+        Set<Integer> seen = new HashSet<>();
+        Set<Integer> duplicates = new HashSet<>();
+
+        for (int num : arr) {
+            if (!seen.add(num)) {
+                duplicates.add(num); // Add to duplicates if already seen
+            }
+        }
+
+        // Print duplicates
+        for (int dup : duplicates) {
+            System.out.println(dup);
+        }
+    }
+}
