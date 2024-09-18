@@ -38,3 +38,23 @@ class HelloWorld {
         System.out.println(duplicate);
     }
 }
+
+// 3rd way of solution using HashMap
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,4};
+        int n = arr.length;
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int i=0;i<n;i++){
+            int nums = arr[i];
+            hm.put(nums,hm.getOrDefault(nums,0)+1);
+        }
+        for(Map.Entry<Integer,Integer> m : hm.entrySet()){
+            if(m.getValue() > 1){                    // checks if the count is greater than 1 (indicating duplicates).
+                System.out.println(m.getKey());
+            }
+        }
+        
+    }
+}
