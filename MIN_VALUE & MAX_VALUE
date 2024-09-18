@@ -11,3 +11,17 @@ class HelloWorld {
        System.out.println(tmax);    // 6765
     }
 }
+
+// Integer.MIN_VALUE
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+       int[] arr = {-1,-100,-432,-9382};
+       int n = arr.length;
+       int tmin = Integer.MAX_VALUE;
+       for(int i=0;i<n;i++){
+           tmin = Math.min(tmin,arr[i]);
+       }
+       System.out.println(tmin);    // -9382
+    }
+}
