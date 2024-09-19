@@ -44,6 +44,10 @@ class HelloWorld {
 }
 
 // 2nd way of solution using XOR 
+Bitwise Operation: XOR (exclusive OR) operates at the bit level. When applied to two bits, it returns:
+1 if the bits are different.
+0 if the bits are the same.
+
 class HelloWorld {
     public static void main(String[] args) {
         String s = "abcd";
