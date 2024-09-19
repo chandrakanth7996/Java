@@ -70,3 +70,24 @@ class HelloWorld {
         System.out.println("Extra character: " + extraChar); // Output: e
     }
 }
+
+// Explanation:
+1. **Initialization**:
+   - `extraChar = 0` (as an integer initially, but will be used as a character).
+
+2. **XORing Characters in `s`**:
+   - After processing each character in `s`, `extraChar` is updated:
+     - `extraChar = 0 XOR 'a'`
+     - `extraChar = (result from previous XOR) XOR 'b'`
+     - `extraChar = (result from previous XOR) XOR 'c'`
+     - `extraChar = (result from previous XOR) XOR 'd'`
+   - At this point, `extraChar` contains the cumulative XOR of all characters in `s`.
+
+3. **XORing Characters in `t`**:
+   - Similar process for `t`:
+     - `extraChar = (cumulative XOR from s) XOR 'a'`
+     - `extraChar = (cumulative XOR from s) XOR 'b'`
+     - `extraChar = (cumulative XOR from s) XOR 'c'`
+     - `extraChar = (cumulative XOR from s) XOR 'd'`
+     - `extraChar = (cumulative XOR from s) XOR 'e'`
+   - At this point, due to the properties of XOR, all characters from `s` will cancel out, and what remains will be the ASCII value of the character `'e'`.
