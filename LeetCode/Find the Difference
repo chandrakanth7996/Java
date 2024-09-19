@@ -42,3 +42,27 @@ class HelloWorld {
         
     }
 }
+
+// 2nd way of solution using XOR 
+class HelloWorld {
+    public static void main(String[] args) {
+        String s = "abcd";
+        String t = "abcde";
+        
+        // Initialize a variable to hold the XOR result
+        char extraChar = 0;
+        
+        // XOR all characters in s
+        for (char ch : s.toCharArray()) {
+            extraChar ^= ch; // Cumulatively XOR each character
+        }
+        
+        // XOR all characters in t
+        for (char ch : t.toCharArray()) {
+            extraChar ^= ch; // Cumulatively XOR each character
+        }
+        
+        // The result will be the extra character
+        System.out.println("Extra character: " + extraChar); // Output: e
+    }
+}
