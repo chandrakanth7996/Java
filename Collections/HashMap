@@ -44,3 +44,22 @@ Not Found
 HashMap : key value pair
 put : inserting an element
 get : retrieving an element
+
+// print key and values from hashMap
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        HashMap<Integer,String> hm = new HashMap<>();
+        hm.put(1,"Hi");
+        hm.put(2,"Bye");
+        hm.put(3,"hey");
+        for(int m : hm.keySet()){
+            System.out.println("key: "+ m +" values: " + hm.get(m));
+        }
+    }
+}
+
+// output : 
+key: 1 values: Hi
+key: 2 values: Bye
+key: 3 values: hey
