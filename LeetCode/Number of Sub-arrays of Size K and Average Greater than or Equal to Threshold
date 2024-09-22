@@ -20,10 +20,10 @@ class Solution {
                 temp -= arr[l];
                 l++;
             }
-            if(r-l+1 == k){
+            if(r-l+1 == k){            // checking the length is equals to k 
                 avg = temp/k;
                 if(avg>=threshold){
-                    ans++;
+                    ans++;            // increment count if greater than threshold
                 }
             }
         }
