@@ -1,0 +1,25 @@
+// Lambda & Functional interface example
+import java.util.*;
+import java.util.function.Consumer;
+class HelloWorld {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>(Arrays.asList("Hello","Java","Welcome to the world"));    // Initialize a list of strings using an ArrayList and Arrays.asList
+        
+        for(int i=0;i<names.size();i++){    // Traditional for loop to iterate over the list
+            System.out.println(names.get(i));    // Print each name using the index
+        }
+        
+        for(String res : names){          // Enhanced for loop (for-each) to iterate over the list
+            System.out.println(res);       // Print each name directly
+        }
+        
+        names.forEach(new Consumer<String>() {      // Using a Consumer with forEach to print each name
+            @Override
+            public void accept(String s){
+                System.out.println(s);            // Print the string passed to the accept method
+            }
+        });
+        
+        names.forEach(e -> System.out.println(e));        // Using a lambda expression with forEach to print each name
+    }
+}
