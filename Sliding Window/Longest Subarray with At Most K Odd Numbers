@@ -1,0 +1,27 @@
+// Longest Subarray with At Most K Odd Numbers
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+       int[] arr = {12,1,3,1,1,6,7,1,8,1};
+       int n = arr.length;
+       int l=0,r=0,temp=0;
+       int k=2;
+       int ans=0;
+       for(r=0;r<n;r++){
+           if(arr[r]%2 == 1){        // Check if the current number is odd
+               temp++;                // Increment the count of odd numbers
+           }
+           while(temp>k){             // If the count of odd numbers exceeds k, move the left pointer to reduce it
+               if(arr[l]%2 != 0){
+                   temp--;            // Decrease the count of odd numbers
+               }
+               l++;
+           }
+           ans = Math.max(ans,r-l+1);     // Update the maximum length of the subarray found so far
+       }
+       System.out.println(ans);           // Print the result: length of the longest subarray with at most k odd numbers
+    }
+}
+
+//output : 4
