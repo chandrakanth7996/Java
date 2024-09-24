@@ -1,0 +1,25 @@
+// Sorting the strings using Functional interface & Lambda
+
+import java.util.*;
+import java.util.function.Consumer;
+class HelloWorld {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>(Arrays.asList("Zebra","Apple","Welcome to the world"));
+     
+     Collections.sort(names, new Comparator<String>() {    // Sort the names list using an anonymous inner class
+         @Override
+         public int compare(String s1, String s2){
+             return s1.compareTo(s2);                  // Compare strings in natural order (alphabetical)
+         }
+     });
+     
+     Collections.sort(names, (s1,s2) -> s1.compareTo(s2));      // Sort the names list using a lambda expression
+       
+     names.forEach(e -> System.out.println(e));          // Print each name in the sorted list using forEach with a lambda expression
+    }
+}
+
+// output: 
+Apple
+Welcome to the world
+Zebra
