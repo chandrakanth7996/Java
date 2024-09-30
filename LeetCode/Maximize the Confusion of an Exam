@@ -27,12 +27,12 @@ class Solution {
         int l=0,r=0,countT=0,countF=0,ans=0;
         for(r=0;r<n;r++){
             char ch = answerKey.charAt(r);
-            if(ch=='T'){
+            if(ch=='T'){                        // Count the number of 'T's and 'F's
                 countT++;
             } else {
                 countF++;
             }
-            while(Math.min(countT,countF)>k){
+            while(Math.min(countT,countF)>k){        // While the minimum of countT or countF exceeds k, shrink the window
                 if(answerKey.charAt(l)=='T'){
                     countT--;
                 } else {
