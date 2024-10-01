@@ -1,0 +1,26 @@
+// Longest substring without repeating characters
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        HashSet<Character> hs = new HashSet<>();
+        String str = "abcabcbb";
+        int n = str.length();
+        int l=0,r=0,ans=0;
+        for(r=0;r<n;r++){
+            char ch = str.charAt(r);
+            if(!hs.contains(ch)){
+                hs.add(ch);
+            } else {
+                while(hs.contains(ch)){
+                    hs.remove(str.charAt(l));
+                    l++;
+                }
+                hs.add(ch);
+            }
+            ans = Math.max(ans,r-l+1);
+        }
+        
+        System.out.println(ans);    // 3
+    }
+}
