@@ -1,0 +1,28 @@
+//Longest Subarray with At Most K Distinct Integers.
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,2,2};
+        int n = arr.length;
+        int k=2;
+        int ans=0,l=0;
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int r=0;r<n;r++){
+            int num = arr[r];
+            hm.put(num,hm.getOrDefault(num,0)+1);    // Update the frequency map with the current number
+            
+            while(hm.size()>k){            // If we have more than 'k' distinct numbers, shrink the window from the left
+                int lval = arr[l];
+                hm.put(lval,hm.get(lval)-1);        // Decrease the count of the left number in the frequency map
+                if(hm.get(lval)==0){           // If the count becomes zero, remove it from the map
+                    hm.remove(lval);
+                }
+                l++;
+            }
+            
+            ans = Math.max(ans,r-l+1);      // Update the maximum length found so far
+        }
+        System.out.println(ans);    // 4
+    }
+}
