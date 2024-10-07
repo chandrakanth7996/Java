@@ -1,0 +1,16 @@
+// String buffer
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String[] str = {"java", "is", "fun"};
+        StringBuffer sb = new StringBuffer();
+        for(String s : str){
+            sb.append(s).append(" ");
+        }
+        String result = sb.toString().trim();
+        System.out.println(result);
+    }
+}
+
+// output : java is fun
