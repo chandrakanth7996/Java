@@ -1,0 +1,19 @@
+// comparing two strings whether it is equal or not.
+
+import java.util.*;
+class HelloWorld {
+    public static boolean fun(){
+        String s = "hello";
+        String s1 = "hello";
+        if(s.equals(s1)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public static void main(String[] args) {
+     boolean s = fun();
+     System.out.println(s); // true
+    }
+}
+
