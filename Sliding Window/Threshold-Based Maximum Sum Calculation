@@ -1,0 +1,64 @@
+// Threshold-Based Maximum Sum Calculation
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,1,4};
+        int n = arr.length;
+        int l=0,r=0,temp=0;
+        int k = 3;
+        int ans = 0;
+        int th = 10;
+        for(r=0;r<n;r++){
+            temp += arr[r];
+            if(r-l == k){
+                temp -= arr[l];
+                l++;
+            }
+            System.out.println("temp: "+temp);
+            if(!(th>temp)){                          // Check if the current sum is below the threshold
+                    System.out.println("threshold: "+temp);    // Print if above threshold (10)       
+                   ans++;
+            }
+        }
+        System.out.println("Max: "+ans);
+    }
+}
+
+// output:
+temp: 1
+temp: 3
+temp: 6
+temp: 6
+temp: 8
+threshold: 8
+Max: 1
+
+
+// 2nd way of solution
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,1,4};
+        int n = arr.length;
+        int l=0,r=0,temp=0;
+        int k = 3;
+        int ans = 0;
+        int th = 7;
+        for(r=0;r<n;r++){
+            temp += arr[r];
+            if(r-l == k){
+                temp -= arr[l];
+                l++;
+            }
+            if(r-l+1 == k){        // if length is equal to k (3)
+              if(temp>=th){        // 8>=7
+                  ans++;
+              }
+            }
+        }
+        System.out.println(ans);
+    }
+}
+
+//output: 1
