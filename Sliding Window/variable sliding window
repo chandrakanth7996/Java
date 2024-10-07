@@ -1,0 +1,21 @@
+// variable sliding window
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,1,2,3};
+        int n = arr.length;
+        int l=0,r=0,temp=0;
+        int k=10;
+        int ans = 0;
+        for(r=0;r<n;r++){
+            temp += arr[r];
+            while(temp>k){         // It keeps subtracting the value at the left pointer (arr[l]) from temp and moves the left pointer (l) to the right until the sum is less than or equal to 𝑘(k).
+                temp -= arr[l];    // Subtract the element at the left pointer from the sum
+                l++;
+            }
+            ans = Math.max(ans,r-l+1);    // Calculate the maximum length of the valid subarray
+        }
+        System.out.println(ans);  // 5
+    }
+}
