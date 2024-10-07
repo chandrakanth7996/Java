@@ -1,0 +1,19 @@
+// simple function using HashMap
+
+import java.util.*;
+class HelloWorld {
+    
+    public static void fun(HashMap<Integer,String> hm){
+        System.out.println(hm);
+    }
+   
+    public static void main(String[] args) {
+     HashMap<Integer,String> hm = new HashMap<>();
+     hm.put(1,"Hey hi");
+     hm.put(2,"welcome to Java");
+     fun(hm);
+    }
+}
+
+// output: 
+{1=Hey hi, 2=welcome to Java}
