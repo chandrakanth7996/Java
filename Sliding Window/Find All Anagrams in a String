@@ -1,0 +1,69 @@
+//Find All Anagrams in a String
+
+import java.util.*;
+class HelloWorld {
+    public static boolean fun(HashMap<Character,Integer> hm1, HashMap<Character,Integer> hm2){   // function for anagaram or not ?
+        
+        if(hm1.size() != hm2.size()){
+            return false;
+        }
+        
+        for(char key : hm1.keySet()){
+            if(!hm2.containsKey(key)){
+                return false;
+            }
+            
+            int a = hm1.get(key);
+            int b = hm2.get(key);
+            if(a!=b){
+                return false;
+            }
+        }
+        
+        return true;
+        
+    }
+    public static void main(String[] args) {
+       String s = "baa";
+       String p = "aa";
+       HashMap<Character,Integer> hms = new HashMap<>();
+       HashMap<Character,Integer> hmp = new HashMap<>();
+       int l=0;
+       int k = p.length();
+       
+       for(int i=0;i<k;i++){
+           char ch = p.charAt(i);
+           hmp.put(ch,hmp.getOrDefault(ch,0)+1);
+       }
+       int n = s.length();
+       for(int r=0;r<n;r++){
+           char ch = s.charAt(r);
+           hms.put(ch,hms.getOrDefault(ch,0)+1);
+           
+           if(r-l == k){
+               char chl = s.charAt(l);
+               hms.put(chl,hms.get(chl)-1);
+               if(hms.get(chl) == 0){
+                   hms.remove(chl);
+               }
+               l++;
+           }
+           
+           if(r-l+1 == p.length()){
+               boolean valid = fun(hms,hmp);
+               if(valid){
+                   System.out.println(l);
+               }
+           }
+       }
+    }
+}
+
+To find anagrams of string `p` in string `s`, we use a sliding window approach:
+
+1. Create frequency maps for `p` and the current window in `s`.
+2. Expand the window by adding characters from `s` using a right pointer.
+3. If the window size exceeds `p`, shrink it from the left.
+4. When the window size matches `p`, compare the frequency maps.
+5. Record the starting index if they match.
+6. Continue until all characters in `s` are processed and return the list of indices.
