@@ -1,0 +1,33 @@
+import java.util.*;
+class HelloWorld {
+    public static boolean fun(HashMap<Integer,Integer> hm1,HashMap<Integer,Integer> hm2){
+        
+        if(hm1.size() != hm2.size()){       // First, check if both HashMaps have the same size
+            return false;                    // If sizes are different, they cannot be equal
+        }
+        
+        for(int key: hm1.keySet()){        // Loop through each key in the first HashMap
+            if(!hm2.containsKey(key)){      // Check if the second HashMap contains the current key
+                return false;                // If a key is missing in hm2, they are not equal
+            }
+            int a = hm1.get(key);          // Get the values associated with the current key from both HashMaps
+            int b = hm2.get(key);
+            if(a!=b){                      // Compare the values; if they are not equal, return false
+                return false;
+            }
+        }
+        
+        return true;
+        
+    }
+    
+    public static void main(String[] args) {
+        HashMap<Integer,Integer> hm1 = new HashMap<>();
+        hm1.put(1,30);
+        hm1.put(2,30);
+        HashMap<Integer,Integer> hm2 = new HashMap<>();
+        hm2.put(1,30);
+        hm2.put(2,30);
+        System.out.println(fun(hm1,hm2));
+    }
+}
