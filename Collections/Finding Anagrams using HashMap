@@ -1,0 +1,45 @@
+// Find the strings are anagram or not using HashMaps ?
+
+
+import java.util.*;
+class HelloWorld {
+    
+    public static boolean fun(HashMap<Character,Integer> hm1,HashMap<Character,Integer> hm2){
+        
+        if(hm1.size() != hm2.size()){        // checking the sizes of both hashMaps
+            return false;
+        }
+        
+        for(char key : hm1.keySet()){        //Loop through each character key in the first HashMap
+            if(!hm2.containsKey(key)){        // Check if the second HashMap contains the same key
+                return false;
+            }
+            
+            int a = hm1.get(key);            // Get the frequency values for the current character from both HashMaps
+            int b = hm2.get(key);
+            if(a!=b){                        // Compare the frequencies; if they are not equal, return false
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    public static void main(String[] args) {
+       String str1 = "abccd";
+       String str2 = "abcdc";
+       HashMap<Character,Integer> hm1 = new HashMap<>();
+       
+       for(int i=0;i<str1.length();i++){
+           hm1.put(str1.charAt(i),hm1.getOrDefault(str1.charAt(i),0)+1);        // frequency of string 1
+       }
+       
+       HashMap<Character,Integer> hm2 = new HashMap<>();
+       
+       for(int i=0;i<str2.length();i++){
+           hm2.put(str2.charAt(i),hm2.getOrDefault(str2.charAt(i),0)+1);      // frequency of string 2
+       }
+       
+       System.out.println(fun(hm1,hm2));  // true
+    }
+}
