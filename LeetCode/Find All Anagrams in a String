@@ -1,0 +1,161 @@
+/* 438. Find All Anagrams in a String
+Given two strings s and p, return an array of all the start indices of p's 
+anagrams in s. You may return the answer in any order.
+Example 1:
+Input: s = "cbaebabacd", p = "abc"
+Output: [0,6]
+Explanation:
+The substring with start index = 0 is "cba", which is an anagram of "abc".
+The substring with start index = 6 is "bac", which is an anagram of "abc". */
+
+class Solution {
+    public boolean fun(HashMap<Character,Integer> hm1, HashMap<Character,Integer> hm2){    // function for anagram
+        if(hm1.size() != hm2.size()){
+            return false;
+        }
+        for(char key: hm1.keySet()){
+            if(!hm2.containsKey(key)){
+                return false;
+            }
+
+            int a = hm1.get(key);
+            int b = hm2.get(key);
+            if(a!=b){
+                return false;
+            }
+        }
+        return true;
+    }
+    public List<Integer> findAnagrams(String s, String p) {
+        int n = s.length();
+        int k = p.length();
+        int l=0,r=0;
+        List<Integer> ans = new ArrayList<>();
+        HashMap<Character,Integer> hms = new HashMap<>();
+        HashMap<Character,Integer> hmp = new HashMap<>();
+        for(int i=0;i<k;i++){
+            char ch = p.charAt(i);
+            hmp.put(ch,hmp.getOrDefault(ch,0)+1);       // frequency for String p
+        }
+        
+
+        for(r=0;r<n;r++){                    // Start sliding the window over string s
+            char ch = s.charAt(r);
+            hms.put(ch,hms.getOrDefault(ch,0)+1);      // frequency for String s
+
+            if(r-l == k){                   // Check if the window size is equal to k
+                char chl = s.charAt(l);
+                hms.put(chl,hms.get(chl)-1);
+                if(hms.get(chl) == 0){
+                    hms.remove(chl);
+                }
+                l++;
+            }
+
+            if(r-l+1 == k){                       // If the current window size equals k, check if it's an anagram
+                boolean valid = fun(hms,hmp);
+                if(valid){
+                    ans.add(l);
+                }
+            }
+        }
+
+        return ans;
+
+    }
+}
+
+
+// dry run
+Let's dry run the code using the input `s = "cbaebabacd"` and `p = "abc"`.
+#### Initial Setup
+
+- `s = "cbaebabacd"`
+- `p = "abc"`
+- `n = 10` (length of `s`)
+- `k = 3` (length of `p`)
+- Initialize `l = 0`, `ans = []`
+- `hmp` (frequency map for `p`):
+  - After loop: `hmp = {'a': 1, 'b': 1, 'c': 1}`
+
+#### Sliding Window Iteration
+
+1. **Iteration 1** (`r = 0`):
+   - `ch = 'c'`
+   - `hms = {'c': 1}`
+   - **Window Size Check**: `r - l = 0 - 0 = 0` (not equal to `k`)
+
+2. **Iteration 2** (`r = 1`):
+   - `ch = 'b'`
+   - `hms = {'c': 1, 'b': 1}`
+   - **Window Size Check**: `r - l = 1 - 0 = 1` (not equal to `k`)
+
+3. **Iteration 3** (`r = 2`):
+   - `ch = 'a'`
+   - `hms = {'c': 1, 'b': 1, 'a': 1}`
+   - **Window Size Check**: `r - l = 2 - 0 = 2` (not equal to `k`)
+
+4. **Iteration 4** (`r = 3`):
+   - `ch = 'e'`
+   - `hms = {'c': 1, 'b': 1, 'a': 1, 'e': 1}`
+   - **Window Size Check**: `r - l = 3 - 0 = 3` (this is equal to `k`).
+   - Call `fun(hms, hmp)` → Both maps match: valid anagram. 
+   - **Add Index**: `ans = [0]`
+   - Now slide the window:
+     - `chl = 'c'`, decrement count in `hms`: `hms = {'b': 1, 'a': 1, 'e': 1}`
+     - `l = 1`
+
+5. **Iteration 5** (`r = 4`):
+   - `ch = 'b'`
+   - `hms = {'b': 2, 'a': 1, 'e': 1}`
+   - **Window Size Check**: `r - l = 4 - 1 = 3` (equal to `k`).
+   - Call `fun(hms, hmp)` → Not a match.
+   - Slide the window:
+     - `chl = 'b'`, decrement count in `hms`: `hms = {'b': 1, 'a': 1, 'e': 1}`
+     - `l = 2`
+
+6. **Iteration 6** (`r = 5`):
+   - `ch = 'a'`
+   - `hms = {'b': 1, 'a': 2, 'e': 1}`
+   - **Window Size Check**: `r - l = 5 - 2 = 3` (equal to `k`).
+   - Call `fun(hms, hmp)` → Not a match.
+   - Slide the window:
+     - `chl = 'a'`, decrement count in `hms`: `hms = {'b': 1, 'a': 1, 'e': 1}`
+     - `l = 3`
+
+7. **Iteration 7** (`r = 6`):
+   - `ch = 'b'`
+   - `hms = {'b': 2, 'a': 1, 'e': 1}`
+   - **Window Size Check**: `r - l = 6 - 3 = 3` (equal to `k`).
+   - Call `fun(hms, hmp)` → Not a match.
+   - Slide the window:
+     - `chl = 'e'`, decrement count in `hms`: `hms = {'b': 2, 'a': 1}`
+     - `l = 4`
+
+8. **Iteration 8** (`r = 7`):
+   - `ch = 'a'`
+   - `hms = {'b': 2, 'a': 2}`
+   - **Window Size Check**: `r - l = 7 - 4 = 3` (equal to `k`).
+   - Call `fun(hms, hmp)` → Not a match.
+   - Slide the window:
+     - `chl = 'b'`, decrement count in `hms`: `hms = {'b': 1, 'a': 2}`
+     - `l = 5`
+
+9. **Iteration 9** (`r = 8`):
+   - `ch = 'c'`
+   - `hms = {'b': 1, 'a': 2, 'c': 1}`
+   - **Window Size Check**: `r - l = 8 - 5 = 3` (equal to `k`).
+   - Call `fun(hms, hmp)` → Not a match.
+   - Slide the window:
+     - `chl = 'a'`, decrement count in `hms`: `hms = {'b': 1, 'c': 1, 'a': 1}`
+     - `l = 6`
+
+10. **Iteration 10** (`r = 9`):
+    - `ch = 'd'`
+    - `hms = {'b': 1, 'c': 1, 'a': 1, 'd': 1}`
+    - **Window Size Check**: `r - l = 9 - 6 = 3` (equal to `k`).
+    - Call `fun(hms, hmp)` → Not a match.
+    - Slide the window:
+      - `chl = 'b'`, decrement count in `hms`: `hms = {'c': 1, 'a': 1, 'd': 1}`
+      - `l = 7`
+
