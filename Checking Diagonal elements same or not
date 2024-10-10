@@ -13,7 +13,6 @@ class HelloWorld {
                 isValid = false;
             }
             System.out.print(arr[i][j]+" ");
-            sum+=arr[i][j];
             i++;
             j++;
         }
