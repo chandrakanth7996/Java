@@ -1,0 +1,74 @@
+// Keyword Row
+/* Given an array of strings words, return the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+In the American keyboard:
+the first row consists of the characters "qwertyuiop",
+the second row consists of the characters "asdfghjkl", and
+the third row consists of the characters "zxcvbnm".  */
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String[] words = {"Hello","Alaska","Dad","Peace"};
+        int n = words.length;
+        
+        String s1 = "qwertyuiop";
+        String s2 = "asdfghjkl";
+        String s3 = "zxcvbnm";
+        
+        List<String> list = new ArrayList<>();                  // List to store words that can be typed using one row
+        
+        for(String s : words){                                    // Iterate through each word in the array
+            boolean f1 = true;                                    // Flags to check if the word can be typed from a specific row
+            boolean f2 = true;
+            boolean f3 = true;
+            
+            for(char ch : s.toLowerCase().toCharArray()){              // Convert the word to lowercase and iterate through each character
+                if(!s1.contains(String.valueOf(ch))){                  // Check if the character is not in the first row
+                    f1 = false;                                        // Set flag to false if character is not found
+                }
+                if(!s2.contains(String.valueOf(ch))){
+                    f2 = false;
+                }
+                if(!s3.contains(String.valueOf(ch))){
+                    f3 = false;
+                }
+            }
+            if(f1 || f2 || f3){                                               // If the word can be typed using characters from any one row, add it to the list
+                list.add(s);
+            }
+        }
+        System.out.println(list);                      //  ["Alaska", "Dad"]
+    }
+}
+
+
+// 2nd approach using HashSet
+import java.util.*;
+class Solution {
+    public String[] findWords(String[] words) {
+        // Define sets for each row of the QWERTY keyboard
+        Set<Character> row1 = new HashSet<>(Arrays.asList('q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'));
+        Set<Character> row2 = new HashSet<>(Arrays.asList('a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'));
+        Set<Character> row3 = new HashSet<>(Arrays.asList('z', 'x', 'c', 'v', 'b', 'n', 'm'));
+
+        List<String> list = new ArrayList<>();
+
+        for (String s : words) {
+            boolean f1 = true, f2 = true, f3 = true;
+            
+            for (char ch : s.toLowerCase().toCharArray()) {
+                if (!row1.contains(ch)) f1 = false;
+                if (!row2.contains(ch)) f2 = false;
+                if (!row3.contains(ch)) f3 = false;
+            }
+
+            // Only add the word if it can be typed using letters from one row
+            if ((f1 && !f2 && !f3) || (!f1 && f2 && !f3) || (!f1 && !f2 && f3)) {
+                list.add(s);
+            }
+        }
+
+        return list.toArray(new String[0]);
+    }
+}
+
