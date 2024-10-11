@@ -1,0 +1,47 @@
+/* 500. Keyboard Row
+Given an array of strings words, return the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+In the American keyboard:
+the first row consists of the characters "qwertyuiop",
+the second row consists of the characters "asdfghjkl", and
+the third row consists of the characters "zxcvbnm".
+Example 1:
+Input: words = ["Hello","Alaska","Dad","Peace"]
+Output: ["Alaska","Dad"]
+Example 2:
+Input: words = ["omk"]
+Output: []
+Example 3:
+Input: words = ["adsdf","sfd"]
+Output: ["adsdf","sfd"]   */
+
+class Solution {
+    public String[] findWords(String[] words) {
+        String s1 = "qwertyuiop";    // Define the rows of the QWERTY keyboard
+        String s2 = "asdfghjkl";
+        String s3 = "zxcvbnm";
+
+        List<String> list = new ArrayList<>();      // List to store the valid words
+
+        for(String s : words){          // Iterate over each word
+            boolean f1 = true;
+            boolean f2 = true;
+            boolean f3 = true;
+            
+            for(char ch : s.toLowerCase().toCharArray()){        // Check each character in the word
+                if(!s1.contains(String.valueOf(ch))){
+                    f1 = false;                                  // Character not in first row
+                }
+                if(!s2.contains(String.valueOf(ch))){
+                    f2 = false;
+                }
+                if(!s3.contains(String.valueOf(ch))){
+                    f3 = false;
+                }
+            }
+            if(f1 || f2 || f3 ){                                // If any flag is true, add the word to the list
+                list.add(s);
+            }
+        }
+        return list.toArray(new String[0]);                   // Convert the list to an array and return
+    }
+}
