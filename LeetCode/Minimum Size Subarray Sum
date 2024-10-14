@@ -1,0 +1,31 @@
+/* 209. Minimum Size Subarray Sum
+Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+Example 1:
+Input: target = 7, nums = [2,3,1,2,4,3]
+Output: 2
+Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+Example 2:
+Input: target = 4, nums = [1,4,4]
+Output: 1  */
+
+class Solution {
+    public int minSubArrayLen(int target, int[] nums) {
+        int n = nums.length;
+        int l=0,r=0,temp=0;
+        int ans = Integer.MAX_VALUE;
+        
+        for(r=0;r<n;r++){
+            temp += nums[r];                          // Add the current element to the temp sum
+
+            while(temp >= target){                    // While the current sum is greater than or equal to the target
+                ans = Math.min(ans,r-l+1);             // Update the answer with the minimum length found so far
+                temp -= nums[l];                      // Subtract the leftmost element from the sum and move the left pointer forward
+                l++;
+            }
+        }
+        if(ans == Integer.MAX_VALUE){              // If no valid subarray was found, print 0
+            return 0;
+        }
+        return ans;
+    }
+}
