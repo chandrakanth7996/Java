@@ -1,0 +1,28 @@
+// Minimum size subArray Sum
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {2,3,1,2,4,3};
+        int target = 7;
+        int n = arr.length;
+        int l=0,r=0,temp=0;
+        int ans = Integer.MAX_VALUE;
+        
+        for(r=0;r<n;r++){
+            temp += arr[r];
+            
+            while(temp>=target){                         // While the current sum is greater than or equal to the target
+                System.out.println(temp+" "+ (r-l+1));      // Print the current sum and the length of the subarray
+                ans = Math.min(temp,r-l+1);              // Update the answer with the minimum length found so far
+                temp -= arr[l];                          // Subtract the leftmost element from the sum and move the left pointer forward
+                l++;
+            }
+        }
+        
+        if(ans == Integer.MAX_VALUE){            // If no valid subarray was found, print 0
+            System.out.println(0);
+        }
+        System.out.println(ans);        // 2
+    }
+}
