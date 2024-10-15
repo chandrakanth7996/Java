@@ -1,0 +1,36 @@
+/* 1248. Count Number of Nice Subarrays
+Given an array of integers nums and an integer k. A continuous subarray is called nice if there are k odd numbers on it.Return the number of nice sub-arrays.
+Example 1:
+Input: nums = [1,1,2,1,1], k = 3
+Output: 2
+Explanation: The only sub-arrays with 3 odd numbers are [1,1,2,1] and [1,2,1,1].
+Example 2:
+Input: nums = [2,4,6], k = 1
+Output: 0
+Explanation: There are no odd numbers in the array. */
+
+class Solution {
+    public int atmost(int[] nums, int k){
+        int n = nums.length;
+        int l=0,r=0,temp=0,ans=0;
+        for(r=0;r<n;r++){
+            if(nums[r]%2 == 1){
+                temp++;
+            }
+            while(temp>k){
+                if(nums[l]%2 == 1){
+                    temp--;
+                }
+                l++;
+            }
+            ans += r-l+1;         // Count valid subarrays ending at r
+        }
+        return ans;
+    }
+    public int numberOfSubarrays(int[] nums, int k) { 
+          // The number of subarrays with exactly k odd numbers is the difference
+          // between the number of subarrays with at most k odd numbers and at most (k-1) odd numbers
+        int finalAns = atmost(nums,k) - atmost(nums,k-1);         
+        return finalAns;
+    }
+}
