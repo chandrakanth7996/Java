@@ -13,7 +13,7 @@ class HelloWorld {
                temp++;                // Increment the count of odd numbers
            }
            while(temp>k){             // If the count of odd numbers exceeds k, move the left pointer to reduce it
-               if(arr[l]%2 != 0){
+               if(arr[l]%2 != 0){        // (arr[l]%2 == 1)
                    temp--;            // Decrease the count of odd numbers
                }
                l++;
