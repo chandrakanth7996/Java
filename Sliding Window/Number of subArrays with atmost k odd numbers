@@ -1,0 +1,27 @@
+// Number of subArrays with atmost k odd numbers
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1,2,4,3,8};
+        int n = arr.length;
+        int l=0,r=0,temp=0,ans=0;
+        int k=1;
+        for(r=0;r<n;r++){              // Iterate through the array with the right pointer
+            if(arr[r]%2 == 1){         // Increment count of odd numbers if the current number is odd
+                temp++;
+            }
+            
+            while(temp>k){             // Adjust the left pointer if the count of odd numbers exceeds k
+                if(arr[l]%2 == 1){       // Decrement the count of odd numbers if the leftmost number is odd
+                    temp--;
+                }
+                l++;                     // Move the left pointer to the right
+            }
+            
+            ans+= r-l+1;                 // Add the count of valid subarrays ending at r
+        }
+        
+        System.out.println(ans);
+    }
+}
