@@ -22,6 +22,6 @@ class HelloWorld {
             ans+= r-l+1;                 // Add the count of valid subarrays ending at r
         }
         
-        System.out.println(ans);
+        System.out.println(ans);        // 13
     }
 }
