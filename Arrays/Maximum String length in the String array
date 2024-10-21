@@ -1,0 +1,19 @@
+// Maximum String length in the String array
+
+import java.util.*;
+import java.util.stream.IntStream; 
+class HelloWorld {
+    public static void main(String[] args) {
+        String[] str = {"hello","hi","welcome","to","java"};
+         // Create a stream from the array, map each string to its length,
+        // and find the maximum length using max().
+        // Use orElse(0) to return 0 if the array is empty.
+        int result = Arrays.stream(str)
+                           .mapToInt(String::length)
+                           .max()
+                           .orElse(0);
+        System.out.println(result);
+    }
+}
+
+// output: 7
