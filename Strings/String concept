@@ -1,0 +1,24 @@
+String: A`String` is a sequence of characters that represents text and it is immutable, means it cannot be changed.
+
+Two types of creation: 
+	1) String literals
+	2) new object
+
+String literal: 
+	eg: String s1 = "hello";
+Java uses a special memory area called the "string pool" to optimize memory usage. When you create a string using string literals (e.g., `String str = "hello";`), Java checks the pool for an existing identical string. If it exists, it reuses the reference; if not, it creates a new one.
+
+Note: No two strings have same value in a string pool.
+
+new Object:
+	eg: String s2 = new String("hello");
+It is store in heap memory. 
+
+
+simple program for == and equals():
+	String s1 = "hello";
+	String s2 = "hello";
+	String s3 = new string("hello");
+	System.out.println(s1 == s2); 	// true, because both are in string pool.
+	System.out.println(s1 == s3);   // false, s3 is in heap memory.
+	System.out.println(s1.equals(s3)); // true, it represents content. 
