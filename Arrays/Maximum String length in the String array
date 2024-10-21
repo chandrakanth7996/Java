@@ -17,3 +17,23 @@ class HelloWorld {
 }
 
 // output: 7
+
+// 2nd way of solution
+public class HelloWorld {
+    public static void main(String[] args) {
+        String[] str = {"hello", "hi", "welcome", "to", "java"};
+
+        int maxLength = 0; // Initialize a variable to keep track of the maximum length
+
+        // Iterate through each string in the array
+        for (String s : str) {
+            // Update maxLength if the current string's length is greater
+            if (s.length() > maxLength) {
+                maxLength = s.length();
+            }
+        }
+
+        // Print the result: the length of the longest string in the array
+        System.out.println(maxLength); // Output the maximum length
+    }
+}
