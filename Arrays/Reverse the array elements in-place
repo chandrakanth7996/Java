@@ -1,0 +1,40 @@
+// Reverse the array elements in-place.
+
+Note: in-place means needs to modify the original array to reverse its elements.
+
+import java.util.*;
+import java.util.stream.IntStream; 
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr1 = {5,2,8,3,1,1};
+        IntStream.range(0,arr1.length/2).forEach(i -> {                            // Reverse the array using IntStream
+            int temp = arr1[i];                                                    // Swap the elements
+            arr1[i] = arr1[arr1.length-i-1];
+            arr1[arr1.length-i-1] = temp;
+        });
+        
+        System.out.println(Arrays.toString(arr1));
+        
+    }
+}
+
+// 2nd way of solution
+import java.util.Arrays;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr1 = {5, 2, 8, 3, 1, 1}; 
+
+        // Reverse the array using a traditional for loop
+        for (int i = 0; i < arr1.length / 2; i++) {
+            // Swap the elements
+            int temp = arr1[i];                       // Store the current element
+            arr1[i] = arr1[arr1.length - i - 1];      // Assign the element from the opposite end
+            arr1[arr1.length - i - 1] = temp;         // Place the stored element at the opposite end
+        }
+
+        // Print the reversed array
+        System.out.println(Arrays.toString(arr1));       // Output the reversed array
+    }
+}
+
+// output : [1, 1, 3, 8, 2, 5]
