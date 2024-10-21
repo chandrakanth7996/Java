@@ -1,0 +1,18 @@
+// To find the common elements in the two arrays.
+
+import java.util.*;
+import java.util.stream.Collectors;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr1 = {5,2,8,3,1,1};
+        int[] arr2 = {4,5,2,3,12,13};
+        List<Integer> result = Arrays.stream(arr1)                                    // Create a stream from arr1
+                                .filter(number -> Arrays.stream(arr2)             // Filter arr1 to include only numbers that are also in arr2,& Create a stream from arr2
+                                .anyMatch(arr2Number -> arr2Number == number))      // Check if any number in arr2 matches the current number in arr1
+                                .boxed()                                            // Convert the IntStream to a Stream<Integer> (box the int values)
+                                .collect(Collectors.toList());                      // Collect the results into a List
+        System.out.println(result);
+    }
+}
+
+// output: [5, 2, 3]
