@@ -1,0 +1,18 @@
+// To find the second smallest element in the array
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {5,2,8,3,1,1};
+        // Correctly stream the array, remove duplicates, sort, skip the first element, and find the next one.
+        int result = Arrays.stream(arr)
+                        .distinct()
+                        .sorted()
+                        .skip(1)
+                        .findFirst()
+                        .orElseThrow(()-> new IllegalArgumentException("Arrays does not have smallest element"));
+        System.out.println(result);   
+    }
+}
+
+output : 2
