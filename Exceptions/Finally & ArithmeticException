@@ -21,3 +21,7 @@ This block always executes.
 
 Explanation: 
 The finally block gets executed when an exception is occured or not, handled or not.
+
+Checked Exceptions: Must be handled or declared. checked at compile time.
+Unchecked Exceptions: Can occur at runtime and don't need to be explicitly handled.
+Try-Catch-Finally: A structured way to manage exceptions and maintain program flow.
