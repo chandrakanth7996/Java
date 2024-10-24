@@ -1,0 +1,26 @@
+// Throw : Throw is used to throw an exception manually. 
+
+import java.util.*;
+import java.io.*;
+class HelloWorld {
+    
+    public static void checkAge(int age){
+        if(age<18){
+            throw new IllegalArgumentException("Age should be greater than 18");
+        } else {
+            System.out.println("The age is: "+age);
+        }
+    }
+ 
+    
+    public static void main(String[] args) {
+       try {
+            checkAge(15);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Exception occurred: " + e.getMessage());
+        } 
+    }
+}
+
+output:
+Exception occurred: Age should be greater than 18
