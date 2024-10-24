@@ -1,0 +1,20 @@
+// NullPointerException
+
+import java.util.*;
+import java.io.*;
+class HelloWorld {
+    
+    public static void main(String[] args) {
+        String str = null;
+       try {
+            System.out.println(str.length());
+        } catch (NullPointerException e) {
+            System.out.println("A NullPointerException occurred: " + e.getMessage());
+        } 
+        System.out.println("Program continues after exception.");
+    }
+}
+
+output:
+A NullPointerException occurred: Cannot invoke "String.length()" because "<local1>" is null
+Program continues after exception.
