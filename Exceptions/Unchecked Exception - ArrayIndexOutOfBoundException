@@ -1,0 +1,20 @@
+// Unchecked Exceptions: Do not need to be declared or caught. These include ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException.
+
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4};
+        
+        try{
+            System.out.println(arr[5]);
+        } catch(ArrayIndexOutOfBoundsException  e){
+            System.out.println("Array index out of bounds: "+e.getMessage());
+        }
+        System.out.println("Program continues after exception.");
+    }
+}
+
+output:
+Array index out of bounds: Index 5 out of bounds for length 4
+Program continues after exception.
