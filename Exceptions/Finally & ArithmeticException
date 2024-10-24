@@ -1,0 +1,23 @@
+// Finally Block & ArithmeticException
+
+import java.util.*;
+import java.io.*;
+class HelloWorld {
+    
+    public static void main(String[] args) {
+       try {
+            int res = 15/0;
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero: " + e.getMessage());
+        } finally {
+            System.out.println("This block always executes.");
+        }
+    }
+}
+
+output:
+Cannot divide by zero: / by zero
+This block always executes.
+
+Explanation: 
+The finally block gets executed when an exception is occured or not, handled or not.
