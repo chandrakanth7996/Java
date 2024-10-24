@@ -1,4 +1,5 @@
 // Checked Exceptions: Must be either caught or declared in the method signature. Examples include IOException, SQLException.
+// Throws - Throws is a keyword, which is used to indicate this method right throw one exception.
 
 import java.util.*;
 import java.io.*;
