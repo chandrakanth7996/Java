@@ -1,0 +1,23 @@
+// Checked Exceptions: Must be either caught or declared in the method signature. Examples include IOException, SQLException.
+
+import java.util.*;
+import java.io.*;
+class HelloWorld {
+    public static void readFile(String fileName) throws IOException {
+        FileReader file = new FileReader(fileName);
+        BufferedReader br = new BufferedReader(file);
+        System.out.println(br.readLine());
+        br.close();
+    }
+    public static void main(String[] args) {
+       try {
+            readFile("nonexistentfile.txt");
+        } catch (IOException e) {
+            System.out.println("File not found: " + e.getMessage());
+        }
+    }
+}
+
+Explanation: 
+The readFile method throws an IOException.
+In main, we use a try-catch block to handle the exception, printing a friendly message if the file isn't found.
