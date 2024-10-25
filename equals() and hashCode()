@@ -1,0 +1,46 @@
+// equals() and hashCode() 
+equals():
+The equals() method is used to compare two objects for equality. By default, it checks if both references point to the same object in memory. However, you can override it to compare the content of the objects.
+
+hashCode():
+The hashCode() method returns an integer representation (hash code) of the object. This is used in hash-based collections to quickly locate an object. If you override equals(), you must also override hashCode() to maintain the contract between them.
+
+code: 
+import java.util.Objects;
+class Person {
+    String name;
+    int age;
+
+    Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true; 
+        if (obj == null || getClass() != obj.getClass()) return false; 
+        Person person = (Person) obj; 
+        return age == person.age && name.equals(person.name); 
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age); 
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person p1 = new Person("Alice", 30);
+        Person p2 = new Person("Alice", 30);
+        
+        System.out.println(p1.equals(p2)); // true, because they have the same name and age
+        System.out.println(p1.hashCode() == p2.hashCode()); // true, because they produce the same hash code
+    }
+}
+
+KeyPoints:
+Contract: If a.equals(b) is true, then a.hashCode() must be equal to b.hashCode().
+Collections: When using objects in hash-based collections, both equals() and hashCode() are important for proper functionality.
+Overriding: Always override both methods together to ensure consistency.
