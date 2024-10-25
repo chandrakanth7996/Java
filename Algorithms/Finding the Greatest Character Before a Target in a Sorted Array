@@ -1,0 +1,22 @@
+// Finding the Greatest Character Before a Target in a Sorted Array
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        char[] ch = {'c','e','g','k','y'};
+        char target = 'i';
+        int start = 0;
+        int end = ch.length-1;
+        char chG = '\u0000';
+        while(start<=end){
+            int mid = start+(end-start)/2;
+             if(ch[mid]<target){
+                chG = ch[mid];                  // Update greatest character found
+                start = mid+1;                  // Move to the right half of the array
+            }else if(ch[mid]>target){
+                end = mid-1;                    // Move to the left half of the array
+            }
+        }
+        System.out.println(chG);    // g
+    }
+}
