@@ -70,3 +70,29 @@ class HelloWorld {
         System.out.println(bs(ch,target));
     }
 }
+
+// if end is -1 then here is the code, we return 'a'.
+import java.util.*;
+class HelloWorld {
+    public static char bs(char[] ch, char target){
+        int start = 0;
+        int end = ch.length-1;
+        while(start<=end){
+            int mid = start+(end-start)/2;
+             if(ch[mid]<target){
+                start = mid+1;
+            }else if(ch[mid]>target){
+                end = mid-1;
+            }
+        }
+        if(end == -1){                            // If end is -1, it means there are no characters less than the target
+            return 'a';                            // Return a default character (e.g., 'a')
+        }
+        return ch[end];
+    }
+    public static void main(String[] args) {
+        char[] ch = {'c','e','g','k','y'};
+        char target = 'a';
+        System.out.println(bs(ch,target));
+    }
+}
