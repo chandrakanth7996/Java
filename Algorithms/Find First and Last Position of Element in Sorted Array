@@ -9,6 +9,7 @@ Example 2:
 Input: nums = [5,7,7,8,8,10], target = 6
 Output: [-1,-1]  */
 
+// 1st way of solution
 class Solution {
     public int left(int[] nums,int target){               // Function to find the leftmost index of the target
         int start = 0;
@@ -53,4 +54,40 @@ class Solution {
         int r = right(nums,target);
         return new int[] {l,r};
     }
+}
+
+
+// 2nd way of effiecient solution 
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int[] ans = {-1, -1};
+        int start = search(nums, target, true);             // Find the starting index of the target
+        int end = search(nums, target, false);               // Find the ending index of the target
+        ans[0] = start;
+        ans[1] = end;
+        return ans; 
+    }
+ 
+       int search(int[] nums, int target, boolean findSearch){
+        int ans = -1;
+         int start = 0;
+         int end = nums.length - 1;
+         while(start<=end){
+            int mid = start + (end - start)/2;
+            if(target < nums[mid]){                    // If the target is less than the middle element
+                end = mid - 1;                        // Search the left half
+            } else if (target > nums[mid]){               // If the target is greater than the middle element
+                start = mid + 1;                        // Search the right half
+            } else {                                     // If the target is found
+                ans = mid;
+                if(findSearch){                        // If searching for the starting index
+                    end = mid - 1;                        // Move left to find the first occurrence
+                } else {
+                    start = mid + 1;                    // Move right to find the last occurrence
+                }
+            }
+            
+       }
+       return ans;                    // Return the found index or -1
+        }    
 }
