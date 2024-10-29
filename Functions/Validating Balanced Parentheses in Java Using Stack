@@ -1,0 +1,53 @@
+// Validating Balanced Parentheses in Java Using Stack Data Structure
+
+import java.util.*;
+
+class HelloWorld {
+    public static boolean ValidateString(String s) {
+        int n = s.length(); // Get the length of the input string
+        Stack<Character> stack = new Stack<>(); // Initialize a stack to keep track of opening brackets
+        
+        for (int i = 0; i < n; i++) { // Loop through each character in the string
+            char ch = s.charAt(i); // Get the current character
+            
+            // Check for closing parentheses
+            if (ch == ')') {
+                // If the top of the stack is an opening parenthesis, pop it
+                if (stack.peek() == '(') {
+                    stack.pop(); // Valid match found, remove the opening bracket
+                } else {
+                    return false; // Mismatch found
+                }
+            } else if (ch == '}') {
+                // Check for curly brackets
+                if (stack.peek() == '{') {
+                    stack.pop(); // Valid match found
+                } else {
+                    return false; // Mismatch found
+                }
+            } else if (ch == ']') {
+                // Check for square brackets
+                if (stack.peek() == '[') {
+                    stack.pop(); // Valid match found
+                } else {
+                    return false; // Mismatch found
+                }
+            } else {
+                // If it's an opening bracket, push it onto the stack
+                stack.push(ch);
+            }
+        }
+        
+        // Return true if the stack is empty (all brackets matched), false otherwise
+        if (stack.size() == 0) {
+            return true; 
+        }
+        return false; // There are unmatched opening brackets
+    }
+
+    public static void main(String[] args) {
+        String str = "({[]})"; // Example input
+        boolean res = ValidateString(str); // Call the validation method
+        System.out.println(res); // Print the result
+    }
+}
