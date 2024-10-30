@@ -16,3 +16,19 @@ class HelloWorld {
 }
 
 output : 2
+
+
+// Find second smallest element in the List of elements using streams
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(Arrays.asList(2, 4, 5, 3, 1));
+        int res = list.stream()
+                    .distinct()
+                    .sorted()
+                    .skip(1)
+                    .findFirst()
+                    .orElseThrow(() -> new IllegalArgumentException("array smallest is not found"));
+        System.out.print(res);
+    }
+}
