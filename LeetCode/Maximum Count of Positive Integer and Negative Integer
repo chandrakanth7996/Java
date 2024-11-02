@@ -25,3 +25,30 @@ class Solution {
         return Math.max(countP,countN);      // Return the maximum count between positive and negative integers
     }
 }
+
+
+// 2nd way of solution using Binary search algorithm
+import java.util.*;
+class HelloWorld {
+    public static int leftMost(int[] nums, int target){                // Function to find the leftmost index where `target` can be inserted in `nums`
+        int start = 0;
+        int end = nums.length-1;
+        while(start<=end){
+            int mid = start+(end-start)/2;
+            if(nums[mid]>=target){                                // If the middle element is greater than or equal to the target,
+                end = mid-1;                                      // move the end pointer to mid - 1 to search in the left half
+            }else {
+                start = mid+1;                                   // Otherwise, move the start pointer to mid + 1 to search in the right half
+            }
+        }
+        return start;
+    }
+    public static void main(String[] args) {
+        int[] nums = {-2,-1,-1,1,2,3,4,8,9,89};
+        int neg = leftMost(nums,0);                // Find the index to insert 0
+        int one = leftMost(nums,1);                 // Find the index to insert 1
+        int pos = nums.length-one;                 // Calculate the number of positive numbers
+        int res = Math.max(neg,pos);
+        System.out.println(res);
+    }
+}
