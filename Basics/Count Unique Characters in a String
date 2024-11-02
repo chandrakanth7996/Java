@@ -1,0 +1,19 @@
+Write a method in Java that takes a string as input and returns the count of unique characters in that string.
+Example
+Input: "hello"
+Output: 4 (unique characters are: h, e, l, o) 
+
+import java.util.*;
+class HelloWorld {
+    
+    public static void main(String[] args) {
+        String str = "hello";
+        int n = str.length();
+        HashSet<Character> hs = new HashSet<>();
+        for(int i=0;i<n;i++){
+            char ch = str.charAt(i);
+            hs.add(ch);
+        }
+        System.out.println(hs.size());
+    }
+}
