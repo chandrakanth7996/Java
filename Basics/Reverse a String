@@ -1,0 +1,32 @@
+Write a method in Java that takes a string as input and returns the reversed string.
+Example
+Input: "hello"
+Output: "olleh"
+
+// 1st solution using loop
+import java.util.*;
+class HelloWorld {
+    public static void reverseString(String str){
+        int n = str.length()-1;
+        for(int i=n;i>=0;i--){
+            char ch = str.charAt(i);
+            System.out.print(ch);
+        }
+    }
+    public static void main(String[] args) {
+        String str = "Hello";
+        reverseString(str);
+    }
+}
+
+
+// 2nd solution using StringBuilder
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String str = "Hello";
+        StringBuilder s = new StringBuilder(str);
+        s.reverse();
+        System.out.println(s.toString());
+    }
+}
