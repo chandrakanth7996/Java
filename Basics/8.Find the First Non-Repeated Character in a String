@@ -1,0 +1,25 @@
+Write a method in Java that takes a string as input and returns the first character that does not repeat. If all characters repeat, return a specific indicator (like null or '\0').
+Example
+Input: "swiss"
+Output: 'w'
+
+// solution using HashMap
+import java.util.*;
+class HelloWorld {
+
+    public static void main(String[] args) {
+        String str = "swiss";
+        int n = str.length();
+        HashMap<Character,Integer> hm = new HashMap<>();               // HashMap<Character, Integer> to count occurrences of each character in the string.
+        for(int i=0;i<n;i++){
+            char ch = str.charAt(i);
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+        }
+        for(char ch : str.toCharArray()){                              // Find and print the first non-repeated character,  Loop through the string for order
+            if(hm.get(ch)==1){
+                System.out.println(ch);
+                return;                                            // After printing the first non-repeated character, exit the method to avoid any additional output.
+            }
+        }
+    }
+}
