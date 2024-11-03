@@ -1,0 +1,27 @@
+Write a method in Java that takes an array of integers and returns a list of duplicate integers.
+Example
+Input: [1, 2, 3, 1, 2, 4]
+Output: [1, 2]
+
+// Find duplicates using HashSet and store the duplicates in List
+import java.util.*;
+class HelloWorld {
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 1, 2, 4};
+        HashSet<Integer> hs = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
+        int n = arr.length;
+        int res =0;
+        for(int i=0;i<n;i++){
+            int nums = arr[i];
+            if(!hs.contains(nums)){
+                hs.add(nums);
+            } else {
+                list.add(nums);
+            }
+        }
+        System.out.println(list);
+        
+    }
+}
