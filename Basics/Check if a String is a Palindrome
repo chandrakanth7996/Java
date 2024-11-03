@@ -1,0 +1,41 @@
+Write a method in Java that takes a string as input and returns true if the string is a palindrome, and false otherwise.
+Example
+Input: "madam"
+Output: true
+Input: "hello"
+Output: false
+
+//1st way of solution using StringBuilder
+import java.util.*;
+class HelloWorld {
+    public static boolean palindrome(String str){
+        StringBuilder s = new StringBuilder(str);
+        String r = s.reverse().toString();
+        if(str.equals(r)){
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+    public static void main(String[] args) {
+        String str = "racecar";
+        boolean res = palindrome(str);
+        System.out.println(res);
+    }
+}
+
+// Efficient solution
+import java.util.*;
+class HelloWorld {
+    public static boolean palindrome(String str){
+        StringBuilder s = new StringBuilder(str);
+        String result = s.reverse().toString();
+        return result.equals(str);
+    }
+    public static void main(String[] args) {
+        String str = "madam";
+        boolean res = palindrome(str);
+        System.out.println(res);
+    }
+}
