@@ -17,3 +17,16 @@ class HelloWorld {
         System.out.println(max);
     }
 }
+
+// 2nd way of solution using Streams
+import java.util.*;
+class HelloWorld {
+    
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 7, 90092, 11111118};
+        int res = Arrays.stream(arr)
+              .max()
+              .orElseThrow(() -> new IllegalArgumentException("Largest element not found"));
+        System.out.println(res);
+    }
+}
