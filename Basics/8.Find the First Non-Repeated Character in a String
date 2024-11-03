@@ -23,3 +23,13 @@ class HelloWorld {
         }
     }
 }
+
+
+Difference between return vs break: 
+return:
+When you use return, it immediately exits the entire method. This means if you put a return inside a loop, it will not only stop the loop but also stop any further execution in the method.
+It is typically used when you want to provide a value back to the caller or stop all processing in that method.
+
+break:
+When you use break, it only exits the innermost loop in which it resides. After a break, the program continues executing the code that follows the loop.
+You would use break when you want to stop the loop but continue executing the remaining code in the method.
