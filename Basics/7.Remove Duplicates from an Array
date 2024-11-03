@@ -34,3 +34,17 @@ class HelloWorld {
         System.out.println(ls);
     }
 }
+
+// 3rd way of solution using HashSet - but not order preserves
+import java.util.*;
+class HelloWorld {
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 1,8,2, 4,8,9,8};
+        HashSet<Integer> hs = new HashSet<>();
+        for(int n : arr){
+            hs.add(n);
+        }
+        System.out.println(hs);
+    }
+}
