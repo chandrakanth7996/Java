@@ -1,0 +1,19 @@
+Write a method in Java that takes an array of integers as input and returns the largest number in that array.
+Example
+Input: [3, 5, 7, 2, 8]
+Output: 8 
+
+// 1st way of solution using Math function
+import java.util.*;
+class HelloWorld {
+    
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 7, 90092, 11111118};
+        int n = arr.length;
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            max = Math.max(arr[i],max);
+        }
+        System.out.println(max);
+    }
+}
