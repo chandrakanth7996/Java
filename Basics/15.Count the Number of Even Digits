@@ -23,3 +23,19 @@ class HelloWorld {
         System.out.println(count);
     }
 }
+
+Dry Run:
+Step 1: arr[0] = 12
+countDigits(12) → 2 digits → even → count becomes 1
+
+Step 2: arr[1] = 345
+countDigits(345) → 3 digits → odd → count remains 1
+
+Step 3: arr[2] = 2
+countDigits(2) → 1 digit → odd → count remains 1
+
+Step 4: arr[3] = 6
+countDigits(6) → 1 digit → odd → count remains 1
+
+Step 5: arr[4] = 7896
+countDigits(7896) → 4 digits → even → count becomes 2
