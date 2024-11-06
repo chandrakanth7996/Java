@@ -1,0 +1,28 @@
+Counting Digits with Specific Properties
+Given an array of integers, count how many of them have an odd number of digits.
+Example:
+Input: [10, 234, 6789, 42, 9000]
+Output: 1 (234) - bcz it has 3 digits.
+
+import java.util.*;
+class HelloWorld {
+    public static int countDigits(int num){                  //Calls countDigits for each element.
+        int count=0;
+        while(num!=0){
+            count++;
+            num/=10;
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        int[] arr = {10, 234, 6789, 42, 9000};
+        int n = arr.length;
+        int count=0;
+        for(int i=0;i<n;i++){
+            if(countDigits(arr[i])%2!=0){                //Checks if the number of digits returned is odd.
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
