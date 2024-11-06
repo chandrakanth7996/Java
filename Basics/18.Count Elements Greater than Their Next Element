@@ -1,0 +1,52 @@
+Count Elements Greater than Their Next Element
+Given an integer array, count how many elements are greater than the element that directly follows them in the array.
+Input: arr = [10, 5, 8, 7, 3]
+Output: 3
+Explanation:
+- 10 is greater than 5 (count 1)
+- 8 is greater than 7 (count 2)
+- 7 is greater than 3 (count 3)
+So, the answer is 3.
+
+// 1st way of solution
+import java.util.*;
+class HelloWorld {
+    public static boolean compareDigits(int num,int num1){
+        if(!(num>num1)){
+            return false;
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 8, 7, 3};
+        int n = arr.length;
+        int count=0;
+        for(int i=0;i<n-1;i++){
+            if(compareDigits(arr[i],arr[i+1])){
+                count++;
+            }
+        }
+        
+        System.out.println(count);
+    }
+}
+
+// 2nd way of solution
+import java.util.*;
+class HelloWorld {
+    public static boolean compareDigits(int num,int num1){
+        return num>num1;
+    }
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 8, 7, 3};
+        int n = arr.length;
+        int count=0;
+        for(int i=0;i<n-1;i++){
+            if(compareDigits(arr[i],arr[i+1])){
+                count++;
+            }
+        }
+        
+        System.out.println(count);
+    }
+}
