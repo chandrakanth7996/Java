@@ -1,5 +1,5 @@
 Find All Duplicates in an Array
-Given an integer array nums of length n where each element is in the range [1, n], some elements appear twice, and others appear once. Write a function to return an array of all the integers that appear twice.
+Given an integer array nums of length n where each element is in the range [1, n], some elements appear twice or more than twice, and others appear once. Write a function to return an array of all the integers that appear twice.
 Input: int[] nums = {4,3,2,7,8,2,3,1}
 Output: [2, 3]
 
