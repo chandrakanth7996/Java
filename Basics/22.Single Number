@@ -1,0 +1,45 @@
+Given a non-empty array of integers, every element appears twice except for one. Find that single one.
+Input: [2,2,1]
+Output: 1
+
+// 1st way of solution using HashMap
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {4,1,2,1,2};
+        int n = arr.length;
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int i=0;i<n;i++){
+            int num = arr[i];
+            hm.put(num,hm.getOrDefault(num,0)+1);
+        }
+        for(int res: hm.keySet()){
+            if(hm.get(res)==1){
+                System.out.println(res);
+            }
+        }
+    }
+}
+
+// 2nd way of efficient solution using XOR
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {4,1,2,1,2};
+        int result = 0;
+        for(int num: arr){
+            result ^= num;
+        }
+        System.out.println(result);
+    }
+}
+
+XOR:
+a ^ a = 0 for any integer a (XOR-ing a number with itself results in 0).
+a ^ 0 = a for any integer a (XOR-ing a number with 0 leaves the number unchanged).
+XOR is both associative and commutative, so the order of operations doesn’t matter.
+
+Dry Run: 
+result ^= 2 → result = 0 ^ 2 = 2
+result ^= 2 → result = 2 ^ 2 = 0
+result ^= 1 → result = 0 ^ 1 = 1
