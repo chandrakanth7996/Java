@@ -1,5 +1,6 @@
 // To find the common elements in the two arrays.
 
+// 1st way of solution using streams - return type is List
 import java.util.*;
 import java.util.stream.Collectors;
 class HelloWorld {
@@ -16,3 +17,13 @@ class HelloWorld {
 }
 
 // output: [5, 2, 3]
+
+// solution using Set stream - return type is int[] 
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
+        Set<Integer> set2 = Arrays.stream(nums2).boxed().collect(Collectors.toSet());
+        set1.retainAll(set2);
+        return set1.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
