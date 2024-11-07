@@ -1,0 +1,26 @@
+Find All Numbers Disappeared in an Array
+Given an array nums of size n where each number is between 1 and n (inclusive), some numbers appear once, and others are missing. Write a function to find all the numbers that are missing from the array.
+Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        int[] arr = {4,3,2,7,8,2,3,1};
+        int n = arr.length;
+        for(int i=0;i<n;i++){                // Mark elements in the array as visited by making the value at the corresponding index negative
+            int num = arr[i];
+            int index = Math.abs(num)-1;      // Calculate index by subtracting 1 (since index is zero-based)
+            if(arr[index]>0){                // If the value at 'index' is positive, make it negative to mark it as visited
+                arr[index]=-arr[index];      
+            }
+        }
+        List<Integer> missingList = new ArrayList<>();    // Find the missing numbers
+        for(int i=0;i<n;i++){
+            if(arr[i]>0){                          // If the value at index 'i' is positive, it means the number (i + 1) was not in the array
+                missingList.add(i+1);              // Add the missing number to the list
+            }
+        }
+        System.out.println(missingList);
+    }
+}
