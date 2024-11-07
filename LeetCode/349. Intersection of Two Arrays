@@ -7,11 +7,28 @@ Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 Output: [9,4]
 Explanation: [4,9] is also accepted.
 
+// 1st way of solution using Stream Set
 class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
         Set<Integer> set1 = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
         Set<Integer> set2 = Arrays.stream(nums2).boxed().collect(Collectors.toSet());
         set1.retainAll(set2);
         return set1.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
+
+// 2nd way of solution using HashSet
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        HashSet<Integer> hs1 = new HashSet<>();
+        HashSet<Integer> hs2 = new HashSet<>();
+        for(int n : nums1){
+            hs1.add(n);
+        }
+        for(int n : nums2){
+            hs2.add(n);
+        }
+        hs1.retainAll(hs2);
+        return hs1.stream().mapToInt(Integer::intValue).toArray();
     }
 }
