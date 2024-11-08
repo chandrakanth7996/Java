@@ -1,0 +1,32 @@
+Challenge: Implementing a Queue using Two Stacks
+Explanation: We want to implement the main operations of a queue using two stacks:
+
+Push: Adds an element to the back of the queue.
+Pop: Removes an element from the front of the queue.
+Peek: Retrieves the front element without removing it.
+Empty: Checks if the queue is empty.
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Stack<Integer> stack1 = new Stack<>();
+        Stack<Integer> stack2 = new Stack<>();
+        stack1.push(1);
+        stack1.push(2);
+        stack2.addAll(stack1);
+        System.out.println("stack 1: "+stack1);
+        System.out.println("stack 2: "+stack2);
+        System.out.println("stack 2: "+stack2.peek());
+        System.out.println("stack 2: "+stack2.pop());
+        System.out.println("stack 1: "+stack1);
+        System.out.println("stack 2: "+stack2);
+    }
+}
+
+output:
+stack 1: [1, 2]
+stack 2: [1, 2]
+stack 2: 2
+stack 2: 2
+stack 1: [1, 2]
+stack 2: [1]
