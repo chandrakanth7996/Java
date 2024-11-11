@@ -29,3 +29,21 @@ class Solution {
        return sum;
     }
 }
+
+
+// 2nd way of solution
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "hello";
+        int n = str.length();
+        int sum=0;
+        for(int i=0;i<n-1;i++){
+            char ch = str.charAt(i);
+            char nextCh = str.charAt(i+1);
+            int res = Math.abs(ch-nextCh);
+            sum+=res;
+        }
+        System.out.println(sum);
+    }
+}
