@@ -14,3 +14,17 @@ class HelloWorld {
 }
 
 // outupt : H e l l o A l a s k a D a d P e a c e 
+
+// 2nd way of solution
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        String[] str = {"Hello","Alaska","Dad","Peace"};
+        int n = str.length;
+        for(String s : str){
+            for(int i=0;i<s.length();i++){
+                System.out.print(s.charAt(i)+" ");
+            }
+        }
+    }
+}
