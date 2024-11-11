@@ -16,3 +16,16 @@ class HelloWorld {
 
 // output :
 [4, 8, 8, 112, 12]
+
+// Odd numbers using Streams
+import java.util.*;
+import java.util.stream.Collectors;
+class Main {
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7);
+        List<Integer> res = list.stream()
+                                .filter(n -> n%2==1)
+                                .collect(Collectors.toList());
+        System.out.println(res);
+    }
+}
