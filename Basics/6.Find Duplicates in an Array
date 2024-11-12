@@ -25,3 +25,23 @@ class HelloWorld {
         
     }
 }
+
+
+// find Common elements in the two arrays
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {1,2,3,4,5};
+        int[] arr2 = {1,2,3,9,0,9};
+        HashSet<Integer> hs1 = new HashSet<>();
+        HashSet<Integer> hs2 = new HashSet<>();
+        for(int num : arr1){
+            hs1.add(num);
+        }
+        for(int num : arr2){
+            if(hs1.contains(num)){
+                System.out.print(num+" ");
+            }
+        }
+    }
+}
