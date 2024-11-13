@@ -43,15 +43,3 @@ class Solution {
 }
 
 
-Dry run:
-Calculate mid:
-java
-Copy code
-mid = (1 + 10^9) / 2 = 500000000
-Check if it's possible to eat all bananas at speed 500000000:
-For each pile:
-piles[0] = 3 → hours = 3 / 500000000 = 0 (Koko finishes in 0 hours)
-piles[1] = 6 → hours = 6 / 500000000 = 0 (Koko finishes in 0 hours)
-piles[2] = 7 → hours = 7 / 500000000 = 0 (Koko finishes in 0 hours)
-piles[3] = 11 → hours = 11 / 500000000 = 0 (Koko finishes in 0 hours)
-Total time taken = 0 + 0 + 0 + 0 = 0 hours, which is less than 8 hours. So, it's possible.
