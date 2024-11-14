@@ -22,3 +22,17 @@ class HelloWorld {
        System.out.println(Arrays.toString(Arrays.copyOfRange(arr,0,index)));
     }
 }
+
+// 2nd way of solution using HashSet
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        int n = arr.length;
+        HashSet<Integer> hs = new HashSet<>();
+        for(int num : arr){
+            hs.add(num);
+        }
+        System.out.println(hs);
+    }
+}
