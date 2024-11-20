@@ -1,0 +1,57 @@
+You are given an integer array bloomDay, an integer m and an integer k.
+You want to make m bouquets. To make a bouquet, you need to use k adjacent flowers from the garden.
+The garden consists of n flowers, the ith flower will bloom in the bloomDay[i] and then can be used in exactly one bouquet.
+Return the minimum number of days you need to wait to be able to make m bouquets from the garden. If it is impossible to make m bouquets return -1.
+Example 1:
+Input: bloomDay = [1,10,3,10,2], m = 3, k = 1
+Output: 3
+Explanation: Let us see what happened in the first three days. x means flower bloomed and _ means flower did not bloom in the garden.
+We need 3 bouquets each should contain 1 flower.
+After day 1: [x, _, _, _, _]   // we can only make one bouquet.
+After day 2: [x, _, _, _, x]   // we can only make two bouquets.
+After day 3: [x, _, x, _, x]   // we can make 3 bouquets. The answer is 3.
+
+Example 2:
+Input: bloomDay = [1,10,3,10,2], m = 3, k = 2
+Output: -1
+Explanation: We need 3 bouquets each has 2 flowers, that means we need 6 flowers. We only have 5 flowers so it is impossible to get the needed bouquets and we return -1.
+
+class Solution {
+    public boolean isPossible(int[] arr, int m, int k, int day){
+        int n = arr.length;
+        int took=0;                                    // This will keep track of how many consecutive flowers we've taken.
+        for(int i=0;i<n;i++){
+            if(arr[i]<=day){                            // If the flower at position i blooms on or before the given day.
+                took++;                                // Increment the count of consecutive flowers.
+            } else {
+                took=0;                                 // If the flower does not bloom by this day, reset the count.
+            }
+            if(took == k){                              // If we have enough consecutive flowers for one bouquet.
+                m-=1;                                   // One bouquet is formed, so we decrement m.
+                took=0;                                // Reset the count to start forming the next bouquet.
+            }
+            if(m == 0){                                // If we have formed all m bouquets.
+                return true;                            // It's possible to form m bouquets by this day.
+            }
+        }
+        return false;
+    }
+    public int minDays(int[] bloomDay, int m, int k) {
+        int start = 1;
+        int end = (int)Math.pow(10,9);
+        while(start<=end){
+            int mid = start+(end-start)/2;
+            if(isPossible(bloomDay,m,k,mid)){
+                end = mid-1;
+            } else {
+                start = mid+1;
+            }
+        }
+        int exceed = (int)Math.pow(10,9);
+        if(start == exceed+1){                      // If no valid day was found, return -1.
+            return -1;
+        }
+        return start;
+        
+    }
+}
