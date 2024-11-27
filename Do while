@@ -1,0 +1,33 @@
+// Do while Program
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int input = 0;
+        do{
+       Scanner sc = new Scanner(System.in);
+       System.out.println("Please enter the first number");
+       int a = sc.nextInt();
+       System.out.println("Please enter the second number");
+       int b = sc.nextInt();
+       System.out.println("Sum is: "+ (a+b));
+       System.out.println("If wants to continue then please press 1 or anything else");
+       input = sc.nextInt();
+        } while(input==1);
+    }
+}
+
+output:
+Please enter the first number
+10
+Please enter the second number
+20
+Sum is: 30
+If wants to continue then please press 1 or anything else
+1
+Please enter the first number
+30
+Please enter the second number
+40
+Sum is: 70
+If wants to continue then please press 1 or anything else
+0
