@@ -51,18 +51,38 @@ class HelloWorld {
 
 // other way 
 
-import java.util.*;
-class HelloWorld {
-    public static void main(String[] args) {
-        int[] arr = {7,1,5,3,6,4};
-        int n = arr.length - 1;
-        int profit = 0;
-        int low = arr[0];
-        for(int i=0;i<=n;i++){
-            int temp = arr[i] - low;
-            profit = Math.max(profit, temp);
-            low = Math.min(low, arr[i]);
+class Solution {
+    public int maxProfit(int[] prices) {
+        // Initialize variables to keep track of the maximum profit and the minimum price
+        int n = prices.length;
+        int maxProfit = 0; // Renamed 'count' to 'maxProfit' for clarity
+        int minPrice = prices[0]; // Renamed 'sum' to 'minPrice' for clarity
+
+        // Iterate over the array of prices
+        for (int i = 0; i < n; i++) {
+            // Update the maximum profit if we can get a higher profit by selling at the current price
+            maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+            
+            // Update the minimum price if the current price is lower
+            minPrice = Math.min(minPrice, prices[i]);
         }
-        System.out.println(profit); //output : 5
+        
+        // Return the maximum profit
+        return maxProfit;
     }
 }
+
+
+Let's do a dry run with the example input prices = [7,1,5,3,6,4]:
+
+1. Initialize maxProfit to 0 and minPrice to 7.
+2. Iterate over the array:
+    - i = 0: maxProfit remains 0, minPrice remains 7.
+    - i = 1: maxProfit becomes 0 (since 1 - 7 = -6, which is not greater than 0), minPrice becomes 1.
+    - i = 2: maxProfit becomes 4 (since 5 - 1 = 4), minPrice remains 1.
+    - i = 3: maxProfit remains 4, minPrice remains 1.
+    - i = 4: maxProfit becomes 5 (since 6 - 1 = 5), minPrice remains 1.
+    - i = 5: maxProfit remains 5, minPrice remains 1.
+3. Return maxProfit, which is 5.
+
+The time complexity of this solution is O(n), where n is the length of the input array, and the space complexity is O(1) since we only use a constant amount of space.
