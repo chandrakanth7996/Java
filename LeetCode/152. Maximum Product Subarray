@@ -1,0 +1,67 @@
+Given an integer array nums, find a subarray that has the largest product, and return the product.
+The test cases are generated so that the answer will fit in a 32-bit integer.
+Example 1:
+Input: nums = [2,3,-2,4]
+Output: 6
+Explanation: [2,3] has the largest product 6.
+Example 2:
+Input: nums = [-2,0,-1]
+Output: 0
+Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
+
+class Solution {
+    public int maxProduct(int[] nums) {
+        int n = nums.length;
+        int maxProduct = nums[0];     // Initialize maxProduct and minProduct to store the maximum and minimum product of the subarray ending at the current position                 
+        int minProduct = nums[0];
+        int result = nums[0];        // Initialize result to store the maximum product of the subarray
+        for(int i=1;i<n;i++){
+            if(nums[i]<0){            // If the current element is negative, swap maxProduct and minProduct
+        // This is because a negative number can become maximum by multiplying with another negative number
+                int temp = maxProduct;
+                maxProduct = minProduct;
+                minProduct = temp; 
+            }
+            // Update maxProduct and minProduct
+            // maxProduct is the maximum of the current element and the product of the current element and the previous maxProduct
+            // minProduct is the minimum of the current element and the product of the current element and the previous minProduct
+            maxProduct = Math.max(nums[i], maxProduct*nums[i]);
+            minProduct = Math.min(nums[i],minProduct*nums[i]);
+            // Update result
+            // result is the maximum of the current result and maxProduct
+            result = Math.max(result,maxProduct);
+        }
+        return result;
+    }
+}
+
+Dry Run:
+
+Let's take the input array nums = [2, 3, -2, 4].
+
+1. Initialize maxProduct = 2, minProduct = 2, and result = 2.
+
+2. Iterate through the array:
+
+a. i = 1, nums[i] = 3:
+
+    - maxProduct = Math.max(3, 2 * 3) = 6
+    - minProduct = Math.min(3, 2 * 3) = 3
+    - result = Math.max(2, 6) = 6
+
+b. i = 2, nums[i] = -2:
+
+    - Swap maxProduct and minProduct because nums[i] is negative.
+    - maxProduct = Math.max(-2, 3 * -2) = -2
+    - minProduct = Math.min(-2, 6 * -2) = -12
+    - result = Math.max(6, -2) = 6
+
+c. i = 3, nums[i] = 4:
+
+    - maxProduct = Math.max(4, -2 * 4) = 4
+    - minProduct = Math.min(4, -12 * 4) = -48
+    - result = Math.max(6, 4) = 6
+
+3. Return result = 6, which is the maximum product of the subarray.
+
+The time complexity of this solution is O(n), where n is the length of the input array. The space complexity is O(1), excluding the space required for the input array.
