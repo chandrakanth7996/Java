@@ -23,3 +23,151 @@ output:
 [1, 4, 7]
 [2, 5, 8]
 [3, 6, 9]
+
+
+Sure! Let's go through a **clear and detailed dry run** of the given Java code for matrix transposition, using a sample matrix. This will help you understand how each part of the code works.
+
+### **Matrix Transposition Concept:**
+
+Matrix transposition means swapping the elements at positions `(i, j)` and `(j, i)` in a matrix. For example, if you have a matrix:
+
+```
+1  2  3
+4  5  6
+7  8  9
+```
+
+The transposed matrix will look like this:
+
+```
+1  4  7
+2  5  8
+3  6  9
+```
+
+Here, element at position (0, 1) is swapped with (1, 0), element at position (0, 2) is swapped with (2, 0), and so on.
+
+### **Given Code:**
+
+```java
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int temp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = temp;
+            }
+        }
+        for (int[] num : arr) {
+            System.out.println(Arrays.toString(num));
+        }
+    }
+}
+
+### **Initial Matrix:**
+```
+arr = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+}
+```
+
+### **Dry Run:**
+
+1. **Step 1: Initialize Matrix**
+    - `arr` is a 3x3 matrix:
+    ```
+    {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    }
+    ```
+
+2. **Step 2: Start Iterating with `i = 0` (first row)**
+
+    - `n = arr.length = 3` (the matrix is 3x3, so `n = 3`).
+    - Outer loop (`i` starts from 0 and goes to `n-1`, i.e., 0 to 2).
+
+#### **First Iteration (i = 0):**
+
+- Inner loop (`j` starts from `i + 1 = 1` to `n-1 = 2`).
+  - **First Inner Iteration (j = 1):**
+    - **Before swap:**
+      - `arr[0][1] = 2` (element in first row, second column)
+      - `arr[1][0] = 4` (element in second row, first column)
+    - **Swap elements:**
+      - `temp = arr[0][1] = 2`
+      - `arr[0][1] = arr[1][0] = 4`
+      - `arr[1][0] = temp = 2`
+    - **Matrix after swap:**
+    ```
+    {
+        {1, 4, 3},
+        {2, 5, 6},
+        {7, 8, 9}
+    }
+    ```
+
+  - **Second Inner Iteration (j = 2):**
+    - **Before swap:**
+      - `arr[0][2] = 3` (element in first row, third column)
+      - `arr[2][0] = 7` (element in third row, first column)
+    - **Swap elements:**
+      - `temp = arr[0][2] = 3`
+      - `arr[0][2] = arr[2][0] = 7`
+      - `arr[2][0] = temp = 3`
+    - **Matrix after swap:**
+    ```
+    {
+        {1, 4, 7},
+        {2, 5, 6},
+        {3, 8, 9}
+    }
+    ```
+
+#### **Second Iteration (i = 1):**
+
+- Inner loop (`j` starts from `i + 1 = 2` to `n-1 = 2`).
+
+  - **First Inner Iteration (j = 2):**
+    - **Before swap:**
+      - `arr[1][2] = 6` (element in second row, third column)
+      - `arr[2][1] = 8` (element in third row, second column)
+    - **Swap elements:**
+      - `temp = arr[1][2] = 6`
+      - `arr[1][2] = arr[2][1] = 8`
+      - `arr[2][1] = temp = 6`
+    - **Matrix after swap:**
+    ```
+    {
+        {1, 4, 7},
+        {2, 5, 8},
+        {3, 6, 9}
+    }
+    ```
+
+#### **Third Iteration (i = 2):**
+
+- Inner loop: Since `j` would start from `i + 1 = 3`, which is out of bounds for a 3x3 matrix, the inner loop does not execute.
+
+### **Final Transposed Matrix:**
+After all iterations, the matrix has been transposed, and the final matrix is:
+
+{
+    {1, 4, 7},
+    {2, 5, 8},
+    {3, 6, 9}
+}
+
+
+
+- The outer loop (`i`) runs over the rows of the matrix.
+- The inner loop (`j`) starts from `i + 1` to avoid redundant swaps (i.e., swapping elements already swapped in the upper triangle of the matrix).
+- The matrix is transposed by swapping the elements at positions `(i, j)` with `(j, i)`.
+- After the loops complete, the matrix has been transposed in place.
