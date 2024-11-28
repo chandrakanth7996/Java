@@ -50,11 +50,16 @@ a. i = 1, nums[i] = 3:
     - result = Math.max(2, 6) = 6
 
 b. i = 2, nums[i] = -2:
+    
+- Swap maxProduct and minProduct because nums[i] is negative.
+- `nums[i]` is negative, so swap `maxProduct` and `minProduct`:
 
-    - Swap maxProduct and minProduct because nums[i] is negative.
-    - maxProduct = Math.max(-2, 3 * -2) = -2
-    - minProduct = Math.min(-2, 6 * -2) = -12
-    - result = Math.max(6, -2) = 6
+    - `temp = maxProduct = 6`
+    - `maxProduct = minProduct = 3`
+    - `minProduct = temp = 6`
+- `maxProduct = Math.max(-2, 3 * -2) = -2`
+- `minProduct = Math.min(-2, 6 * -2) = -12`
+- `result = Math.max(6, -2) = 6`
 
 c. i = 3, nums[i] = 4:
 
