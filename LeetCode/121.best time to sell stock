@@ -86,3 +86,19 @@ Let's do a dry run with the example input prices = [7,1,5,3,6,4]:
 3. Return maxProfit, which is 5.
 
 The time complexity of this solution is O(n), where n is the length of the input array, and the space complexity is O(1) since we only use a constant amount of space.
+
+
+// other way
+class Solution {
+    public int maxProfit(int[] prices) {
+        int count = 0;
+        int max = 0;
+        for(int i=1;i<prices.length;i++){
+            if(prices[i] > count){
+                count = prices[i];
+            }
+            max = count - max;
+        }
+        return max;
+    }
+}
