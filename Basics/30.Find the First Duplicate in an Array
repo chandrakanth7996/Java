@@ -1,0 +1,40 @@
+Find the First Duplicate in an Array
+Write a program that finds the first duplicate in an array of integers.
+Constraints:
+
+- The program should take an array of integers as input.
+- The program should find the first duplicate in the array.
+- The program should print the first duplicate value.
+- If there are no duplicates, the program should print "No duplicates found".
+
+Example Input/Output:
+
+- Input: [1, 2, 3, 4, 5, 2, 3]
+- Output: 2
+
+- Input: [1, 2, 3, 4, 5]
+- Output: No duplicates found
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5,7,2,3};
+        int n = arr.length;
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        int firstDuplicate = 0;
+        boolean flag = false;
+        for(int i=0;i<n;i++){
+            int num = arr[i];
+            hm.put(num,hm.getOrDefault(num,0)+1);
+            if(hm.get(num)==2 && !flag){
+                firstDuplicate = num;
+                flag = true;
+            }
+        }
+        if(flag){
+            System.out.println(firstDuplicate);
+        } else {
+            System.out.println("No duplicates found");
+        }
+    }
+}
