@@ -1,0 +1,26 @@
+Find Maximum and Minimum Values in an Array
+Write a program that finds the maximum and minimum values in an array of integers.
+Constraints:
+- The program should take an array of integers as input.
+- The program should find the maximum and minimum values in the array.
+- The program should print the maximum and minimum values.
+Example Input/Output:
+- Input: [10, 20, 30, 40, 50]
+- Output: Maximum value: 50, Minimum value: 10
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        int n = arr.length;
+        int maxNum = Integer.MIN_VALUE;
+        int minNum = Integer.MAX_VALUE;
+        for(int i=0;i<n;i++){
+            maxNum = Math.max(maxNum, arr[i]);
+            minNum = Math.min(minNum, arr[i]);
+        }
+        
+        System.out.println("Maximum is: "+ maxNum);
+        System.out.println("Minimum is: "+ minNum);
+    }
+}
