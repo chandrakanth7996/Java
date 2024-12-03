@@ -1,0 +1,23 @@
+Write a program that finds the maximum contiguous subarray sum within a given one-dimensional array of numbers.
+Constraints:
+- The program should take an array of integers as input.
+- The program should find the maximum contiguous subarray sum.
+- The program should print the maximum contiguous subarray sum.
+Example Input/Output:
+- Input: [-2, -3, 4, -1, -2, 1, 5, -3]
+- Output: 7
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {-2, -3, 4, -1, -2, 1, 5, -3};
+        int n = arr.length;
+        int max=arr[0];
+        int currentSum = arr[0];
+        for(int i=1;i<n;i++){
+            currentSum = Math.max(arr[i],currentSum+arr[i]);
+            max = Math.max(max,currentSum);
+        }
+        System.out.println(max);
+    }
+}
