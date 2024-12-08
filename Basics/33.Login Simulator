@@ -1,0 +1,30 @@
+* Inputs:
+ + Username: string
+ + Password: string
+* Outputs:
+ + "Login Successful!" if username=="admin" AND password=="password"
+ + "Invalid Credentials" otherwise
+*Example Inputs/Outputs:*
+1. Input: Username="admin", Password="password"
+ Output: "Login Successful!"
+2. Input: Username="user", Password="password"
+ Output: "Invalid Credentials"
+3. Input: Username="admin", Password="wrongpass"
+ Output: "Invalid Credentials"
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter username");
+        String username = sc.next();
+        System.out.println("Enter Password");
+        String password = sc.next();
+        
+        if(username.equals("admin") && password.equals("password")){
+            System.out.println("Login Successfull");
+        } else {
+            System.out.println("Invalid credentials");
+        }
+    }
+}
