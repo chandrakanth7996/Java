@@ -1,0 +1,42 @@
+"Guess My Number" Game Specs
+*Inputs and Outputs:*
+* Inputs:
+ + Player guess: integer between 1-100
+* Outputs:
+ + "Higher" - guess lower than hidden number
+ + "Lower" - guess higher than hidden number
+ + "Correct! You won in X attempts" - guess matches hidden number
+ + "Game Over! Hidden number was Y" - 5 incorrect attempts exceeded
+*Example Inputs/Outputs:*
+1. Input: Guess = 50
+ Output: "Higher" (if hidden number = 67)
+2. Input: Guess = 67
+ Output: "Correct! You won in 2 attempts"
+3. Inputs: Guess = 1, 2, 3, 4, 5 (all incorrect)
+ Output: "Game Over! Hidden number was 67"
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
+        int rand = random.nextInt(100)+1;
+        int attempts = 0;
+        while(attempts<5){
+            System.out.println("Guess a number between 1-100");
+            int guess = sc.nextInt();
+            attempts++;
+            if(guess<rand){
+                System.out.println("Guess higher");
+            } else if(guess>rand){
+                System.out.println("Guess lower");
+            } else {
+                System.out.println("Congrats!! Yayy You won in " + attempts +" attempts");
+                break;
+            }
+        }
+        if(attempts==5){
+            System.out.println("Game Over! Hidden number was " + rand);
+        }
+    }
+}
