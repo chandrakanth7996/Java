@@ -52,3 +52,27 @@ class HelloWorld {
         System.out.println(res);
     }
 }
+
+Step-by-Step Explanation:
+Finding Negative Numbers Count (neg):
+
+The goal is to count how many negative numbers are in the array.
+The binarySearch(arr, 0) searches for the first index where the value is greater than or equal to 0.
+The result of binarySearch(arr, 0) will give the index of the first non-negative number in the array.
+For the array [-2, -1, -1, 1, 2, 3], the first non-negative number is 1, which is at index 3.
+So, neg will be 3, because there are 3 negative numbers in the array (-2, -1, -1).
+Finding Positive Numbers Count (pos):
+
+The goal is to count how many positive numbers are in the array (numbers greater than 0).
+The binarySearch(arr, 1) searches for the first index where the value is greater than or equal to 1.
+For the array [-2, -1, -1, 1, 2, 3], the first positive number is 1, which is at index 3.
+one = 3 means that the first number greater than or equal to 1 is at index 3.
+To find the count of positive numbers, you subtract one from the total array length:
+arr.length is 6 (because there are 6 elements in the array).
+pos = arr.length - one = 6 - 3 = 3, so there are 3 positive numbers (1, 2, 3).
+Final Step (Finding the Maximum of Negative and Positive Counts):
+
+Finally, the code calculates the maximum of the counts of negative and positive numbers:
+neg = 3 (number of negative numbers)
+pos = 3 (number of positive numbers)
+res = Math.max(neg, pos) = Math.max(3, 3) = 3.
