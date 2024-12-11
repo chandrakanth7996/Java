@@ -1,0 +1,65 @@
+Given a square matrix mat, return the sum of the matrix diagonals. Only include the sum of all the elements on the primary diagonal and all the elements on the secondary diagonal that are not part of the primary diagonal.
+Example 1:
+Input: mat = [[1,2,3],
+              [4,5,6],
+              [7,8,9]]
+Output: 25
+Explanation: Diagonals sum: 1 + 5 + 9 + 3 + 7 = 25
+Notice that element mat[1][1] = 5 is counted only once.
+
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        int n = mat.length;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum += mat[i][i];                // Add primary diagonal element
+            sum += mat[i][n-1-i];            // Add secondary diagonal element
+        }
+        if(n%2==1){                          // If the matrix has an odd size, subtract the center element once as it's counted twice
+            sum -= mat[n/2][n/2];
+        }
+        return sum;
+    }
+}
+
+### Problem Breakdown:
+We are given a **square matrix** (i.e., it has the same number of rows and columns, `n x n`). Our task is to find the **sum of the elements in both diagonals**:
+1. **Primary Diagonal**: Elements where the row index and column index are equal. These are the elements at positions `(i, i)`.
+2. **Secondary Diagonal**: Elements where the sum of the row index and column index is `n - 1`. These are the elements at positions `(i, n - 1 - i)`.
+
+### **Important Point**:
+If the matrix size is **odd**, the **center element** will appear in both diagonals (both primary and secondary), so we should **subtract it once** to avoid double-counting it.
+
+### **Steps to Solve**:
+1. Initialize `sum` to 0.
+2. Loop through each row (from 0 to `n-1`):
+   - Add the element at `mat[i][i]` (primary diagonal) to `sum`.
+   - Add the element at `mat[i][n-1-i]` (secondary diagonal) to `sum`.
+3. If the matrix size `n` is odd, subtract the center element `mat[n/2][n/2]` (this is the element at the center) to avoid double counting.
+4. Return the final sum.
+
+### **Example 1**: `mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]`
+
+#### Step 1: Matrix size (`n`)
+The matrix size is `3 x 3`, so `n = 3`.
+
+#### Step 2: Initialize the sum
+We initialize `sum = 0` to accumulate the result.
+
+#### Step 3: Loop through each row (`i` from `0` to `2`):
+- **For `i = 0`**:
+  - **Primary Diagonal**: Add `mat[0][0] = 1` → `sum = 1`.
+  - **Secondary Diagonal**: Add `mat[0][2] = 3` → `sum = 1 + 3 = 4`.
+- **For `i = 1`**:
+  - **Primary Diagonal**: Add `mat[1][1] = 5` → `sum = 4 + 5 = 9`.
+  - **Secondary Diagonal**: Add `mat[1][1] = 5` → `sum = 9 + 5 = 14`.
+- **For `i = 2`**:
+  - **Primary Diagonal**: Add `mat[2][2] = 9` → `sum = 14 + 9 = 23`.
+  - **Secondary Diagonal**: Add `mat[2][0] = 7` → `sum = 23 + 7 = 30`.
+
+#### Step 4: Subtract the center element if the matrix size is odd
+Since `n = 3` (odd), the center element `mat[1][1] = 5` has been counted twice (once in the primary diagonal and once in the secondary diagonal). So we subtract it once:
+- `sum = 30 - 5 = 25`.
+
+#### Final Result:
+The sum of the diagonals is `25`.
