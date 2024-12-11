@@ -44,3 +44,13 @@ class Solution {
         return start;
     }
 }
+
+
+Logic of isPossible():
+For each quantity val in the quantities array:
+Calculate how many containers are needed for the current quantity:
+Use integer division to get the number of fully-filled containers: val / limit.
+If there’s a remainder (val % limit != 0), an additional container is needed to store the leftover items.
+Reduce the number of available containers (n) by the number of containers used for this particular quantity.
+If at any point, the available containers (n) become less than 0, it means we don't have enough containers to distribute the items, and we return false.
+If we can distribute all items with the available containers, we return true.
