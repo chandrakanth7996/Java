@@ -1,0 +1,51 @@
+Implement a function signFunc(x) that returns:
+1 if x is positive.
+-1 if x is negative.
+0 if x is equal to 0.
+You are given an integer array nums. Let product be the product of all values in the array nums.
+Return signFunc(product).
+Example 1:
+Input: nums = [-1,-2,-3,-4,3,2,1]
+Output: 1
+Explanation: The product of all values in the array is 144, and signFunc(144) = 1
+
+class Solution {
+    public int arraySign(int[] nums) {
+        int negativeCount = 0;
+        for(int num: nums){
+            if(num==0){
+                return 0;
+            }
+            if(num<0){
+                negativeCount++;
+            }
+        }
+        return negativeCount%2==0? 1 : -1;
+    }
+}
+
+Explanation of the Code:
+1. **Negative Count**:
+   - We use `negativeCount` to keep track of how many negative numbers are in the array.
+   
+2. **Check for Zero**:
+   - If we encounter a `0` during the iteration, we immediately return `0` because the product will be `0`.
+
+3. **Determine the Sign**:
+   - After going through the array, we check if the number of negative numbers is even or odd:
+     - If the count of negative numbers is **even**, the product is positive (`1`).
+     - If the count is **odd**, the product is negative (`-1`).
+
+Example 1:
+Input: `nums = [-1, -2, -3, -4, 3, 2, 1]`
+1. We initialize `negativeCount = 0`.
+2. Traverse through the array:
+   - For `num = -1`, `negativeCount` becomes 1.
+   - For `num = -2`, `negativeCount` becomes 2.
+   - For `num = -3`, `negativeCount` becomes 3.
+   - For `num = -4`, `negativeCount` becomes 4.
+   - For `num = 3`, no change to `negativeCount`.
+   - For `num = 2`, no change to `negativeCount`.
+   - For `num = 1`, no change to `negativeCount`.
+3. `negativeCount` is 4 (even), so the sign of the product is positive (`1`).
+Output: `1`
