@@ -42,3 +42,10 @@ class Solution {
         return end;
     }
 }
+
+
+Given positions: {1, 2, 8, 4, 9}, and m = 3 balls:
+
+After sorting the positions: {1, 2, 4, 8, 9}.
+The goal is to place 3 balls with the largest minimum distance possible between them.
+Through binary search, the solution would eventually find that the largest minimum distance possible is 3, with the balls placed at positions 1, 4, and 9.
