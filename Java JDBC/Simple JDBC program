@@ -41,3 +41,46 @@ output:
 1	chandu	Pulivendula	chandu@gmail.com
 2	Dudu	Hyderabad	dudu@gmail.com
 3	Bubu	Hyderabad	bubu@gmail.com
+
+Note: Driver class is deprecated so, it will take automatically.
+
+//2nd way of code without Driver class
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class SimpleJDBCProgram {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		String url = "jdbc:mysql://localhost:3306/fsj";
+		String username = "root";
+		String password = "root";
+		String query = "Select * from student";
+		
+		try {
+		Connection conn = DriverManager.getConnection(url,username,password);
+		Statement stmt = conn.createStatement();
+		ResultSet resultset = stmt.executeQuery(query);
+		
+		while(resultset.next()) {
+			int id = resultset.getInt("idStudent");
+			String name = resultset.getString("name");
+			String address = resultset.getString("address");
+			String email = resultset.getString("email");
+			System.out.println(id+"\t"+name+"\t"+address+"\t"+email);
+		}
+		} catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("connection query failed:"+e.getMessage());
+		}
+	}
+
+}
+
+output:  
+1	chandu	Pulivendula	chandu@gmail.com
+2	Dudu	Hyderabad	dudu@gmail.com
+3	Bubu	Hyderabad	bubu@gmail.com
