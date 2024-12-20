@@ -13,15 +13,17 @@ Explanation: There are 11 children but only 7 candies in total, so it is impossi
 class Solution {
     public boolean isPossible(int[] candies,long k,int mid){
         for(int i=0;i<candies.length;i++){
-            int temp = candies[i]/mid;
-            k-=temp;
+            int temp = candies[i]/mid;        // Calculate how many children can be served with at least `mid` candies
+            k-=temp;                          // Subtract the number of children we can serve with candies[i] from k
 
-            if(k<=0){
+            if(k<=0){                         // If we can serve `k` or more children, return true
                 return true;
             }
         }
         return false;
     }
+
+    // Right most binary search
     public int maximumCandies(int[] candies, long k) {
         int start = 1;
         int end = (int)Math.pow(10,7);
@@ -36,3 +38,32 @@ class Solution {
         return end;
     }
 }
+
+
+Dry run: 
+Let’s run a dry run with your example:
+candies = [5, 8, 6]
+k = 3
+Case 1: mid = 4
+For candies[0] = 5, we can serve 5 // 4 = 1 child (since 5 / 4 = 1 with a remainder).
+For candies[1] = 8, we can serve 8 // 4 = 2 children (since 8 / 4 = 2).
+For candies[2] = 6, we can serve 6 // 4 = 1 child (since 6 / 4 = 1 with a remainder).
+Total children served = 1 + 2 + 1 = 4.
+
+Since 4 children can be served and we need to serve at least k = 3 children, this is possible for mid = 4. The isPossible function would return true for mid = 4.
+
+Case 2: mid = 5
+For candies[0] = 5, we can serve 5 // 5 = 1 child (since 5 / 5 = 1).
+For candies[1] = 8, we can serve 8 // 5 = 1 child (since 8 / 5 = 1 with a remainder).
+For candies[2] = 6, we can serve 6 // 5 = 1 child (since 6 / 5 = 1 with a remainder).
+Total children served = 1 + 1 + 1 = 3.
+
+Since 3 children can be served and we need to serve at least k = 3 children, this is also possible for mid = 5. The isPossible function would return true for mid = 5.
+
+Case 3: mid = 6
+For candies[0] = 5, we can serve 5 // 6 = 0 children (since 5 / 6 = 0).
+For candies[1] = 8, we can serve 8 // 6 = 1 child (since 8 / 6 = 1 with a remainder).
+For candies[2] = 6, we can serve 6 // 6 = 1 child (since 6 / 6 = 1).
+Total children served = 0 + 1 + 1 = 2.
+
+Since only 2 children can be served and we need at least k = 3 children, this is not possible for mid = 6. The isPossible function would return false for mid = 6.
