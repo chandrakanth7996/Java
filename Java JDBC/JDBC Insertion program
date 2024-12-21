@@ -1,0 +1,37 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Java_JDBC_Insert_Program {
+
+	public static void main(String[] args) {
+		
+		String url = "jdbc:mysql://localhost:3306/fsj";
+		String username = "root";
+		String password = "root";
+		
+		try {
+			Connection conn = DriverManager.getConnection(url,username,password);
+			Statement stmt = conn.createStatement();
+			
+			int count = stmt.executeUpdate("insert into student values(4,'Iron man','America','tonystark@gmail.com')");
+			
+			System.out.println("Insertion is successfull: " + count);
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("connection query failed: "+ e.getMessage());
+		}
+
+	}
+
+}
+
+output:
+1	chandu	Pulivendula	chandu@gmail.com
+2	Dudu	Hyderabad	dudu@gmail.com
+3	Bubu	Hyderabad	bubu@gmail.com
+4	Iron man	America	tonystark@gmail.com
+11	Thor	Australia	thor@gmail.com
+			
