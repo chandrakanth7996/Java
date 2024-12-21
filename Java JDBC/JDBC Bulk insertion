@@ -1,0 +1,96 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Java_JDBC_Insert_Program {
+
+	public static void main(String[] args) {
+		
+		String url = "jdbc:mysql://localhost:3306/fsj";
+		String username = "root";
+		String password = "root";
+		
+		try {
+			Connection conn = DriverManager.getConnection(url,username,password);
+			Statement stmt = conn.createStatement();
+			Scanner sc = new Scanner(System.in);
+			for(int i=20;i<=23;i++) {
+				System.out.print("Enter your Student Id: ");
+				int id = sc.nextInt();
+				sc.nextLine();
+				System.out.println("Enter your Student name: ");
+				String name = sc.nextLine();
+				System.out.println("Enter your Address: ");
+				String address = sc.nextLine();
+				System.out.println("Enter your email: ");
+				String mail = sc.nextLine();
+				String sql = "insert into student values("+id+",'"+name+"','"+address+"','"+mail+"')";
+				System.out.println("Sql query is inserted: "+ sql);
+				stmt.executeUpdate(sql);
+			}
+			
+			System.out.println("Insertion is successfull");
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("connection query failed: "+ e.getMessage());
+		}
+
+	}
+
+}
+
+Insertion:
+Enter your Student Id: 30
+Enter your Student name: 
+chandu
+Enter your Address: 
+Kadapa
+Enter your email: 
+chand@gmail.com
+Sql query is inserted: insert into student values(30,'chandu','Kadapa','chand@gmail.com')
+Enter your Student Id: 32
+Enter your Student name: 
+Captain america
+Enter your Address: 
+america
+Enter your email: 
+cap@gmail.com
+Sql query is inserted: insert into student values(32,'Captain america','america','cap@gmail.com')
+Enter your Student Id: 33
+Enter your Student name: 
+dr.strange
+Enter your Address: 
+america
+Enter your email: 
+strange@gmail.com
+Sql query is inserted: insert into student values(33,'dr.strange','america','strange@gmail.com')
+Enter your Student Id: 34
+Enter your Student name: 
+loki
+Enter your Address: 
+london
+Enter your email: 
+loki@gmail.com
+Sql query is inserted: insert into student values(34,'loki','london','loki@gmail.com')
+Insertion is successfull
+
+output:
+1	chandu	Pulivendula	chandu@gmail.com
+2	Dudu	Hyderabad	dudu@gmail.com
+3	Bubu	Hyderabad	bubu@gmail.com
+4	Iron man	America	tonystark@gmail.com
+11	Thor	Australia	thor@gmail.com
+12	Hulk	America	hulk@gmail.com
+13	Hulk	America	hulk@gmail.com
+14	Hulk	America	hulk@gmail.com
+15	Hulk	America	hulk@gmail.com
+21	Black	widow	america
+25		Jai	jai@gmail.com
+30	chandu	Kadapa	chand@gmail.com
+32	Captain america	america	cap@gmail.com
+33	dr.strange	america	strange@gmail.com
+34	loki	london	loki@gmail.com
