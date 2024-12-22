@@ -1,0 +1,45 @@
+Given an integer array nums and an integer k, split nums into k non-empty subarrays such that the largest sum of any subarray is minimized.
+Return the minimized largest sum of the split.
+A subarray is a contiguous part of the array.
+Example 1:
+Input: nums = [7,2,5,10,8], k = 2
+Output: 18
+Explanation: There are four ways to split nums into two subarrays.
+The best way is to split it into [7,2,5] and [10,8], where the largest sum among the two subarrays is only 18.
+
+class Solution {
+    public boolean isPossible(int[] nums,int k,int mid){
+        int sum=0;
+        k-=1;                                          // Decrement k since we are already considering one subarray
+        for(int i=0;i<nums.length;i++){
+            int val = nums[i];
+            if(val>mid){                           // If any element is greater than mid, it's impossible to form a subarray with max sum <= mid
+                return false;
+            }
+            if(sum+val > mid){                 // If adding current element to the sum exceeds mid, we must start a new subarray
+                k--;
+                sum=0;
+            }
+
+            sum+=val;                      // Add the current element to the current subarray sum
+            if(k<0){                        // If k becomes negative, it means we have used more than k subarrays, which is not allowed
+                return false;
+            }
+        }
+        return true;
+        
+    }
+    public int splitArray(int[] nums, int k) {
+        int start = 0;
+        int end = (int)Math.pow(10,9);
+        while(start<=end){
+            int mid = start + (end-start)/2;
+            if(isPossible(nums,k,mid)){
+                end = mid-1;
+            } else {
+                start = mid+1;
+            }
+        }
+        return start;
+    }
+}
