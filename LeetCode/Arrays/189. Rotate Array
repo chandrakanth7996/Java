@@ -28,3 +28,9 @@ class Solution {
         rotateLeft(nums,n,k);
     }
 }
+
+Steps in the Code:
+Modulo operation (k = k % n) to handle cases where k >= n.
+Reverse the entire array.
+Reverse the first k elements.
+Reverse the remaining n-k elements.
