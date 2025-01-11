@@ -18,16 +18,28 @@ Explanation:
 
 class Solution {
     public String intToRoman(int num) {
-        int[] storeInt = {1000,900,500,400,100,90,50,40,10,9,5,4,1};
-        String[] storeRoman = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
-        String res = "";
-        for(int i=0;i<storeInt.length;i++){
-            while(num>=storeInt[i]){
-                String symbol = storeRoman[i];
+        int[] storeInt = {1000,900,500,400,100,90,50,40,10,9,5,4,1};                          // Array of integers representing the values of Roman numeral symbols
+        String[] storeRoman = {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};   // Array of Roman numerals corresponding to the values in storeInt
+        String res = "";                                                             // Result string to build the Roman numeral representation
+        for(int i=0;i<storeInt.length;i++){                                    // Loop through each value in storeInt array
+            while(num>=storeInt[i]){                                           // While num is greater than or equal to the current integer value (storeInt[i])
+                String symbol = storeRoman[i];                                // Append the corresponding Roman numeral (storeRoman[i]) to the result string
                 res += symbol;
-                num -= storeInt[i];
+                num -= storeInt[i];                                          // Subtract the current integer value (storeInt[i]) from num
             }
         }
         return res;
     }
 }
+
+
+Explanation: 
+58:   LVIII
+For 1000, 900, 500, 400, 100, and 90, num is smaller than these values, so we skip.
+      58>=50   L        58-50=8
+      8>=5     V        8-5=3
+      3>=1     I        3-1=2
+      2>=1     I        2-1=1
+      I>=1     I        1-1=0
+      
+      
