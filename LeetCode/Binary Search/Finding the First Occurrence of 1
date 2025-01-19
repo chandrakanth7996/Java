@@ -1,0 +1,27 @@
+//Finding the First Occurrence of 1
+
+import java.util.*;
+class HelloWorld {
+    public static boolean isOne(int i){
+        int[] arr = {0,0,0,0,0,0,1,1,1,1,1};
+        if(arr[i]==1){
+            return true;
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        int n=9;
+        int start = 0;
+        int end = n-1;
+        int target=1;
+        while(start<=end){
+            int mid = start+(end-start)/2;
+            if(isOne(mid)){                         // If the middle element is 1, look to the left for the first occurrence
+                end=mid-1;
+            } else {                                 // If the middle element is 0, look to the right
+                start = mid+1;
+            }
+        }
+        System.out.println(start);            // 6
+    }
+}
