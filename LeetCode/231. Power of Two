@@ -1,0 +1,44 @@
+Given an integer n, return true if it is a power of two. Otherwise, return false.
+An integer n is a power of two, if there exists an integer x such that n == 2x.
+Example 1:
+Input: n = 1
+Output: true
+Explanation: 2^0 = 1
+Example 2:
+Input: n = 16
+Output: true
+Explanation: 2^4 = 16
+Example 3:
+Input: n = 3
+Output: false
+
+
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+       return n>0 && (n&(n-1))==0;
+    }
+}
+
+Explanation:
+First condition check:
+We first check if n > 0, which is true because n = 16 is positive.
+So the first part of the condition (n > 0) is true.
+
+Second condition check:
+Now we check the bitwise operation: (n & (n - 1)) == 0.
+
+Calculate n - 1:
+n = 16
+n - 1 = 16 - 1 = 15
+
+Binary representation:
+n = 16 is represented in binary as 10000.
+n - 1 = 15 is represented in binary as 01111.
+
+Bitwise AND:
+Perform the bitwise AND operation between n and n - 1:
+10000  (16 in binary)
+& 01111 (15 in binary)
+00000 (0 in binary)
+
+- The result of `16 & 15` is `0`.
