@@ -1,0 +1,47 @@
+Given an integer n, return true if it is a power of three. Otherwise, return false.
+An integer n is a power of three, if there exists an integer x such that n == 3x.
+Example 1:
+Input: n = 27
+Output: true
+Explanation: 27 = 33
+Example 2:
+Input: n = 0
+Output: false
+Explanation: There is no x where 3x = 0.
+Example 3:
+Input: n = -1
+Output: false
+Explanation: There is no x where 3x = (-1).
+
+
+class Solution {
+    public boolean isPowerOfThree(int n) {
+        if(n<=0) return false;
+        int x = n;
+        while(x%3==0){
+            x/=3;
+        }
+        return x==1;
+    }
+}
+
+Explanation:
+Initial Check: n = 27. Since n is positive, we proceed.
+
+First iteration:
+
+x = 27. x % 3 == 0, so we divide x by 3.
+x = 27 / 3 = 9.
+Second iteration:
+
+x = 9. x % 3 == 0, so we divide x by 3.
+x = 9 / 3 = 3.
+Third iteration:
+
+x = 3. x % 3 == 0, so we divide x by 3.
+x = 3 / 3 = 1.
+Exit loop: Now, x = 1. The loop exits because x % 3 != 0.
+
+Final check: We check if x == 1. Since x = 1, the condition is true, so we return true.
+
+Output: true (because 27 is a power of three).
