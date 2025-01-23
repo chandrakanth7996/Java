@@ -1,0 +1,46 @@
+class Laptops {
+     String name;
+     int price;
+     
+     public static void fun(){                                        // Static method without parameters
+         System.out.println("Inside method of class");
+     }
+     
+     public static void funParameters(String s){                    // Static method with a parameter
+         System.out.println("This has parameters: "+s);
+     }
+     
+     public String simpleFun(String color){                         // Instance method that returns a String
+         return "Hey, this has return type is String "+color; 
+     }
+}
+class Main {
+    public static void main(String[] args) {
+        Laptops b = new Laptops();
+        b.name="Lenovo";
+        b.price = 50000;
+        System.out.println("Laptop name: "+b.name);
+        System.out.println("Laptop price: "+b.price);
+        
+        b.fun();
+        b.funParameters("Let's go!!");
+        
+        String color="black";
+        System.out.println(b.simpleFun(color));
+        
+    }
+}
+
+output:
+Laptop name: Lenovo
+Laptop price: 50000
+Inside method of class
+This has parameters: Let's go!!
+Hey, this has return type is String black
+
+Explanation:
+Static Methods: These methods can be called without creating an object of the class. They are defined as static and can be invoked directly by the class name or an object.
+Instance Methods: These methods belong to an object and require creating an instance (object) of the class to be invoked.
+The program shows:
+How to call a static method (fun() and funParameters()).
+How to call an instance method that returns a value (simpleFun()).
