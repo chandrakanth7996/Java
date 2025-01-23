@@ -1,0 +1,24 @@
+class Laptops {
+     String name;
+     int price;
+}
+class Main {
+    public static void main(String[] args) {
+        Laptops b = new Laptops();
+        b.name="Lenovo";
+        b.price = 50000;
+        System.out.println("Laptop name: "+b.name);
+        System.out.println("Laptop price: "+b.price);
+        
+        Laptops b1 = new Laptops();
+        b1.name="Dell";
+        b1.price = 54009;
+        System.out.println("Laptop name: "+b1.name);
+        System.out.println("Laptop price: "+b1.price);
+    }
+}
+
+Explanation: 
+Two Laptops objects (b and b1) are created.
+The name and price attributes of each object are assigned values (for example, "Lenovo" with a price of 50,000 for b, and "Dell" with a price of 54,009 for b1).
+The program then prints out the laptop details (name and price) using System.out.println().
