@@ -1,0 +1,23 @@
+class Laptops {
+    String name;
+    String color;
+    int price;
+    
+    public Laptops(String name,String color,int price){                  // constructor
+        this.name = name;
+        this.color = color;
+        this.price = price;
+    }
+    
+    public void display(){                                              // method
+        System.out.println("Name of the Laptop: "+name);
+        System.out.println("Color of the Laptop: "+color);
+        System.out.println("Price of the Laptop: "+price);
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Laptops laptop = new Laptops("lenovo","silver",65409);          // object instantiation
+        laptop.display();
+    }
+}
