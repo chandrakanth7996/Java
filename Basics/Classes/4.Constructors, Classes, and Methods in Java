@@ -1,0 +1,38 @@
+class Laptops {
+     String name;
+     int price;
+     int quantity;
+     
+     public Laptops(String name,int price,int quantity){
+         this.name = name;
+         this.price = price;
+         this.quantity = quantity;
+     }
+     
+     public int revenue(){
+         return quantity*price;
+     }
+     
+     public void display(){
+         System.out.println("Laptops name is: "+ name);
+         System.out.println("Laptops price is: "+ price);
+         System.out.println("Quantity of laptops: "+ quantity);
+         System.out.println("Total cost: "+ revenue());
+     }
+}
+class Main {
+    public static void main(String[] args) {
+        Laptops b = new Laptops("Dell",54000,2);
+        
+        b.display();
+       
+        
+    }
+}
+
+
+Explanation:
+Defining a class and creating an object.
+Using constructors to initialize object properties.
+Implementing methods for functionality (like revenue calculation).
+Printing the results and displaying data on the console.
