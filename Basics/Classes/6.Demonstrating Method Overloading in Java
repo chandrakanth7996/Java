@@ -1,0 +1,32 @@
+class MethodOverload{
+
+    public void fun(){
+        System.out.println("This has zero parameters");
+    }
+    public void fun(int num){
+        System.out.println("This has single parameter: "+ num);
+    }
+    public void fun(int num,String name){
+        System.out.println("This has two parameters i.e., Integer and String: "+ num +" "+ name);
+    }
+    public void fun(String name,int num){
+        System.out.println("This has two parameters with different datatypes: "+ name + " "+ num);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        MethodOverload m = new MethodOverload();
+        m.fun();
+        m.fun(90);
+        m.fun(25,"Thor");
+        m.fun("Hulk",28);
+    }
+}
+
+Explanation:
+fun(): A method with no parameters, demonstrating zero-parameter method overloading.
+fun(int num): A method that accepts a single integer parameter.
+fun(int num, String name): A method that accepts an integer followed by a string, showing method overloading with two parameters of different types.
+fun(String name, int num): A method that accepts a string followed by an integer, which has the same parameters as the previous method but in a different order, 
+                            showcasing the distinction in overloading methods by parameter order.
