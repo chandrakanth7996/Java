@@ -1,0 +1,21 @@
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+      int num=121;
+      System.out.println(palindromeFun(num));            // calling function
+    }
+    public static boolean palindromeFun(int n){
+        int sum=0;
+        int number = n;
+        while(number!=0){
+            int rem = number%10;
+            sum = sum*10+rem;
+            number/=10;
+        }
+        if(n==sum){                                      // checking condition
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
