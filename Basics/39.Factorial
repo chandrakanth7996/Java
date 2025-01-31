@@ -10,3 +10,16 @@ class Main {
         System.out.println(fact);      //120
     }
 }
+
+// using for loop
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+      int num=5;
+      int fact = 1;
+     for(int i=1;i<=num;i++){
+         fact=fact*i;
+     }
+        System.out.println(fact);
+    }
+}
