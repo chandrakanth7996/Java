@@ -18,3 +18,18 @@ class Main {
         }
     }
 }
+
+// using indexOf()
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str1 = "hello";
+        String str2 = "hello World";
+        int index = str2.indexOf(str1);
+        if(index!= -1){
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+        }
+    }
+}
