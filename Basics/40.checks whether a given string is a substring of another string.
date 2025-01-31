@@ -1,0 +1,20 @@
+Write a Java program that checks whether a given string is a substring of another string.
+Input:
+- str1 = "hello"
+- str2 = "hello world"
+Output:
+- true (because "hello" is a substring of "hello world")
+
+// using contains()
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str1 = "hello";
+        String str2 = "hello World";
+        if(str2.contains(str1)){
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+        }
+    }
+}
