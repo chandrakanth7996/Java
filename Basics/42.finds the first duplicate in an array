@@ -1,0 +1,29 @@
+Write a Java program that finds the first duplicate in an array.
+Input:
+- An integer array arr = [1, 2, 3, 4, 2]
+Output:
+- 2 (because 2 is the first duplicate in the array)
+Another Example:
+- An integer array arr = [1, 2, 3, 4, 5]
+Output:
+- -1 (because there are no duplicates in the array)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,2};
+        System.out.println(isDuplicate(arr));
+    }
+    public static int isDuplicate(int[] arr){
+        HashSet<Integer> hs = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
+        for(int num : arr){
+            if(hs.contains(num)){
+                return num;
+            } else {
+                hs.add(num);
+            }
+        }
+        return -1;
+    }
+}
