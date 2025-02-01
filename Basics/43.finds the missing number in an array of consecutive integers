@@ -21,3 +21,8 @@ class Main {
         return res-sum;
     }
 }
+
+Explanation:
+we first calculate the expected sum of consecutive integers from 1 to n, where n is the length of the array plus 1 (because one number is missing). 
+Then, we calculate the actual sum of the numbers in the array. 
+Finally, we return the difference between the expected sum and the actual sum, which is the missing number.
