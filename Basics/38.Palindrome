@@ -19,3 +19,17 @@ class Main {
         }
     }
 }
+
+// Palidrome string
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "madam";
+       System.out.println(isPalindrome(str));
+    }
+    public static boolean isPalindrome(String str){
+        StringBuilder s = new StringBuilder(str);
+        String reversed = s.reverse().toString();
+        return reversed.equals(str) ? true : false;
+    }
+}
