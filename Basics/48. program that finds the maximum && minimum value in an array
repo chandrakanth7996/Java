@@ -1,0 +1,78 @@
+Write a Java program that finds the maximum value in an array.
+Input:
+- An array arr = [1, 2, 3, 4, 5]
+Output:
+- 5 (because 5 is the maximum value in the array)
+Another Example:
+- An array arr = [-1, -2, -3, -4, -5]
+Output:
+- -1 (because -1 is the maximum value in the array)
+
+// 1st solution of Maximum number
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println(isMaximum(arr));
+    }
+   public static int isMaximum(int[] arr) {
+       int n = arr.length;
+       int max = Integer.MIN_VALUE;
+       for(int i=0;i<n;i++){
+           max = Math.max(max,arr[i]);
+       }
+       return max;
+   }
+}
+
+// 2nd solution of Maximum number using Streams 
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println(findMaximum(arr));
+    }
+
+    public static int findMaximum(int[] arr) {
+        return Arrays.stream(arr).max().getAsInt();
+    }
+}
+
+Write a Java program that finds the minimum value in an array.
+Input:
+- An array arr = [1, 2, 3, 4, 5]
+Output:
+- 1 (because 1 is the minimum value in the array)
+Another Example:
+- An array arr = [-1, -2, -3, -4, -5]
+Output:
+- -5 (because -5 is the minimum value in the array)
+
+// 1st solution of Minimum number
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println(isMinimum(arr));
+    }
+   public static int isMinimum(int[] arr) {
+       int n = arr.length;
+       int min = Integer.MAX_VALUE;
+       for(int i=0;i<n;i++){
+           min = Math.min(min,arr[i]);
+       }
+       return min;
+   }
+}
+
+// 2nd solution of Minimum number using Streams 
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println(isMinimum(arr));
+    }
+   public static int isMinimum(int[] arr) {
+       return Arrays.stream(arr).min().getAsInt();
+   }
+}
