@@ -1,0 +1,49 @@
+Write a Java program that checks whether a given string contains any duplicate characters.
+Input:
+- A string str = "hello"
+Output:
+- true (because the string contains duplicate characters)
+Another Example:
+- A string str = "abcde"
+Output:
+- false (because the string does not contain duplicate characters)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "abcde";
+        System.out.println(isDuplicate(str));
+    }
+   public static boolean isDuplicate(String str) {
+       int n = str.length();
+       Set<Character> hs = new HashSet<>();
+       for(int i=0;i<n;i++){
+           char ch = str.charAt(i);
+           if(hs.contains(ch)){
+               return true;
+           } 
+          hs.add(ch);
+           
+       }
+       return false;
+   }
+}
+
+//2nd way
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "abcde";
+        System.out.println(isDuplicate(str));
+    }
+
+    public static boolean isDuplicate(String str) {
+        Set<Character> hs = new HashSet<>();
+        for (char ch : str.toCharArray()) {
+            if (!hs.add(ch)) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
