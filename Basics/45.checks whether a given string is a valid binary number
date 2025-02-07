@@ -1,0 +1,45 @@
+Write a Java program that checks whether a given string is a valid binary number.
+Input:
+- A string str = "1010"
+Output:
+- true (because the string is a valid binary number)
+Another Example:
+- A string str = "1234"
+Output:
+- false (because the string is not a valid binary number)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "1010";
+        System.out.println(validBinary(str));
+    }
+    public static boolean validBinary(String str){
+        int n = str.length();
+        for(int i=0;i<n;i++){
+            char ch = str.charAt(i);
+            if(ch!='0' && ch!='1'){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+
+// 2nd way 
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "1010";
+        System.out.println(validBinary(str));
+    }
+   public static boolean validBinary(String str) {
+    for (char c : str.toCharArray()) {
+        if (c != '0' && c != '1') {
+            return false;
+        }
+    }
+    return true;
+   }
+}
