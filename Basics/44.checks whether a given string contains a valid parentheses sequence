@@ -1,0 +1,40 @@
+Write a Java program that checks whether a given string contains a valid parentheses sequence.
+Input:
+- A string str = "((()))"
+Output:
+- true (because the string contains a valid parentheses sequence)
+Another Example:
+- A string str = "(()"
+Output:
+- false (because the string does not contain a valid parentheses sequence)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "((([[[]]])))";
+        System.out.println(validParenthesis(str));
+    }
+    public static boolean validParenthesis(String str){
+        Stack<Character> s = new Stack<>();
+        int n = str.length();
+        for(int i=0;i<n;i++){
+            char ch = str.charAt(i);
+            if(ch=='(' || ch=='{' || ch=='['){
+                s.push(ch);
+            } else if(ch==')'){
+                if(s.isEmpty() || s.pop() != '('){
+                    return false;
+                }
+            } else if(ch=='}'){
+                if(s.isEmpty() || s.pop() != '{'){
+                    return false;
+                }
+            } else if(ch==']'){
+                if(s.isEmpty() || s.pop() != '['){
+                    return false;
+                }
+            }
+        }
+    return s.isEmpty();
+    }
+}
