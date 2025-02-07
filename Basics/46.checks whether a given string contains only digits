@@ -1,0 +1,27 @@
+Write a Java program that checks whether a given string contains only digits.
+Input:
+- A string str = "12345"
+Output:
+- true (because the string contains only digits)
+Another Example:
+- A string str = "hello123"
+Output:
+- false (because the string contains non-digit characters)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "12345";
+        System.out.println(isDigits(str));
+    }
+   public static boolean isDigits(String str) {
+       int n = str.length();
+       for(int i=0;i<n;i++){
+           char ch = str.charAt(i);
+           if(!(Character.isDigit(ch))){
+               return false;
+           }
+       }
+       return true;
+   }
+}
