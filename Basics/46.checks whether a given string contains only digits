@@ -25,3 +25,23 @@ class Main {
        return true;
    }
 }
+
+
+// using for each loop
+import java.util.*;
+
+class Main {
+    public static void main(String[] args) {
+        String str = "12345";
+        System.out.println(isDigits(str));
+    }
+
+    public static boolean isDigits(String str) {
+        for (char ch : str.toCharArray()) {
+            if (!Character.isDigit(ch)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
