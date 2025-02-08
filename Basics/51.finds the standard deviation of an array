@@ -1,0 +1,36 @@
+Write a Java program that finds the standard deviation of an array.
+Input:
+- An array arr = [2, 4, 4, 4, 5, 5, 7, 9]
+Output:
+- 2.0
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {2, 4, 4, 4, 5, 5, 7, 9};
+        System.out.println(isStandardDeviation(arr));
+    }
+    public static double isStandardDeviation(int[] arr){
+        int n = arr.length;
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+        }
+        double mean = sum/n;
+        
+        double variance = 0;
+        for(int i=0;i<n;i++){
+            variance += Math.pow(arr[i]-mean,2);
+        }
+        variance /= n;
+      
+        double finalResult = Math.sqrt(variance);
+        
+        return finalResult;
+    }
+}
+
+// explanation:
+Calculate the Mean: The sum of the elements in the array is calculated, and then divided by the number of elements to get the mean.
+Calculate the Variance: For each element, the difference from the mean is squared and summed up. This sum is then divided by the number of elements to find the variance.
+Calculate the Standard Deviation: The square root of the variance is computed using Math.sqrt()
