@@ -1,0 +1,30 @@
+Write a Java program that finds the most frequent word in a given text.
+Input:
+- A text text = "apple apple banana banana banana cherry"
+Output:
+- The most frequent word, which is "banana"
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "apple apple banana banana banana cherry";
+        System.out.println(isMostFrequentWord(str));
+    }
+    public static String isMostFrequentWord(String str){
+        String[] words = str.toLowerCase().split(" ");
+        HashMap<String,Integer> hm = new HashMap<>();
+        for(String word : words){
+            hm.put(word,hm.getOrDefault(word,0)+1);
+        }
+        
+        String maxFrequentWord = null;
+        int maxCount = 0;
+        for(Map.Entry<String,Integer> entry : hm.entrySet()){              // Find the word with the highest frequency
+            if(entry.getValue()>maxCount){
+                maxCount = entry.getValue();
+                maxFrequentWord = entry.getKey();
+            }
+        }
+        return maxFrequentWord;
+    }
+}
