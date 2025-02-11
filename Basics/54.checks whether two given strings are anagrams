@@ -1,0 +1,33 @@
+Write a Java function that checks whether two given strings are anagrams of each other.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        int n1 = str1.length();
+        int n2 = str2.length();
+        
+        if(n1 != n2){
+            System.out.println("Not Anagrams");
+            return;
+        }
+        HashMap<Character,Integer> hm1 = new HashMap<>(); 
+        for(int i=0;i<n1;i++){
+            char ch = str1.charAt(i);
+            hm1.put(ch,hm1.getOrDefault(ch,0)+1);
+        }
+        
+        HashMap<Character,Integer> hm2 = new HashMap<>(); 
+        for(int i=0;i<n2;i++){
+            char ch = str2.charAt(i);
+            hm2.put(ch,hm2.getOrDefault(ch,0)+1);
+        }
+       
+        if(hm1.equals(hm2)){
+            System.out.println("Anagrams");
+        } else {
+            System.out.println("Not Anagrams");
+        }
+    }
+}
