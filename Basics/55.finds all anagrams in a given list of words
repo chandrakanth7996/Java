@@ -1,0 +1,26 @@
+Write a Java program that finds all anagrams in a given list of words.
+Input:
+- A list of words words = ["cat", "dog", "tac", "god", "act"]
+Output:
+- A list of anagram groups, where each group contains all words that are anagrams of each other.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       String[] str = {"cat", "dog", "tac", "god", "act"};
+       int n = str.length;
+       HashMap<String,List<String>> hm = new HashMap<>();              // Use a HashMap to group anagrams by the sorted string
+       for(String word : str){
+           char[] ch = word.toCharArray();                               // Convert the string to a character array and sort it
+           Arrays.sort(ch);
+           String sortedString = new String(ch);                      // Create a sorted version of the word
+           
+           hm.putIfAbsent(sortedString,new ArrayList<>());            // Add the original word to the hm group corresponding to the sorted word
+           hm.get(sortedString).add(word);                            // Add the word to the correct hm group
+       }
+       
+       for(List<String> groups : hm.values()){
+           System.out.println(groups);
+       }
+    }
+}
