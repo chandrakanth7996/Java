@@ -27,3 +27,10 @@ class Main {
         return -1;
     }
 }
+
+Explanation:
+1. create a HashSet to store the unique elements in the array.
+2. iterate through the array, and for each element, you check if it's already in the HashSet.
+3. If it is,  return that element as the first duplicate.
+4. If it's not,  add it to the HashSet.
+5. If reach the end of the array without finding a duplicate,  return -1.
