@@ -1,0 +1,65 @@
+Write a Java program to check if a given integer is a power of 2.
+What is a power of 2?
+A power of 2 is an integer that can be expressed as 2 raised to the power of a non-negative integer. For example:
+
+- 2^0 = 1
+- 2^1 = 2
+- 2^2 = 4
+- 2^3 = 8
+- 2^4 = 16
+
+And so on...
+
+Input:
+
+The program should take an integer as input. For example:
+
+- 8
+- 10
+- 16
+- 20
+
+Output:
+
+The program should output a boolean value:
+
+- true if the input integer is a power of 2
+- false otherwise
+
+For example:
+
+- Input: 8, Output: true (because 8 = 2^3)
+- Input: 10, Output: false (because 10 is not a power of 2)
+- Input: 16, Output: true (because 16 = 2^4)
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if((n & (n-1))==0 && n!=0){
+            System.out.println(true);
+        }else{
+            System.out.println(false);
+        }
+	}
+}
+
+Explanation:
+Input is read: The user inputs 8, and the value of n becomes 8.
+Bitwise Operation (n & (n - 1)):
+n = 8, so n - 1 = 7.
+In binary:
+n = 8 → 1000 (binary representation of 8)
+n - 1 = 7 → 0111 (binary representation of 7)
+Now perform the bitwise AND operation:
+
+1000 & 0111 = 0000
+The result is 0.
+
+Condition Check:
+The condition (n & (n - 1)) == 0 is true because the result of 1000 & 0111 is 0.
+Additionally, n != 0 is also true because n = 8.
+Output: true
