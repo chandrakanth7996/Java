@@ -1,0 +1,40 @@
+Write a Java program to find the first occurrence of a given character in a string.
+
+Input:
+
+- A string, e.g., "Hello, World!"
+- A character, e.g., 'o'
+
+Output:
+
+The index of the first occurrence of the character in the string.
+
+- If the character is found, output the index (0-based) where the character first appears.
+- If the character is not found, output -1.
+
+Examples:
+
+- Input: "Hello, World!", 'o'
+Output: 4 (because 'o' first appears at index 4)
+- Input: "Java", 'x'
+Output: -1 (because 'x' does not appear in the string)
+- Input: "Mississippi", 's'
+Output: 1 (because 's' first appears at index 1)
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "hello world";
+        char ch = 'o';
+        int index = indexCharacter(str,ch);
+        if(index!=-1){
+            System.out.println("Character '" + ch + "' found at index " + index);
+        }else{
+            System.out.println("Character '" + ch + "' not found in string");
+        }
+    }
+    public static int indexCharacter(String str,char ch){
+        return str.indexOf(ch);
+    }
+}
