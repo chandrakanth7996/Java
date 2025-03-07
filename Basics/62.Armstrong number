@@ -1,0 +1,32 @@
+Write a Java function to check if a given number is an Armstrong number.
+
+Example:
+Input: 371
+Output: true
+
+Input: 123
+Output: false
+What is an Armstrong number?
+An Armstrong number is a number that is equal to the sum of its own digits each raised to the power of the number of digits.
+Example:
+371 is an Armstrong number because:
+3_3_3 + 7_7_7 + 1_1_1 = 27 + 343 + 1 = 371
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(armstrongOrNot(n));
+    }
+    public static boolean armstrongOrNot(int n){
+        int originalNumber = n;
+        int sum = 0;
+        while(n!=0){
+            int rem = n%10;
+            sum = sum + rem*rem*rem;
+            n/=10;
+        }
+        return (sum==originalNumber)? true : false;
+    }
+}
