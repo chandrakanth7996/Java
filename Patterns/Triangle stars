@@ -14,6 +14,38 @@ class HelloWorld {
     }
 }
 
+// 2nd solution
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        printPyramid(rows);
+    }
+
+    public static void printPyramid(int rows) {
+        for (int rowIndex = 0; rowIndex < rows; rowIndex++) {
+            printSpaces(rows, rowIndex);
+            printStars(rowIndex);
+            System.out.println();
+        }
+    }
+
+    public static void printSpaces(int rows, int rowIndex) {
+        for (int spaceIndex = rowIndex; spaceIndex < rows; spaceIndex++) {
+            System.out.print(" ");
+        }
+    }
+
+    public static void printStars(int rowIndex) {
+        for (int starIndex = 0; starIndex < (rowIndex * 2) + 1; starIndex++) {
+            System.out.print("*");
+        }
+    }
+}
+
+
 //output:
      *
     ***
