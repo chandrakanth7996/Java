@@ -1,0 +1,35 @@
+Find the Intersection of Two Arrays
+Problem Statement:
+Write a Java function to find the intersection of two arrays, i.e., the elements that are common to both arrays.
+Input:
+- Two arrays of integers, e.g., int[] arr1 = {1, 2, 3, 4, 5}; and int[] arr2 = {4, 5, 6, 7, 8};
+Output:
+- An array of integers representing the intersection of the two input arrays. For example:
+    - Input: int[] arr1 = {1, 2, 3, 4, 5}; and int[] arr2 = {4, 5, 6, 7, 8};
+    - Output: {4, 5}
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {1, 2, 3, 4, 5};
+        int[] arr2 = {4, 5, 6, 7, 8};
+        System.out.print(intersectionOfTwoArrays(arr1,arr2));
+    }
+    public static List<Integer> intersectionOfTwoArrays(int[] arr1,int[] arr2){
+        List<Integer> list = new ArrayList<>();
+        Set<Integer> hs = new HashSet<>();
+        for(int i=0;i<arr1.length;i++){
+            hs.add(arr1[i]);
+        }
+        
+        for(int i=0;i<arr2.length;i++){
+            if(hs.contains(arr2[i])){
+                list.add(arr2[i]);
+            } else {
+                hs.add(arr2[i]);
+            }
+        }
+        
+        return list;
+    }
+}
