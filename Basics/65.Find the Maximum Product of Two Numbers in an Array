@@ -1,0 +1,20 @@
+Find the Maximum Product of Two Numbers in an Array
+Problem Statement:
+Write a Java function to find the maximum product of two numbers in a given array.
+input: 
+int[] arr = {1, 20, 3, -10, 5};
+output: 100
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 20, 3, -10, 5};
+        System.out.print(maximumProductOfArray(arr));
+    }
+    public static int maximumProductOfArray(int[] arr){
+        Arrays.sort(arr);
+        int maxProduct = arr[arr.length-1]*arr[arr.length-2];
+        int minProduct = arr[0]*arr[1];
+        return Math.max(maxProduct,minProduct);
+    }
+}
