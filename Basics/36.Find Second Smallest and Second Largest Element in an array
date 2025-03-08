@@ -40,3 +40,16 @@ class Main {
         System.out.println(sortedArray(arr));
     }
 }
+
+// 3rd way of solution using in-build method
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,24,12,564,9};
+        System.out.print(secondLargestElement(arr));
+    }
+    public static int secondLargestElement(int[] arr){
+        Arrays.sort(arr);
+        return arr[arr.length-2];
+    }
+}
