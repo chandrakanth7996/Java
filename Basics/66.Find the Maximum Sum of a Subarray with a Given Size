@@ -44,3 +44,28 @@ class Main {
         return maxSum;
     }
 }
+// 2nd way of solution
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.print(maximumSubArray(arr, 3));
+    }
+
+    public static int maximumSubArray(int[] arr, int size) {
+        int maxSum = Integer.MIN_VALUE;
+        int windowSum = 0;
+        int left = 0;
+
+        for (int right = 0; right < arr.length; right++) {
+            windowSum += arr[right];
+
+            if (right - left + 1 == size) {
+                maxSum = Math.max(maxSum, windowSum);
+                windowSum -= arr[left];
+                left++;
+            }
+        }
+
+        return maxSum;
+    }
+}
