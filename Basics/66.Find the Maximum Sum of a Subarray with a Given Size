@@ -1,0 +1,46 @@
+Find the Maximum Sum of a Subarray with a Given Size
+
+Problem Statement:
+Write a Java function to find the maximum sum of a subarray with a given size.
+Input:
+- An array of integers, e.g., int[] arr = {1, 2, 3, 4, 5};
+- An integer representing the size of the subarray, e.g., int size = 3;
+Output:
+- The maximum sum of a subarray with the given size. For example:
+    - Input: int[] arr = {1, 2, 3, 4, 5}; and int size = 3;
+    - Output: 12 (because the subarray {3, 4, 5} has a sum of 12)
+
+Example Input-Output Pairs:
+| Input | Output |
+| --- | --- |
+| int[] arr = {1, 2, 3, 4, 5}; and int size = 3; | 12 |
+| int[] arr = {1, 2, 3, 4, 5}; and int size = 2; | 9 |
+| int[] arr = {1, 2, 3, 4, 5}; and int size = 1; | 5 |
+
+Constraints:
+- The input array will contain only integers.
+- The input array will not be empty.
+- The size of the subarray will be less than or equal to the length of the array.
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int size = 4;
+        System.out.print(maximumSubArray(arr,size));
+    }
+    public static int maximumSubArray(int[] arr,int size){
+        int l=0,r=0,currentSum=0;
+        int maxSum = Integer.MIN_VALUE;
+        for(int i=0;i<size;i++){
+            currentSum += arr[i];
+        }
+        maxSum = currentSum;
+        for(int i=size;i<arr.length;i++){
+            currentSum = currentSum-arr[i-size] + arr[i];
+            maxSum = Math.max(currentSum,maxSum);
+        }
+        return maxSum;
+    }
+}
