@@ -1,0 +1,67 @@
+Validate IP Address
+
+Problem Statement:
+Write a Java function to validate whether a given string is a valid IP address.
+Input:
+- A string representing an IP address, e.g., "192.168.0.1"
+Output:
+- A boolean value indicating whether the IP address is valid
+
+Example Input-Output Pairs:
+
+| Input | Output |
+| --- | --- |
+| "192.168.0.1" | true |
+| "255.255.255.255" | true |
+| "192.168.0" | false |
+| "192.168.0.256" | false |
+
+Constraints:
+
+- The input string will contain only digits and dots.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "192.168.0.256";
+        System.out.println(ipAddressValidation(str));
+    }
+    public static boolean ipAddressValidation(String str){
+        String[] parts = str.split("\\.");
+        if(parts.length!=4){
+            return false;
+        }
+        for(String part : parts){
+            if(part.isEmpty() || !part.matches("\\d+")){
+                return false;
+            }
+            int value = Integer.parseInt(part);
+            if(value<0 || value>255){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+Hint 1:
+- For the 3rd example, "192.168.0", you are correct that it has only 3 digit boxes, which is invalid. A valid IP address should have 4 digit boxes separated by dots.
+
+Hint 2:
+- For the 4th example, "192.168.0.256", the issue is that the last digit box contains a value greater than 255. In a valid IP address, each digit box should contain a value between 0 and 255.
+Here are some additional rules to keep in mind:
+
+- Each digit box should contain only digits (0-9).
+- Each digit box should contain a value between 0 and 255.
+- There should be exactly 4 digit boxes separated by dots.
+Hint 3:
+- When splitting the IP address into its digit boxes using the split() method, make sure to use the correct regular expression to match the dots. In this case, you can use "\\." to match the dots.
+
+Hint 4:
+- When checking if each digit box is valid, you can use a combination of the following conditions:
+    - Check if the digit box is empty.
+    - Check if the digit box contains any non-digit characters.
+    - Check if the digit box contains a value greater than 255.
+
+Hint 5:
+- You can use the Integer.parseInt() method to convert the digit box to an integer, and then check if it's within the valid range.
