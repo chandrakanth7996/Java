@@ -1,0 +1,39 @@
+Write a Java function to check if a given string or number is a palindrome.
+What is a Palindrome?
+A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward, ignoring spaces, punctuation, and capitalization.
+Examples:
+- String palindromes: "madam", "radar", "level"
+- Number palindromes: 12321, 34543, 98789
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "madam";
+        int n = 12321;
+        System.out.println(palindromeCheck(str,n));
+    }
+    public static String palindromeCheck(String str,int n){
+        if(palindromeString(str)){
+            return str+" is a palindrome";
+        }
+        if(palindromeNumber(n)){
+            return n+" is a palindrome";
+        }
+        return "Neither";
+    }
+    public static boolean palindromeString(String str){
+        StringBuilder s = new StringBuilder(str);
+        String res = s.reverse().toString();
+        return res.equals(str);
+    }
+    public static boolean palindromeNumber(int n){
+        int original = n;
+        int sum=0;
+        while(n!=0){
+            int rem = n%10;
+            sum = sum*10+rem;
+            n/=10;
+        }
+        return sum==original;
+    }
+}
