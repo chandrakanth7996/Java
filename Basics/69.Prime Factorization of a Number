@@ -1,0 +1,54 @@
+Prime Factorization of a Number:
+Problem Statement:
+Write a Java function to find the prime factorization of a given number.
+What is Prime Factorization?
+Prime factorization is the process of breaking down a composite number into its prime factors. A prime factor is a prime number that divides the original number evenly.
+Example:
+Input: 12
+Output: 2^2 * 3
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int n = 12;
+        System.out.println(primeFactorization(n));
+    }
+    public static String primeFactorization(int n){
+        Map<Integer,Integer> hm = new HashMap<>();                   //Create a HashMap to store the prime factors and their respective exponents
+        for(int i=2;i<=Math.sqrt(n);i++){                            //Iterate from 2 to sqrt(n) and check if n is divisible by i
+            while(n%i==0){                                          // While i divides n, divide n and count how many times i divides n
+                hm.put(i,hm.getOrDefault(i,0)+1);                    // Update the count for the prime factor i
+                n/=i;                                                // Divide n by i
+            }
+        }
+        if(n>1){                                                  // If n is still greater than 1, it means n is a prime factor
+            hm.put(n,1);
+        }
+        StringBuilder result = new StringBuilder();                            // Build the result string from the HashMap
+        for(Map.Entry<Integer,Integer> entry : hm.entrySet()){
+            result.append(entry.getKey()).append("^").append(entry.getValue()).append("*");    // Append the prime factor and its exponent in the format "prime^exponent*"
+        }
+        if (result.length() > 0) {
+            result.deleteCharAt(result.length() - 1);            // Remove the trailing "*" if exists
+        }
+        return result.toString();
+    }
+}
+
+Explanation:
+Example Walkthrough for n = 12:
+We loop through numbers starting from 2 to sqrt(12) ≈ 3.464.
+First iteration (i = 2):
+12 % 2 == 0: We divide 12 by 2, and hm.put(2, 1) is called (the prime factor 2 is encountered).
+Now n = 6, we divide 6 by 2, and hm.put(2, 2) is called (the prime factor 2 is encountered again).
+Now n = 3, exit the loop for i = 2.
+Second iteration (i = 3):
+3 % 3 == 0: We divide 3 by 3, and hm.put(3, 1) is called (the prime factor 3 is encountered).
+Now n = 1, exit the loop for i = 3.
+Since n = 1, no further factors are added, so the loop ends.
+The HashMap contains:
+{2=2, 3=1}
+The result string is built as: 2^2*3^1*
+After removing the trailing *, the final result is: "2^2*3^1"
+output: 2^2*3^1
