@@ -39,3 +39,22 @@ class HelloWorld {
         System.out.println(res);
     }
 }
+
+// Palindrome using recursion
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "madam";
+        System.out.println(recursivePalindrome(str));
+    }
+    public static boolean recursivePalindrome(String str){
+        if(str.length()<=1){
+            return true;
+        }
+        if(str.charAt(0)==str.charAt(str.length()-1)){
+            return recursivePalindrome(str.substring(1,str.length()-1));
+        }else{
+            return false;
+        }
+    }
+}
