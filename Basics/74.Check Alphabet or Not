@@ -1,0 +1,20 @@
+//Check Alphabet or Not
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        char ch = 's';
+        System.out.println(Character.isLetter(ch));
+    }
+}
+
+//2nd approach with user input
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0);
+        System.out.println("Is letter: " + Character.isLetter(ch));
+    }
+}
