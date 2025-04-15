@@ -1,0 +1,9 @@
+ASCII Value of a Character
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        char ch = 'f';
+        System.out.println((int)ch);            // 102
+    }
+}
