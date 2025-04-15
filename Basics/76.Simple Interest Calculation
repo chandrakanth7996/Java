@@ -1,0 +1,18 @@
+Compute simple interest given principal, rate, and time.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int p = 100000;
+        int t = 4;
+        int r = 2;
+        float totalInterest = (p*t*r)/100;
+        float monthlyInterest = totalInterest/(t*12);
+        System.out.println("Total interest: "+totalInterest);
+        System.out.println("Monthly interest: "+monthlyInterest);
+    }
+}
+
+output: 
+Total interest: 8000.0
+Monthly interest: 166.66667
