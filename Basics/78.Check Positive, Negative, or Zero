@@ -1,0 +1,23 @@
+Check Positive, Negative, or Zero | Classify a number as positive, negative, or zero.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,10,-12,0,15};
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>0){
+                System.out.println("It's positive integer: "+arr[i]);
+            }else if(arr[i]<0){
+                System.out.println("It's negative integer: "+arr[i]);
+            }else{
+                System.out.println("It's Zero: "+arr[i]);
+            }
+        }
+    }
+}
+output:
+It's positive integer: 1
+It's positive integer: 10
+It's negative integer: -12
+It's Zero: 0
+It's positive integer: 15
