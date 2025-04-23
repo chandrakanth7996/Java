@@ -1,0 +1,36 @@
+Find Square and Cube | Compute the square and cube of a given number
+
+// 1st approach
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println("Square of a number is: "+FindSquare(n));
+        System.out.println("Cube of a number is: "+FindCube(n));
+    }
+    public static int FindSquare(int n){
+        return n*n;
+    }
+    public static int FindCube(int n){
+        return n*n*n;
+    }
+}
+
+// 2nd way of solution using Math.pow
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int n = 10;
+        System.out.println("Square of a number is: " + findSquare(n));
+        System.out.println("Cube of a number is: " + findCube(n));
+    }
+
+    public static double findSquare(int n) {
+        return Math.pow(n, 2);
+    }
+
+    public static double findCube(int n) {
+        return Math.pow(n, 3);
+    }
+}
