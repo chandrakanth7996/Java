@@ -1,0 +1,25 @@
+Type Conversion | Convert int to double, double to int, etc.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int a = 65;
+        float b = (float)a;
+        double d = (double)a;
+        char ch = (char)a;
+        byte bt = (byte)a;
+        
+        System.out.println("int to float "+b);
+        System.out.println("int to char "+ch);
+        System.out.println("char to int "+(int)ch);
+        System.out.println("int to double "+d);
+        System.out.println("int to byte "+bt);
+    }
+}
+
+output:
+int to float 65.0
+int to char A
+char to int 65
+int to double 65.0
+int to byte 65
