@@ -15,3 +15,30 @@ class HelloWorld {
         System.out.println(sum);
     }
 }
+
+
+// Sum of Odd and Even Digits | Find the sum of even and odd digits in a number.
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int n = 234;
+       System.out.println(sumOfEvenAndOdd(n));
+    }
+    public static String sumOfEvenAndOdd(int n){
+        int evenSum=0;
+        int oddSum=0;
+        while(n!=0){
+            int rem = n%10;
+            if(rem%2==0){
+                evenSum+=rem;
+            }else{
+                oddSum+=rem;
+            }
+            n/=10;
+        }
+        return "Sum of even numbers: "+evenSum+" \nSum of odd numbers: "+oddSum;
+    }
+}
+output: 
+Sum of even numbers: 6 
+Sum of odd numbers: 3
