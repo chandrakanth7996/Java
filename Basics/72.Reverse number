@@ -14,3 +14,36 @@ class Main {
         System.out.println("Reverse number: "+reverse);
     }
 }
+
+// Reverse elements of an array
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {10,12,13,14};
+       int[] reverse = reverseNumber(arr);
+       for(int n : reverse){
+           System.out.print(n+" ");
+       }
+    }
+    public static int[] reverseNumber(int[] arr){
+        int[] reversed = new int[arr.length];
+        for(int i=0;i<arr.length;i++){
+            reversed[i]=arr[arr.length-1-i];
+        }
+        return reversed;
+    }
+}
+
+//2nd way of solution
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int[] arr = {10,12,13,14};
+       reverseNumber(arr);
+    }
+    public static void reverseNumber(int[] arr){
+        for(int i=arr.length-1;i>=0;i--){
+            System.out.print(arr[i]+" ");
+        }
+    }
+}
