@@ -28,3 +28,23 @@ class Main {
     }
 }
 output: HexDecimal to decimal: 419
+
+//Convert Decimal to Octal | Convert a decimal number to octal.
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+      int n = 123;
+      System.out.println("Decimal to octal: "+ Integer.toOctalString(n));
+    }
+}
+output: Decimal to octal: 173
+
+//Convert Decimal to Hexadecimal | Convert a decimal number to hexadecimal.
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+      int n = 419;
+      System.out.println("Decimal to Hex: "+ Integer.toHexString(n));
+    }
+}
+output: Decimal to octal: 1a3
