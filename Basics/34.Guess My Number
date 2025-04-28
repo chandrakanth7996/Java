@@ -55,6 +55,16 @@ class Main {
 }
 
 output: 
-50
-100
-Random number between 50 and 100 is 78
+5
+10
+Random number between 5 and 10 is 8
+
+Calculation
+- min = 5
+- max = 10
+- max - min + 1 = 10 - 5 + 1 = 6
+- random.nextInt(6) generates a random number between 0 and 5 (inclusive).
+- Let's say the generated random number is 3.
+- rand = 3 + min = 3 + 5 = 8
+
+So, the random number generated was 3, and when added to the minimum value 5, it resulted in 8.
