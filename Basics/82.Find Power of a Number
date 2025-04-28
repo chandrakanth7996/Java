@@ -1,0 +1,30 @@
+Find Power of a Number | Compute a^b (a raised to power b) without using Math.pow(). |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int base=2;
+       int exp = 5;
+       System.out.println(base + "^" + exp + " = " +power(base,exp));
+    }
+    public static long power(int base,int exp){
+        long result = 1;
+        for(int i=0;i<exp;i++){
+            result *= base;
+        }
+        return result;
+    }
+}
+
+// 2nd solution using Math.pow()
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+       int base=2;
+       int exp = 5;
+       System.out.println(base + "^" + exp + " = " +power(base,exp));
+    }
+    public static double power(int base,int exp){
+        return Math.pow(base,exp);
+    }
+}
