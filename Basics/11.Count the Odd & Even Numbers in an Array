@@ -1,23 +1,29 @@
-Write a program that takes an array of integers and counts how many of them are odd & even numbers.
+Write a program that takes an array of integers and counts and sum of how many of them are odd & even numbers.
 
 Example
 Input: {3, 2, 4, 7, 10}
-Output: even : 16, odd : 10
 
 import java.util.*;
-class HelloWorld {
+class Main {
     public static void main(String[] args) {
-        int[] arr = {3, 2, 4, 7, 10};
-        int n = arr.length;
-        int sumEven=0,sumOdd=0;
-        for(int i=0;i<n;i++){
+      int[] arr = {3, 2, 4, 7, 10};
+        int sumEven=0,sumOdd=0,countEven=0,countOdd=0;
+        for(int i=0;i<arr.length;i++){
             if(arr[i]%2==0){
                 sumEven+=arr[i];
+                countEven++;
             } else {
                 sumOdd+=arr[i];
+                countOdd++;
             }
         }
-        System.out.println("Sum of Even numbers: "+sumEven);
-        System.out.println("Sum of Odd numbers: "+sumOdd);
+        System.out.println("Even Count: "+ countEven);
+        System.out.println("Even Sum: "+ sumEven);
+        System.out.println("Odd Count: "+ countOdd);
+        System.out.println("Odd Sum: "+ sumOdd);
     }
 }
+output: Even Count: 3
+Even Sum: 16
+Odd Count: 2
+Odd Sum: 10
