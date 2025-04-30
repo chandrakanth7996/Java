@@ -16,7 +16,6 @@ class Main {
     }
     public static int isDuplicate(int[] arr){
         HashSet<Integer> hs = new HashSet<>();
-        List<Integer> list = new ArrayList<>();
         for(int num : arr){
             if(hs.contains(num)){
                 return num;
