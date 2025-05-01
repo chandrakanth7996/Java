@@ -24,3 +24,14 @@ class Main {
        }
     }
 }
+
+Algorithm:
+Initialize an empty map hm to store <sorted_string, list_of_anagrams>.
+For each word in the input array:
+Convert the word to a character array.
+Sort the character array.
+Convert the sorted array back to a string → sorted_string.
+If sorted_string not in hm, add it with an empty list.
+Append the original word to the list at hm[sorted_string].
+After processing all words, iterate over the map’s values.
+Print each list of anagrams.
