@@ -1,0 +1,21 @@
+Count Vowels & Consonants | Count the number of vowels and consonants in a string using a loop.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = "Hello";
+        int countVowels=0;
+        int countConsonants=0;
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' ||ch=='o' || ch=='O' || ch=='u' || ch=='U'){
+                countVowels++;
+            }else{
+                countConsonants++;
+            }
+        }
+        System.out.println("Vowel count: "+countVowels);
+        System.out.println("Consonant count: "+countConsonants);
+    }
+}
