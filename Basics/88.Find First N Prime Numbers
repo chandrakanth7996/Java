@@ -1,0 +1,32 @@
+Find First N Prime Numbers | Print the first N prime numbers using nested loops.
+example: we want the first 5 prime numbers, no matter how big they are — not all primes less than 5.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int count = 0;
+        int num=2;
+        while(count<n){
+            boolean isPrime = true;
+            for(int j=2;j<=Math.sqrt(num);j++){
+                if(num%j==0){
+                    isPrime = false;
+                    break;
+                }
+            }
+            if(isPrime){
+                System.out.print(num+" ");
+                count++;
+            }
+            num++;
+        }
+        System.out.println("\nCount: "+count);
+    }
+}
+
+output:
+5
+2 3 5 7 11 
+Count: 5
