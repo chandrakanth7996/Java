@@ -1,0 +1,22 @@
+Swap Two Numbers (Function) | Implement a function that swaps two numbers using a third variable. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println("Swap numbers using Third Variable: "+swapUsingThirdVariable(a,b));
+    }
+    public static String swapUsingThirdVariable(int a,int b){
+        int c = a;
+        a=b;
+        b=c;
+        return a+" "+b;
+    }
+}
+
+output:
+10
+20
+Swap numbers using Third Variable: 20 10
