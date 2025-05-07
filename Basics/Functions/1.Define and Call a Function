@@ -1,0 +1,15 @@
+Define and Call a Function | Write a function that prints "Hello, World!" and call it. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        msg();
+    }
+    public static void msg(){
+        String str = "Hello World!";
+        System.out.println(str);
+    }
+}
+
+output:
+Hello World!
