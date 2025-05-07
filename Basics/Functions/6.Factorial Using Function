@@ -1,0 +1,40 @@
+Factorial Using Function | Implement a function to compute the factorial of a number. 
+
+//1nd way of solution using while loop
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("Factorial of the number: "+factorial(n));
+    }
+    public static int factorial(int n){
+        int fact=1;
+        while(n!=0){
+            fact = fact*n;
+            n--;
+        }
+        return fact;
+    }
+}
+
+//2nd way of solution using for loop
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("Factorial of the number: "+factorial(n));
+    }
+    public static int factorial(int n){
+        int fact=1;
+        for(int i=1;i<=n;i++){
+            fact*=i;
+        }
+        return fact;
+    }
+}
+
+outupt:
+5
+Factorial of the number: 120
