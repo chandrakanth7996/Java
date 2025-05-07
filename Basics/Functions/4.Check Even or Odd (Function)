@@ -1,0 +1,17 @@
+Check Even or Odd (Function) | Implement a function that checks whether a number is even or odd.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(evenOrOdd(n));
+    }
+    public static String evenOrOdd(int n){
+        return n%2==0? "Even" : "Odd";
+    }
+}
+
+output:
+11
+Odd
