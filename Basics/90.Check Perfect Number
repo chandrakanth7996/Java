@@ -1,0 +1,35 @@
+Check Perfect Number | Check if a number is a perfect number using loops. |
+- Input: 6 (1 + 2 + 3 = 6, so it's a perfect number)
+- Input: 28 (1 + 2 + 4 + 7 + 14 = 28, so it's a perfect number)
+- Input: 12 (1 + 2 + 3 + 4 + 6 = 16, not equal to 12, so it's not a perfect number)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int original = n;
+        int sum=0;
+        for(int i=1;i<n;i++){
+            if(n%i==0){
+                sum+=i;
+            }
+        }
+        if(original == sum){
+            System.out.println("Perfect number");
+        }else{
+            System.out.println("Not a perfect number");
+        }
+    }
+}
+
+output:
+16
+Not a perfect number
+
+summary:
+1. You take an integer input n from the user.
+2. You iterate through all numbers from 1 to n-1 and check if i is a divisor of n.
+3. If i is a divisor, you add it to the sum.
+4. After the loop, you compare the original number with the sum of divisors.
+5. If they are equal, you print "Perfect number", otherwise "Not a perfect number".
