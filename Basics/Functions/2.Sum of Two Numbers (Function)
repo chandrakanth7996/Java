@@ -1,0 +1,19 @@
+Sum of Two Numbers (Function) | Implement a function that takes two numbers as parameters and returns their sum. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println("Sum of two numbers: "+ sumOfTwoNumbers(a,b));
+    }
+    public static int sumOfTwoNumbers(int a,int b){
+        return a+b;
+    }
+}
+
+output:
+10
+20
+Sum of two numbers: 30
