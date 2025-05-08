@@ -1,0 +1,67 @@
+// LCM
+
+steps: 1) find the GCD for two numbers
+       2) then find the LCM 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your 1st number");
+        int a = sc.nextInt();
+        System.out.println("Enter your 2nd number");
+        int b =sc.nextInt();
+        
+        System.out.println("LCM is: "+ (a*b)/gcd(a,b));      // LCM (least common multiple)
+        
+    }
+    public static int gcd(int a,int b){                  // GCD (Greatest common divisor)
+        while(b!=0){
+            int temp = b;
+            b = a%b;
+            a = temp;
+        }
+        return a;
+    }
+}
+
+
+// GCD
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println(gcd(a,b));
+    }
+    public static int gcd(int a,int b){
+        while(b!=0){
+            int temp = b;
+            b=a%b;
+            a=temp;
+        }
+        return a;
+    }
+}
+
+// GCD recursive approach
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println(gcd(a,b));
+    }
+    public static int gcd(int a,int b){
+        if(b==0){
+            return a;
+        }
+        return gcd(b,a%b);
+    }
+}
+output:
+48
+18
+6
