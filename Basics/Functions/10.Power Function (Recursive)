@@ -1,0 +1,24 @@
+Power Function (Recursive) | Implement a recursive function to compute `a^b` (a raised to power b). 
+Input: 
+2^3 = 8
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();          // base
+        int b = sc.nextInt();          // exponent
+        System.out.println(powerFunction(a,b));
+    }
+    public static int powerFunction(int a,int b){
+        if(b==0){
+            return 1;
+        }
+        return a*powerFunction(a,b-1);
+    }
+}
+
+output:
+2
+3
+8
