@@ -1,0 +1,22 @@
+Reverse a Number Using Recursion | Implement a recursive function to reverse a number. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println("Reverse number: "+reverseNumber(n,0));
+    }
+    public static int reverseNumber(int n,int result){
+        if(n==0){
+            return result;
+        }
+        int rem = n%10;
+        result = result*10 + rem;
+        return reverseNumber(n/10,result);
+    }
+}
+
+output:
+4321
+Reverse number: 1234
