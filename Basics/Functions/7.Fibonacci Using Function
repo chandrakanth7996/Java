@@ -22,3 +22,30 @@ class Main {
 output:
 10
 0 1 1 2 3 5 8 
+
+
+// Fibonacci Using Recursion | Implement a recursive function to generate Fibonacci numbers.
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for(int i=0;i<n;i++){
+            System.out.print(fibonacci(i)+" ");
+        }
+    }
+    public static int fibonacci(int n){
+        if(n==0){
+            return 0;
+        }
+        if(n==1){
+            return 1;
+        }
+        return fibonacci(n-1)+(n-2);
+    }
+}
+
+summary:
+The fibonacci function calls itself to calculate fibonacci(n - 1) and fibonacci(n - 2).
+It continues doing this until it reaches the base cases: fibonacci(0) and fibonacci(1).
+It then adds up all the results while returning from the recursive calls.
