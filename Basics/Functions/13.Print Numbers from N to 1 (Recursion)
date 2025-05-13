@@ -1,0 +1,21 @@
+Print Numbers from N to 1 (Recursion) | Implement a recursive function to print numbers from N to 1. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        recursionNumbers(n);
+    }
+    public static void recursionNumbers(int n){
+        if(n<=0){
+            return;
+        }
+        System.out.print(n+" ");
+        recursionNumbers(n-1);
+    }
+}
+
+output:
+20
+20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
