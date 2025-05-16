@@ -27,3 +27,33 @@ output:
 234
 543
 Maximum number in array: 543
+
+
+//Find Minimum in an Array (Recursion) | Implement a recursive function to find the smallest element in an array.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<arr.length;i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Minimum number in array: "+minArray(arr,0));
+    }
+    public static int minArray(int[] arr,int index){
+        if(index==arr.length-1){
+            return arr[index];
+        }
+        return Math.min(arr[index],minArray(arr,index+1));
+    }
+    
+}
+
+output:
+3
+12
+13
+432
+Minimum number in array: 12
