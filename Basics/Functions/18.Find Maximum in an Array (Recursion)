@@ -1,0 +1,29 @@
+Find Maximum in an Array (Recursion) | Implement a recursive function to find the largest element in an array. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<arr.length;i++){
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Maximum number in array: "+maxArray(arr,0));
+    }
+    public static int maxArray(int[] arr,int index){
+        if(index==arr.length-1){
+            return arr[index];
+        }
+        return Math.max(arr[index],maxArray(arr,index+1));
+    }
+    
+}
+
+output:
+4
+12
+134
+234
+543
+Maximum number in array: 543
