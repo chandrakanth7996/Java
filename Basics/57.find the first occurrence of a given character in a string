@@ -38,3 +38,6 @@ class Main {
         return str.indexOf(ch);
     }
 }
+
+output:
+Character o found at index 4
