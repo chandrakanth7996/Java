@@ -63,3 +63,21 @@ Condition Check:
 The condition (n & (n - 1)) == 0 is true because the result of 1000 & 0111 is 0.
 Additionally, n != 0 is also true because n = 8.
 Output: true
+
+
+
+
+Example Runs:
+Input 1: 16
+n = 16 (which is 2^4)
+* The binary representation of `16` is `10000`, and 16 - 1 = 15 (binary: `01111`).
+* 16 & 15 = 10000 & 01111 = 00000, so the result is `true`.
+* Output: true
+
+Input 2:  18
+n = 18 (not a power of 2)
+* The binary representation of `18` is `10010`, and 18 - 1 = 17 (binary: `10001`).
+* 18 & 17 = 10010 & 10001 = 10000, so the result is `false`.
+* Output: false
+
+
