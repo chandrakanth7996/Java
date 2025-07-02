@@ -47,3 +47,35 @@ class Main {
         }
     }
 }
+
+// Reverse number to handle negative numbers and positive numbers
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        System.out.println(reverseNumber());
+    }
+    public static int reverseNumber(){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int rev = 0;
+        
+        boolean isNegative = n<0;        // Handle negative numbers
+        n = Math.abs(n);
+        
+        while(n!=0){
+            int rem = n%10;
+            rev = rev*10 + rem;
+            n/=10;
+        }
+        
+        if(isNegative){                // If the original number was negative, return the reversed number as negative
+            rev = -rev;
+        }
+        
+        return rev;
+    }
+}
+
+output:
+-123
+-321
