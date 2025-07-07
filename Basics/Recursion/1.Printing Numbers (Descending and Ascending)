@@ -20,6 +20,21 @@ class Main {
         }
 }
 
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        printDescending(n);
+    }
+    public static void printDescending(int n){
+        if(n==0) return;
+        System.out.print(n+" ");
+        printDescending(n-1);
+        }
+}
+
+
 output:
 5 4 3 2 1 
 
@@ -29,6 +44,20 @@ import java.util.*;
 class Main {
     public static void main(String[] args) {
         printAscending(3);
+    }
+    public static void printAscending(int n){
+        if(n==0) return;
+        printAscending(n-1);
+        System.out.print(n+" ");
+        }
+}
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        printAscending(n);
     }
     public static void printAscending(int n){
         if(n==0) return;
