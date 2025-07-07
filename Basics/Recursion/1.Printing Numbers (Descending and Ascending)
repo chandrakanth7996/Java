@@ -1,0 +1,24 @@
+What is Recursion?
+Recursion is when a method calls itself to solve a smaller version of a problem.
+
+3 Key Rules of Recursion:
+Base Case – the condition when recursion should stop.
+Recursive Case – where the method calls itself.
+Progress – each recursive call should move toward the base case.
+
+1: Print numbers from 5 to 1
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        printDescending(5);
+    }
+    public static void printDescending(int n){
+        if(n==0) return;                    // Base case
+        System.out.print(n+" ");
+        printDescending(n-1);                // Recursive call
+        }
+}
+
+output:
+5 4 3 2 1 
