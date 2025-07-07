@@ -22,3 +22,32 @@ class Main {
 
 output:
 5 4 3 2 1 
+
+
+2. Print numbers from 1 to 3
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        printAscending(3);
+    }
+    public static void printAscending(int n){
+        if(n==0) return;
+        printAscending(n-1);
+        System.out.print(n+" ");
+        }
+}
+
+output:
+1 2 3 
+
+explanation:
+Calling:
+printAscending(3)
+ └── printAscending(2)
+      └── printAscending(1)
+           └── printAscending(0) → STOP
+
+Coming back:
+           ← print 1
+      ← print 2
+ ← print 3
