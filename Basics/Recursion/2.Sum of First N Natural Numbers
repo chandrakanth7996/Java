@@ -1,0 +1,19 @@
+Find Sum of First N Natural Numbers
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int sum = sumOfNumbers(n);
+        System.out.println(sum);
+    }
+    public static int sumOfNumbers(int n){
+        if(n==0) return 0;
+        return n+sumOfNumbers(n-1);
+        }
+}
+
+output:
+5
+15
