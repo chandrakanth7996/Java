@@ -1,0 +1,18 @@
+Find an Element in Array Using Recursion
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5};
+        int target = 5;
+        System.out.println(findElement(arr,0,target));
+    }
+    public static boolean findElement(int[] arr,int index,int target){
+        if(index==arr.length) return false;           // Base case: reached end
+        if(arr[index]==target) return true;          // Found target
+        return findElement(arr,index+1,target);      // Keep searching
+    }
+}
+
+output:
+true
