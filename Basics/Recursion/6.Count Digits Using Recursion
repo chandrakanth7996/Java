@@ -1,0 +1,47 @@
+Count Digits Using Recursion | Implement a recursive function to count the number of digits in a number.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(countDigitsRecursion(n));
+    }
+    public static int countDigitsRecursion(int n){
+        if(n==0) return 0;
+        return 1+countDigitsRecursion(n/10);
+    }
+}
+
+output:
+7654
+4
+
+
+Explanation:
+For input 12345:
+First call: countDigitsRecursion(12345)
+We're processing 12345 — we add 1 for this digit.
+Now we call the function again with 12345 / 10 = 1234.
+Second call: countDigitsRecursion(1234)
+We're processing 1234 — add 1 for this digit.
+Now we call the function again with 1234 / 10 = 123.
+Third call: countDigitsRecursion(123)
+We're processing 123 — add 1 for this digit.
+Now we call the function again with 123 / 10 = 12.
+Fourth call: countDigitsRecursion(12)
+We're processing 12 — add 1 for this digit.
+Now we call the function again with 12 / 10 = 1.
+Fifth call: countDigitsRecursion(1)
+We're processing 1 — add 1 for this digit.
+Now we call the function again with 1 / 10 = 0.
+Sixth call: countDigitsRecursion(0)
+We've reached 0 — this is our base case, so return 0.
+
+Now, let’s unwind the recursion:
+The sixth call returns 0 (because of the base case if (n == 0) return 0).
+The fifth call adds 1 + 0 (for digit 1), returning 1.
+The fourth call adds 1 + 1 (for digit 2), returning 2.
+The third call adds 1 + 2 (for digit 3), returning 3.
+The second call adds 1 + 3 (for digit 4), returning 4.
+The first call adds 1 + 4 (for digit 5), returning 5.
