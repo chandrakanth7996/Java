@@ -1,0 +1,15 @@
+Convert Uppercase to Lowercase (Function) | Implement a function to convert an uppercase letter to lowercase.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "HELLOWORLD";
+        System.out.println(upperCaseToLowerCase(str));
+    }
+    public static String upperCaseToLowerCase(String str){
+        return str.toLowerCase();
+    }
+}
+
+output:
+helloworld
