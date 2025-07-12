@@ -48,3 +48,17 @@ class Main {
     }
 }
 output: Decimal to octal: 1a3
+
+
+// Decimal to Binary
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int n = 10;
+        String res = Integer.toBinaryString(n);
+        System.out.println(Integer.parseInt(res));
+    }
+}
+
+output:
+1010
