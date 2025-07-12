@@ -1,0 +1,27 @@
+Check Perfect Number (Function) | Implement a function to check whether a number is perfect.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(perfectNumber(n));
+    }
+    public static boolean perfectNumber(int n){
+        int sum = 0;
+        int original = n;
+        for(int i=1;i<=n/2;i++){
+            if(n%i==0){
+                sum += i;
+            }
+        }
+        return original==sum;
+    }
+}
+
+output:
+28
+true
+
+Explanation:
+1 + 2 + 4 + 7 + 14 = 28 → true
