@@ -1,0 +1,29 @@
+Sum of Even & Odd Numbers (Function) | Implement a function to compute the sum of even and odd numbers separately.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(evenOrOdd(n));
+    }
+    public static String evenOrOdd(int n){
+        int evenSum=0;
+        int oddSum=0;
+        int rem=0;
+        while(n!=0){
+            rem = n%10;
+            if(rem%2==0){
+                evenSum += rem;
+            }else{
+                oddSum += rem;
+            }
+            n/=10;
+        }
+        return "Sum of even is: "+evenSum+" and Sum of odd is: "+oddSum;
+    }
+}
+
+output:
+123123
+Sum of even is: 4 and Sum of odd is: 8
