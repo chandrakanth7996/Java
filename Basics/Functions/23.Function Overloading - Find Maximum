@@ -1,0 +1,33 @@
+Function Overloading - Find Maximum | Implement function overloading to find maximum of two, three, and four numbers.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        System.out.println("Maximum of two numbers: "+findMax(a,b));
+        System.out.println("Maximum of three numbers: "+findMax(a,b,c));
+        System.out.println("Maximum of four numbers: "+findMax(a,b,c,d));
+    }
+    public static int findMax(int a,int b){
+        return Math.max(a,b);
+    }
+    public static int findMax(int a,int b,int c){
+        return Math.max(a,Math.max(b,c));
+    }
+    public static int findMax(int a,int b,int c,int d){
+        return Math.max(a,(Math.max(b,Math.max(c,d))));
+    }
+}
+
+output:
+10
+20
+30
+40
+Maximum of two numbers: 20
+Maximum of three numbers: 30
+Maximum of four numbers: 40
