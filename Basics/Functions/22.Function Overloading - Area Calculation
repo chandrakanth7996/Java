@@ -1,0 +1,33 @@
+ Function Overloading - Area Calculation | Implement function overloading to compute area of square, rectangle, and circle.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int length = sc.nextInt();
+        int breadth = sc.nextInt();
+        int side = sc.nextInt();
+        double radius = sc.nextDouble();
+        System.out.println("Area of rectangle: "+print(length,breadth));
+        System.out.println("Area of square: "+print(side));
+        System.out.println("Area of circle: "+print(radius));
+    }
+    public static int print(int l,int b){
+        return l*b;
+    }
+    public static int print(int s){
+        return s*s;
+    }
+    public static double print(double r){
+        return Math.PI*r*r;
+    }
+}
+
+output:
+10
+20
+5
+5
+Area of rectangle: 200
+Area of square: 25
+Area of circle: 78.53981633974483
