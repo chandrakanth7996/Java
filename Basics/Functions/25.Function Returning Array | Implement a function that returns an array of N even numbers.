@@ -1,0 +1,24 @@
+Function Returning Array | Implement a function that returns an array of N even numbers. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] evenArray = getEvenNumbers(n);
+        System.out.println("Even numbers in Array: "+Arrays.toString(evenArray));
+    }
+    public static int[] getEvenNumbers(int n){
+        int[] result = new int[n];            //Create an empty array that can hold 'n' numbers
+        int num=2;                            //Start with the first even number, which is 2
+        for(int i=0;i<n;i++){
+            result[i] = num;                   //Add the current even number to the array
+            num+=2;                            //Jump to the next even number (2 → 4 → 6 → 8 → ...)
+        }
+        return result;
+    }
+}
+
+output:
+5
+Even numbers in Array: [2, 4, 6, 8, 10]
