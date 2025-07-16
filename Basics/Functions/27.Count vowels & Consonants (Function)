@@ -1,0 +1,54 @@
+Count Vowels in a String (Function) | Implement a function to count vowels in a given string.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        System.out.println("Vowel count: "+ vowelCount(str));
+    }
+    public static int vowelCount(String str){
+        Set<Character> hs = new HashSet<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+        int count=0;
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(hs.contains(ch)){
+                count++;
+            }
+        }
+        return count;
+    }
+    
+}
+
+output:
+Hello world
+Vowel count: 2
+
+
+// Count Consonants in a String (Function) | Implement a function to count consonants in a given string.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.next();
+        System.out.println("consonants count: "+ consonantsCount(str));
+    }
+    public static int consonantsCount(String str){
+        Set<Character> hs = new HashSet<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+        int count=0;
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(Character.isLetter(ch) && !hs.contains(ch)){
+                count++;
+            }
+        }
+        return count;
+    }
+    
+}
+
+output:
+Education
+consonants count: 4
