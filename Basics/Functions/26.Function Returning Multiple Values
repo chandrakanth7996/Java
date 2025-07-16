@@ -1,0 +1,33 @@
+Function Returning Multiple Values | Implement a function that returns multiple values using an array or object. 
+
+import java.util.*;
+class DividendResult{
+    int quotient;
+    int remainder;
+    DividendResult(int quotient, int remainder){
+        this.quotient = quotient;
+        this.remainder = remainder;
+    }
+    @Override
+    public String toString() {
+        return "Quotient: " + quotient + ", Remainder: " + remainder;
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println("Multiples values-> "+returningMultipleValues(a,b));
+    }
+    public static DividendResult returningMultipleValues(int a, int b) {
+        int rem = a % b;
+        int quo = a / b;
+        return new DividendResult(quo, rem);
+    }
+}
+
+output:
+12
+5
+Multiples values-> Quotient: 2, Remainder: 2
