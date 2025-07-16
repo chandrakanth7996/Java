@@ -1,0 +1,26 @@
+Convert String to Title Case (Function) | Implement a function to convert a string to title case (first letter capital).
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        System.out.println("Title case String:  "+ titleCase(str));
+    }
+    public static String titleCase(String str){
+        String[] words = str.split(" ");
+        StringBuilder result = new StringBuilder();
+        for(String word : words){
+            if(word.length()>0){
+                String titleWord = word.substring(0,1).toUpperCase() + word.substring(1).toLowerCase();
+                result.append(titleWord).append(" ");
+            }
+        }
+        return result.toString().trim();
+    }
+    
+}
+
+output:
+java IS aWeSoMe
+Title case String:  Java Is Awesome
