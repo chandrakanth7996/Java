@@ -1,0 +1,32 @@
+Check Pangram (Function) | Implement a function to check if a string contains all alphabets. 
+
+A pangram is a sentence that contains every letter of the alphabet at least once.
+Logic:
+Convert the string to lowercase (to treat A the same as a).
+Create a set of all 26 lowercase letters: a to z.
+Check if each letter from this set is present in the input string.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        System.out.println(pangramString(str));
+    }
+    public static boolean pangramString(String str){
+        Set<Character> hs = new HashSet<>();
+        str = str.toLowerCase();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(ch>='a' && ch<='z'){
+                hs.add(ch);
+            }
+        }
+        return hs.size()==26;
+    }
+    
+}
+
+output:
+The quick brown fox jumps over a lazy dog
+true
