@@ -1,0 +1,18 @@
+Recursively Find Sum of First N Even Numbers | Implement a recursive function to compute the sum of first N even numbers.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(recursiveEvenNumbers(n));
+    }
+    public static int recursiveEvenNumbers(int n){
+        if(n==0) return 0;
+        return 2 * n+recursiveEvenNumbers(n-1);
+    }
+}
+
+output:
+5
+30
