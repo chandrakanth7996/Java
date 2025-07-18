@@ -1,0 +1,26 @@
+Count Characters in String (Function) | Implement a function to count occurrences of a specific character in a string.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        char ch =sc.next().charAt(0);
+        System.out.println("Count characters in a string: "+ countCharacters(str,ch));
+    }
+    public static int countCharacters(String str,char ch){
+        int count = 0;
+        for(int i=0;i<str.length();i++){
+            char ch1 = str.charAt(i);
+            if(ch1==ch){
+                count++;
+            }
+        }
+        return count;
+    }
+}
+
+output:
+Hello world
+l
+Count characters in a string: 3
