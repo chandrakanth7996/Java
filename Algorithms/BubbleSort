@@ -11,6 +11,7 @@ If the first element is larger than the next element, swap them.
 Move to the next pair of adjacent elements, and repeat step 2.
 At the end of the pass, the largest element has "bubbled" to the end of the array.
 Repeat the process for the remaining elements, ignoring the last sorted elements.
+Stop when no more swaps are needed, indicating that the array is sorted.
 
 
 import java.util.*;
