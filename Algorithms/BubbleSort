@@ -13,6 +13,33 @@ At the end of the pass, the largest element has "bubbled" to the end of the arra
 Repeat the process for the remaining elements, ignoring the last sorted elements.
 Stop when no more swaps are needed, indicating that the array is sorted.
 
+ Time Complexity of Bubble Sort:
+1. Best Case: O(n)
+   If the array is already sorted, the algorithm will only need one pass to confirm that no swaps are needed. 
+    This is the best case scenario where the array is already in order.
+
+2. Worst Case: O(n²)
+   In the worst case (when the array is sorted in reverse order), the algorithm will need to perform n-1 passes, and in each pass, 
+    it will compare every element with the next one. Thus, the time complexity becomes O(n^2).
+
+3. Average Case: O(n²)
+   On average, bubble sort will still need to perform n-1 passes, with each pass requiring n-i-1 comparisons (where `i` is the current pass number). 
+    Therefore, the average time complexity is also O(n^2).
+
+ Space Complexity:
+ Space Complexity: O(1)
+  Bubble sort is an in-place sorting algorithm, meaning it does not require any extra space (other than a temporary variable for swapping). 
+    It sorts the array by modifying it directly.
+
+ Advantages of Bubble Sort:
+1. Simple to understand and implement.
+2. In-place sorting (no extra memory required).
+3. It can be a good choice for small datasets or educational purposes.
+
+ Disadvantages of Bubble Sort:
+1. **Inefficient** for large datasets. Its time complexity of $O(n^2)$ makes it slow for large arrays.
+2. Many optimized algorithms like Quick Sort or Merge Sort perform much better in practice.
+
 
 import java.util.*;
 class HelloWorld {
