@@ -1,4 +1,15 @@
-package JavaPrograms;
+What is Binary Search?
+Binary Search is a fast way to find an item in a sorted list (like a list of numbers). Instead of checking each item one by one, 
+it divides the list in half and keeps narrowing down where the item could be.
+
+How Does Binary Search Work?
+Imagine you have a sorted list of numbers, and you want to find a specific number. Here's what happens:
+Start with the whole list: Look at the middle number.
+Compare it with your target:
+If the middle number is exactly what you're looking for, you're done! You found it.
+If the middle number is smaller than what you're looking for, your target must be on the right side of the list, so you ignore the left side.
+If the middle number is larger than what you're looking for, your target must be on the left side of the list, so you ignore the right side.
+Repeat the process: Now you’re only looking at half of the list, and you repeat step 1.
 
 public class BinarySearch {
 
@@ -27,3 +38,31 @@ public class BinarySearch {
 		}
 		return -1;
 	}
+
+
+// 2nd way
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {12,13,43,67,90};
+        int n = 13;
+        System.out.println(binarySearch(arr));
+    }
+    public static int binarySearch(int[] arr){
+        int target = 67;
+        int start = 0;
+        int end = arr.length-1;
+        while(start<=end){
+            int mid = start + (end-start)/2;
+            
+            if(arr[mid]<target){
+                start = mid + 1;
+            }else if(arr[mid]>target){
+                end = mid - 1;
+            }else {
+                return mid;
+            }
+        }
+        return -1;
+    }
+}
