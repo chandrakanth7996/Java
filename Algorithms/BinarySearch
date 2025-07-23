@@ -45,7 +45,6 @@ import java.util.*;
 class Main {
     public static void main(String[] args) {
         int[] arr = {12,13,43,67,90};
-        int n = 13;
         System.out.println(binarySearch(arr));
     }
     public static int binarySearch(int[] arr){
