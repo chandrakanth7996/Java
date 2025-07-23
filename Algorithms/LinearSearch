@@ -1,4 +1,24 @@
-package JavaPrograms;
+What is Linear Search?
+Linear Search is the simplest search algorithm. It is used to find an element in an unordered or unsorted list by checking each element one by one, 
+starting from the first element and going through each subsequent element until the desired item is found or the list is completely searched.
+
+How Does Linear Search Work?
+Imagine you have an array or list of items, and you want to find a specific item. With linear search, you would:
+Start at the first element in the list.
+Compare the current element with the item you're looking for (called the "search element").
+If the current element is equal to the search element, return its index.
+If the current element is not equal, move to the next element and repeat the comparison.
+Continue this process until:
+You find the element and return its index, or
+You've gone through the entire list and the element isn't found, in which case you return -1 (indicating "not found").
+
+ime Complexity
+Best Case (O(1)): If the element you're looking for is at the very first position in the list, the search will only take one comparison.
+Worst Case (O(n)): If the element is at the end of the list or not present at all, it will take n comparisons, where n is the number of elements in the list.
+Average Case (O(n)): On average, if the element is somewhere in the middle, you will have to check about half of the elements.
+
+Space Complexity
+O(1): Linear search uses a constant amount of space, as it doesn't require additional memory besides the variables used for iterating through the list.
 
 public class Linear {
 
@@ -24,4 +44,31 @@ public class Linear {
 
 }
 
-// output : Found
+output : Found
+
+
+//2nd way:
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {12,13,43,67,90};
+        int result = linearSearch(arr);
+        if(result != -1){
+            System.out.println("Found at index: "+ result);
+        }else{
+            System.out.println("Not found");
+        }
+    }
+    public static int linearSearch(int[] arr){
+        int search = 13;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]==search){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+output:
+Found at index: 1
