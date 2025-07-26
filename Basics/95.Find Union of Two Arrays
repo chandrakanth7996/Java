@@ -1,0 +1,48 @@
+Find Union of Two Arrays | Find the union of two arrays without duplicates. 
+
+Union: All elements from both, without duplicates.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {13,1,54,22,89,89,22};
+        int[] arr2 = {13,54,1,2,3,4,5,9};
+        System.out.println("union elements in an array: "+ union(arr1,arr2));
+    }
+    public static Set<Integer> union(int[] arr1,int[] arr2){
+        Set<Integer> hs = new HashSet<>();
+        for(int num: arr1){
+            hs.add(num);
+        }
+        for(int num: arr2){
+            hs.add(num);
+        }
+        return hs;
+    }
+}
+
+// 2nd method
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {13,1,54,22,89,89,22};
+        int[] arr2 = {13,54,1,2,3,4,5,9};
+        System.out.println("union elements in an array: "+ union(arr1,arr2));
+    }
+    public static Set<Integer> union(int[] arr1,int[] arr2){
+        List<Integer> list = new ArrayList<>();
+        
+        for(int num: arr1){
+            list.add(num);
+        }
+        for(int num: arr2){
+            list.add(num);
+        }
+        
+        Set<Integer> hs = new HashSet<>(list);
+        return hs;
+    }
+}
+
+output:
+union elements in an array: [1, 2, 3, 4, 5, 9, 13, 54, 22, 89]
