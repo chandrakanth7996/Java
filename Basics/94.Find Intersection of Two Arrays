@@ -1,5 +1,7 @@
 Find Intersection of Two Arrays | Find common elements between two arrays.
 
+Intersection = common elements between two arrays, sets, or lists.
+
 import java.util.*;
 class Main {
     public static void main(String[] args) {
