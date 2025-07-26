@@ -1,0 +1,26 @@
+Find Intersection of Two Arrays | Find common elements between two arrays.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {13,1,54,22,89,89,22};
+        int[] arr2 = {13,54,1,2,3,4,5,9};
+        System.out.println("Intersection elements in an array: "+ intersection(arr1,arr2));
+    }
+    public static Set<Integer> intersection(int[] arr1,int[] arr2){
+        Set<Integer> hs1 = new HashSet<>();
+        Set<Integer> hs2 = new HashSet<>();
+        for(int num : arr1){
+            hs1.add(num);
+        }
+        for(int num : arr2){
+            if(hs1.contains(num)){
+                hs2.add(num);
+            }
+        }
+        return hs2;
+    }
+}
+
+output:
+Intersection elements in an array: [1, 54, 13]
