@@ -22,3 +22,30 @@ class HelloWorld {
         System.out.println(Arrays.toString(arr));
     }
 }
+
+
+// 2nd method
+Move Zeros to End | Move all zeroes in an array to the end while maintaining order. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,0,0,2,3,4,5};
+        System.out.println("Move zeroes to end: "+ moveZeroes(arr));
+    }
+    public static List<Integer> moveZeroes(int[] arr){
+        List<Integer> list = new ArrayList<>();
+       for(int num: arr){
+           if(num!=0)
+                list.add(num);
+       }
+        for(int num : arr){
+            if(num==0)
+                list.add(num);
+        }
+        return list;
+    }
+}
+
+output:
+Move zeroes to end: [1, 2, 2, 3, 4, 5, 0, 0]
