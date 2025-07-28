@@ -1,0 +1,37 @@
+Rotate Array to Right (K times) | Rotate an array to the right by K positions.
+
+To rotate an array to the right by k positions, you should:
+  Reverse the whole array
+  Reverse the first k elements
+  Reverse the rest (from k to end)
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5};
+        int k =3;
+        rotateElements(arr,k);
+        System.out.println("Rotating elements: "+ Arrays.toString(arr));
+    }
+    public static void rotateElements(int[] arr,int k){
+       int n = arr.length;
+       
+        k = k%n;
+        reverse(arr,0,n-1);
+        reverse(arr,0,k-1);
+        reverse(arr,k,n-1);
+    }
+    public static void reverse(int[] arr,int start,int end){
+        while(start<end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+        
+            start++;
+            end--;
+        }
+    }
+}
+
+output:
+Rotating elements: [3, 4, 5, 1, 2]
