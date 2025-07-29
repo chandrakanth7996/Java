@@ -1,0 +1,25 @@
+Find Maximum Subarray Sum (Kadane’s Algorithm) | Use Kadane’s Algorithm to find the largest sum contiguous subarray.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,-5};
+        System.out.println("SubArray sum: "+ subArraySum(arr));
+    }
+    public static int subArraySum(int[] arr){
+        if(arr.length==0){
+            return 0;
+        }
+        int currentSum = 0;
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            int num = arr[i];
+            currentSum = Math.max(num,currentSum+arr[i]);
+            max = Math.max(max,currentSum);
+        }
+        return max;
+    }
+}
+
+output:
+SubArray sum: 10
