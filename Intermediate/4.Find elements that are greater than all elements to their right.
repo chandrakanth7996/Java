@@ -1,0 +1,31 @@
+Find Leaders in an Array | Find elements that are greater than all elements to their right. |
+Input: [16, 17, 4, 3, 5, 2]
+Output: [17, 5, 2]
+
+In this example:
+17 is greater than all the elements to its right, so it is a leader.
+5 is greater than all elements to its right (which is just 2), so it is a leader.
+2 is the last element, and since there are no elements to its right, it is also a leader.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {16, 17, 4, 3, 5, 2};
+        System.out.println("Leaders in an array: "+ greaterRightElements(arr));
+    }
+    public static List<Integer> greaterRightElements(int[] arr){
+        int currMax = Integer.MIN_VALUE;
+        List<Integer> list = new ArrayList<>();
+        for(int i=arr.length-1;i>=0;i--){                    // Iterate the array from right to left (starting from the last element)
+            if(arr[i]>currMax){                              // If current element is greater than the current max, it's a leader
+                currMax = arr[i];                             // Update the current max value
+                list.add(currMax);                            // Add the leader element to the list
+            }
+        }
+        Collections.reverse(list);                            // Reverse the list to ensure leaders are in left-to-right order
+        return list;
+    }
+}
+
+output:
+Leaders in an array: [17, 5, 2]
