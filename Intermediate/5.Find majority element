@@ -1,0 +1,26 @@
+ Find the element that appears more than N/2 times in an array. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {3, 3, 4, 2, 4, 4, 2, 4, 4};
+        System.out.println("Majority element: "+ majorityElement(arr));
+    }
+    public static int majorityElement(int[] arr){
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int i=0;i<arr.length;i++){
+            int num = arr[i];
+            hm.put(num,hm.getOrDefault(num,0)+1);                        // frequency count
+        }
+        int majorityCount = arr.length/2;
+        for(Map.Entry<Integer,Integer> entry : hm.entrySet()){
+            if(entry.getValue() > majorityCount){
+                return entry.getKey();
+            }
+        }
+        return -1;
+    }
+}
+
+output:
+Majority element: 4
