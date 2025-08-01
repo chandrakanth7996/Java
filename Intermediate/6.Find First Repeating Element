@@ -1,0 +1,23 @@
+Find First Repeating Element | Find the first repeating element in an array. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {5, 5, 3, 4, 3, 5, 6};
+        System.out.println("Repeating element: "+ repeatingElement(arr));
+    }
+    public static int repeatingElement(int[] arr){
+        Set<Integer> hs = new HashSet<>();
+        for(int num : arr){
+            if(hs.contains(num)){
+                return num;              // First repeating element found
+            }else{
+                hs.add(num);              // Add the number to the set
+            }
+        }
+        return -1;                    // If no repeating element found
+    }
+}
+
+output:
+Repeating element: 5
