@@ -1,0 +1,31 @@
+Rearrange Array Alternately | Rearrange an array such that elements are in max-min order.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5, 2, 8, 7};
+        System.out.println("Rearrange elements: "+ Arrays.toString(rearrangeElements(arr)));
+    }
+    public static int[] rearrangeElements(int[] arr){
+        Arrays.sort(arr);
+        
+        int[] result = new int[arr.length];                    //Create a new array for the rearranged result
+        
+        int low = 0;                                          // Points to the smallest element
+        int high = arr.length-1;                              // Points to the largest element
+        int index=0;                                          // Index to place elements in the result array
+        
+        while(low<high){                                      //Pick elements alternately from high (largest) and low (smallest)
+            if(low<=high){
+                result[index++] = arr[high--];                // Pick largest element
+            }
+            if(low<=high){
+                result[index++] = arr[low++];                  // Pick smallest element
+            }
+        }
+        return result;
+    }
+}
+
+output:
+Rearrange elements: [8, 1, 7, 2, 5, 3]
