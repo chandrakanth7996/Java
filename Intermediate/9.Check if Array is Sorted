@@ -1,0 +1,24 @@
+Check if Array is Sorted | Check if an array is already sorted in ascending order.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5};
+        if(isSortedArray(arr)){
+            System.out.println("Array is sorted");
+        }else{
+            System.out.println("Array is not sorted");
+        }
+    }
+    public static boolean isSortedArray(int[] arr){
+       for(int i=0;i<arr.length-1;i++){
+           if(arr[i]>arr[i+1]){
+               return false;
+           }
+       }
+       return true;
+    }
+}
+
+output:
+Array is sorted
