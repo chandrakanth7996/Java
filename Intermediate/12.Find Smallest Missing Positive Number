@@ -1,0 +1,50 @@
+Find Smallest Missing Positive Number | Find the smallest missing positive integer in an array. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {3, 4, -1, 1};
+        System.out.println("Missing positive number: "+ missingPostive(arr));
+    }
+    public static int missingPostive(int[] arr){
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        List<Integer> list = new ArrayList<>();
+        for(int i=0;i<arr.length;i++){
+            int num = arr[i];
+            list.add(num);
+        }
+        int n = arr.length+1;
+        for(int i=1;i<n;i++){
+            if(!list.contains(i)){
+                return i;
+            }
+        }
+        return 0;
+    }
+}
+
+// 2nd method using HashSet
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {3, 4, -1,1};
+        System.out.println("Missing positive number: "+ missingPostive(arr));
+    }
+    public static int missingPostive(int[] arr){
+        Set<Integer> hs = new HashSet<>();
+        for(int num : arr){
+            if(num>0)
+                hs.add(num);
+        }
+        for(int i=1;i<arr.length+1;i++){
+            if(!hs.contains(i)){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+output:
+Missing positive number: 2
