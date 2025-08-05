@@ -1,0 +1,19 @@
+Find Kth Smallest Element | Find the Kth smallest element in an unsorted array. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {7, 10, 4, 3, 20, 15};
+        int k = 3;
+        System.out.println("k smallest element : "+ kSmallest(arr,k));
+    }
+    public static int kSmallest(int[] arr,int k){
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        return arr[k-1];
+    }
+}
+
+output:
+[3, 4, 7, 10, 15, 20]
+k smallest element : 7
