@@ -1,0 +1,32 @@
+Check if Array is a Subset of Another | Check if one array is a subset of another array. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr1 = {1, 2, 3};
+        int[] arr2 = {1, 2, 3, 4, 5};
+        subsetElements(arr1,arr2);
+    }
+    public static void subsetElements(int[] arr1,int[] arr2){
+        Set<Integer> hs = new HashSet<>();
+        Set<Integer> hs1 = new HashSet<>();
+        for(int num : arr1){
+            hs.add(num);
+        }
+        for(int num : arr2){
+            if(hs.contains(num)){
+                hs1.add(num);
+            }
+        }
+        System.out.println(hs1);
+        if(hs1.equals(hs)){
+            System.out.println("Array 1 is subset of array 2");
+        }else {
+            System.out.println("Array 1 is not subset of Array 2");
+        }
+    }
+}
+
+output:
+[1, 2, 3]
+Array 1 is subset of array 2
