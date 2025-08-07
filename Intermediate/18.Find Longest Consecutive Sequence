@@ -1,0 +1,53 @@
+Find Longest Consecutive Sequence | Find the length of the longest sequence of consecutive numbers. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {100, 4, 200, 1, 3, 2,5};
+        System.out.println("Longest consecutive numbers: "+ longestConsecutive(arr));
+    }
+    public static int longestConsecutive(int[] arr){
+        Set<Integer> hs = new HashSet<>();
+        for(int num: arr){
+            hs.add(num);
+        }
+        int count = 0;
+        for(int num : arr){
+            if(!hs.contains(num-1)){                                //Only start counting if it's the beginning of a sequence
+                int currentNum = num;
+                int currentStreak = 1;
+            
+                while(hs.contains(currentNum+1)){                      //Count consecutive numbers
+                    currentNum++;
+                    currentStreak++;
+                }
+                count = Math.max(count,currentStreak);
+            }
+        }
+        return count;
+    }
+}
+
+output:
+Longest consecutive numbers: 5
+
+Explanation:
+Steps to Find Longest Consecutive Sequence:
+Create a HashSet
+Add all numbers from the array into a HashSet to allow fast lookups.
+Initialize longest = 0
+This will store the length of the longest consecutive sequence found so far.
+Loop through each number in the array
+Check if the number is a sequence start
+A number is the start of a sequence if (num - 1) is not in the set.
+If it's a sequence start:
+Set currentNum = num
+Set currentStreak = 1
+Count the length of the current sequence
+While (currentNum + 1) exists in the set:
+Increment currentNum and currentStreak
+Update the longest streak
+If currentStreak > longest, update longest
+Continue until all numbers are processed
+Return longest
+This is the length of the longest consecutive sequence.
