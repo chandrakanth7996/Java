@@ -1,0 +1,28 @@
+Maximum Product Subarray | Find the subarray with the maximum product. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {2, 3, -2, 4};
+        System.out.println("Maximum product of an array: "+ maxProduct(arr));
+    }
+    public static int maxProduct(int[] arr){
+        int maxEndingHere = arr[0];
+        int minEndingHere = arr[0];
+        int maxSoFar = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            int tempMax = maxEndingHere;
+    
+            maxEndingHere = Math.max(arr[i], Math.max(arr[i] * maxEndingHere, arr[i] * minEndingHere));
+            minEndingHere = Math.min(arr[i], Math.min(arr[i] * tempMax, arr[i] * minEndingHere));
+    
+            maxSoFar = Math.max(maxSoFar, maxEndingHere);
+        }
+
+      return maxSoFar;
+    }
+}
+
+output:
+Maximum product of an array: 6
