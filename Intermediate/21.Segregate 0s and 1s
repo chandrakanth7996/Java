@@ -1,0 +1,16 @@
+Segregate 0s and 1s | Move all 0s to one side and 1s to the other side in a binary array. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {0, 1, 1, 0, 1, 0, 0, 1};
+        System.out.println("Segregate 0s and 1s: "+ Arrays.toString(segregate(arr)));
+    }
+    public static int[] segregate(int[] arr){
+        Arrays.sort(arr);
+        return arr;
+    }
+}
+
+output:
+Segregate 0s and 1s: [0, 0, 0, 0, 1, 1, 1, 1]
