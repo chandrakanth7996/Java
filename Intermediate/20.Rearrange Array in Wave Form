@@ -1,0 +1,29 @@
+Rearrange Array in Wave Form | Rearrange elements in a wave-like form (arr[0] >= arr[1] <= arr[2]...). |
+
+Approach Summary:
+Loop through the array in steps of 2 (i += 2)
+For every pair (arr[i], arr[i+1]):
+If arr[i] < arr[i+1], we swap them.
+This ensures arr[i] >= arr[i+1]
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {10, 5, 6, 3, 2, 20, 100, 80};
+        System.out.println("Wave form of an array: "+ Arrays.toString(waveForm(arr)));
+    }
+    public static int[] waveForm(int[] arr){
+        for(int i=0;i<arr.length-1;i+=2){
+            if(arr[i]<arr[i+1]){              // If the current even-indexed element is less than the next, swap them to ensure arr[i] >= arr[i + 1]
+                int temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+        }
+        return arr;
+    }
+}
+
+output:
+Wave form of an array: [10, 5, 6, 3, 20, 2, 100, 80]
