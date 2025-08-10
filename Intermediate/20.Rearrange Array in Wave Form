@@ -27,3 +27,7 @@ class Main {
 
 output:
 Wave form of an array: [10, 5, 6, 3, 20, 2, 100, 80]
+
+Time & Space Complexity:
+Time Complexity: O(n) — One pass through the array.
+Space Complexity: O(1) — In-place modification, no extra space used.
