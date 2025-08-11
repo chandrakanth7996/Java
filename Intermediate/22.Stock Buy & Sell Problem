@@ -1,0 +1,36 @@
+Stock Buy & Sell Problem | Find the maximum profit from buying and selling stocks. |
+Approach:
+Start with:
+minPrice = first price
+maxProfit = 0
+Loop through the array starting from index 1:
+If the current price is lower than minPrice, update minPrice.
+Else, calculate profit = current price - minPrice
+If this profit is higher than maxProfit, update maxProfit.
+Return maxProfit at the end.
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        int[] arr = {7, 1, 5, 3, 6, 4};
+        System.out.println("Maximum profit of the stock: "+ bestStock(arr));
+    }
+    public static int bestStock(int[] arr){
+        int minCurrStock = arr[0];
+        int maxProfit = 0;
+        for(int i=1;i<arr.length-1;i++){
+            if(arr[i]<minCurrStock){
+                minCurrStock = arr[i];
+            }else{
+                int profit = arr[i] - minCurrStock;
+                if(profit > maxProfit){
+                    maxProfit = profit;
+                }
+            }
+        }
+        return maxProfit;
+    }
+}
+
+output:
+Maximum profit of the stock: 5
