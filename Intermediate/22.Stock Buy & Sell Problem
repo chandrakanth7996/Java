@@ -18,7 +18,7 @@ class Main {
     public static int bestStock(int[] arr){
         int minCurrStock = arr[0];
         int maxProfit = 0;
-        for(int i=1;i<arr.length-1;i++){
+        for(int i=1;i<arr.length;i++){
             if(arr[i]<minCurrStock){
                 minCurrStock = arr[i];
             }else{
