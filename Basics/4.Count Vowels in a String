@@ -39,3 +39,29 @@ class HelloWorld {
         System.out.println(count);
     }
 }
+
+// 3rd method
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "madam";
+        System.out.println(countConsNVowles(str));
+    }
+    public static String countConsNVowles(String str){
+        Set<Character> hs = new HashSet<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+        int countCons = 0, countVowel = 0;
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(hs.contains(ch)){
+                countVowel++;
+            }else{
+                countCons++;
+            }
+        }
+        return "consonants count: "+countCons+" \nVowel count: "+countVowel;
+    }
+}
+
+output:
+consonants count: 3 
+Vowel count: 2
