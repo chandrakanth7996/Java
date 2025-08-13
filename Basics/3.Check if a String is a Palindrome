@@ -58,3 +58,19 @@ class Main {
         }
     }
 }
+
+// 3rd method
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "madam";
+        System.out.println(palindrome(str));
+    }
+    public static boolean palindrome(String str){
+        StringBuilder s = new StringBuilder(str);
+        return s.reverse().toString().equals(str);
+    }
+}
+
+output:
+true
