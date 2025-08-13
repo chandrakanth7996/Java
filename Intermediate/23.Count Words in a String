@@ -1,0 +1,18 @@
+Count Words in a String | Count the number of words in a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello, How are you";
+        System.out.println(countWords(str));
+    }
+    public static int countWords(String str){
+        str = str.trim();
+        String[] words = str.split("\\s+");
+        
+        return words.length;
+    }
+}
+
+output:
+4
