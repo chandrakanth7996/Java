@@ -1,0 +1,23 @@
+Remove Spaces from String | Remove all spaces from a given string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello world ";
+       
+        System.out.println("remove spaces in string: "+ removeSpace(str));
+        
+    }
+    public static String removeSpace(String str){
+        return str.replaceAll("\\s+","");
+    }
+    
+}
+
+output:
+remove spaces in string: Helloworld
+
+
+" " targets just the space character.
+
+"\\s+" targets all whitespace (space, tab, newline, etc.) one or more times.
