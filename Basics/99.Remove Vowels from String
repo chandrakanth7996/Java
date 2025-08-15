@@ -1,0 +1,26 @@
+Remove Vowels from String | Remove all vowels from a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello world";
+       
+        System.out.println("remove vowels in string: "+ removeVowels(str));
+        
+    }
+    public static String removeVowels(String str){
+        StringBuilder s = new StringBuilder();
+        Set<Character> hs = new HashSet<>(Arrays.asList('a','e','i','o','u','A','E','I','O','U'));
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(!hs.contains(ch)){
+                s.append(ch);
+            }
+        }
+        return s.toString();
+    }
+    
+}
+
+output:
+remove vowels in string: Hll wrld
