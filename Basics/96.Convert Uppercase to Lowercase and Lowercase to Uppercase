@@ -1,0 +1,21 @@
+Convert Uppercase to Lowercase and Lowercase to Uppercase | Convert all uppercase letters to lowercase. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "MADAM";
+        String str1 = "teacher";
+        System.out.println("Convert from uppercase to lowercase: "+ stringConvert(str));
+        System.out.println("Convert from lowercase to uppercase: "+ stringConverts(str1));
+    }
+    public static String stringConvert(String str){
+        return str.toLowerCase();
+    }
+    public static String stringConverts(String str1){
+        return str1.toUpperCase();
+    }
+}
+
+output:
+Convert from uppercase to lowercase: madam
+Convert from lowercase to uppercase: TEACHER
