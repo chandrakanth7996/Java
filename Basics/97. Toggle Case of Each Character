@@ -1,0 +1,30 @@
+ Toggle Case of Each Character | Toggle the case of each character in a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello world";
+       
+        System.out.println("Toggle case string: "+ toggleCase(str));
+        
+    }
+    public static String toggleCase(String str){
+        StringBuilder s = new StringBuilder();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(Character.isUpperCase(ch)){
+                s.append(Character.toLowerCase(ch));
+            }else if(Character.isLowerCase(ch)){
+                s.append(Character.toUpperCase(ch));
+            }else{
+                s.append(ch);
+            }
+        }
+        
+        return s.toString();
+    }
+    
+}
+
+output:
+Toggle case string: hELLO WORLD
