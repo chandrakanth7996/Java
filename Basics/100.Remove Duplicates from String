@@ -22,5 +22,26 @@ class Main {
     
 }
 
+// 2nd method using HashSet
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Programming";
+        System.out.println("Remove duplicates characters: "+ removeDuplicates(str));
+    }
+    public static String removeDuplicates(String str){
+        StringBuilder s = new StringBuilder();
+        HashSet<Character> hs = new HashSet<>();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(!hs.contains(ch)){
+                hs.add(ch);
+                s.append(ch);
+            }
+        }
+        return s.toString();
+    }
+}
+
 output:
 Remove duplicates characters: Progamin
