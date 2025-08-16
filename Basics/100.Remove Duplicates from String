@@ -1,0 +1,26 @@
+Remove Duplicates from String | Remove duplicate characters from a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Programming";
+        System.out.println("Remove duplicates characters: "+ removeDuplicates(str));
+    }
+    public static String removeDuplicates(String str){
+        StringBuilder s = new StringBuilder();
+        LinkedHashSet<Character> hs = new LinkedHashSet<>();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            hs.add(ch);
+        }
+        
+        for(char ch : hs){
+            s.append(ch);
+        }
+        return s.toString();
+    }
+    
+}
+
+output:
+Remove duplicates characters: Progamin
