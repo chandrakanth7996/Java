@@ -31,3 +31,32 @@ class Main {
         }
     }
 }
+
+// 2nd method
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "silent";
+        String str1 = "listen";
+        System.out.println(isAnagram(str,str1));
+    }
+    public static boolean isAnagram(String str,String str1){
+        if(str.length()!=str1.length()){
+            return false;
+        }
+        Map<Character,Integer> hm = new HashMap<>();
+        Map<Character,Integer> hm1 = new HashMap<>();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+        }
+        for(int i=0;i<str1.length();i++){
+            char ch = str1.charAt(i);
+            hm1.put(ch,hm1.getOrDefault(ch,0)+1);
+        }
+        return hm.equals(hm1);
+    }
+}
+
+output:
+true
