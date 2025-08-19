@@ -1,0 +1,24 @@
+Find First Repeating Character | Find the first repeating character in a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "abca";
+        System.out.println("First repeating character: "+ firstRepeatChar(str));
+    }
+    public static Character firstRepeatChar(String str){
+        Set<Character> hs = new HashSet<>();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(hs.contains(ch)){
+                return ch;
+            }else{
+                hs.add(ch);
+            }
+        }
+        return null;
+    }
+}
+
+output:
+First repeating character: a
