@@ -1,0 +1,20 @@
+Count Frequency of Each Character | Count how many times each character appears in a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "abca";
+        System.out.println("Frequency character in a string: "+ frequencyCharacter(str));
+    }
+    public static Map<Character,Integer> frequencyCharacter(String str){
+        Map<Character,Integer> hm = new HashMap<>();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+        }
+        return hm;
+    }
+}
+
+output:
+Frequency character in a string: {a=2, b=1, c=1}
