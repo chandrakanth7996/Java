@@ -1,0 +1,27 @@
+Reverse Each Word in a String | Reverse each word in a sentence while keeping their order. |
+
+
+class Main {
+    public static void main(String[] args) {
+        String str = "The quick brown fox jumps";
+        System.out.println("Reverse String: "+ reverseString(str));
+    }
+    public static String reverseString(String str){
+        String[] words = str.split("\\s+");
+        StringBuilder result = new StringBuilder();
+        for(String word : words){
+            StringBuilder s = new StringBuilder(word);
+            result.append(s.reverse().toString()).append(" ");
+        }
+        return result.toString().trim();
+    }
+}
+
+output:
+Reverse String: ehT kciuq nworb xof spmuj
+
+Explanation:
+Uses split("\\s+") – handles multiple spaces between words.
+Uses StringBuilder to reverse each word.
+Appends a space after each reversed word.
+Uses trim() to remove the trailing space.
