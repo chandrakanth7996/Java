@@ -1,0 +1,30 @@
+Find Longest Word in String | Find the longest word in a given sentence. 
+
+
+class Main {
+    public static void main(String[] args) {
+        String str = "The quick brown fox jumps";
+        System.out.println("Longest word in string: "+ longestWord(str));
+    }
+    public static String longestWord(String str){
+        String longest = "";
+        String[] words = str.split("\\s+");                      // split the string
+        for(String word : words){
+            if(word.length() >= longest.length()){
+                longest = word;
+            }
+        }
+        return longest;
+    }
+}
+
+output:
+Longest word in string: jumps
+
+
+Summary:
+To get the first longest word (like quick), use:
+if (word.length() > longest.length())
+
+To get the last one (like jumps), use:
+if (word.length() >= longest.length())
