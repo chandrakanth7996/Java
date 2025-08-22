@@ -19,3 +19,25 @@ class Main {
 output:
 Convert from uppercase to lowercase: madam
 Convert from lowercase to uppercase: TEACHER
+
+
+// 2nd method without built-in functions
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "HELLO WORLD";
+        lowercase(str);
+    }
+    public static void lowercase(String str){
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(ch>='A' && ch<='Z'){
+                ch = (char)(ch+32);
+            }
+            System.out.print(ch);
+        }
+    }
+}
+
+output:
+hello world
