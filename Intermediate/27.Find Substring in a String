@@ -1,0 +1,16 @@
+Find Substring in a String | Check if a given substring exists in a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        String s = "World";
+        System.out.println("Substring of a string: "+ isSubString(str,s));
+    }
+    public static boolean isSubString(String str,String s){
+        return str.contains(s);
+    }
+}
+
+output:
+Substring of a string: true
