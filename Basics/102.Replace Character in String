@@ -1,0 +1,17 @@
+Replace Character in String | Replace all occurrences of a given character with another character. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Banana";
+        char originalChar = 'a';
+        char replaceChar = 'o';
+        System.out.println("Replace character in a string:" + replacableCharacter(str,originalChar,replaceChar));
+    }
+    public static String replacableCharacter(String str,char originalChar,char replaceChar){
+        return str.replace(originalChar,replaceChar);
+    }
+}
+
+output:
+Replace character in a string:Bonono
