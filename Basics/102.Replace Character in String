@@ -15,3 +15,22 @@ class Main {
 
 output:
 Replace character in a string:Bonono
+
+
+// Replace word in a string
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello world";
+        String originalWord = "world";
+        String replaceWord = "Java";
+        System.out.println("Replace word in a string: "+ replaceWord(str,originalWord,replaceWord));
+    }
+    public static String replaceWord(String str,String originalWord,String replaceWord){
+        return str.replace(originalWord,replaceWord);
+    }
+}
+
+output:
+Replace word in a string: Hello Java
