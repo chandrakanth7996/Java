@@ -1,0 +1,21 @@
+Check if String Contains Only Digits | Verify if a string contains only numeric digits. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "12345";
+        System.out.println("string contains only numeric digits: "+ isNumeric(str));
+    }
+    public static boolean isNumeric(String str){
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(!(Character.isDigit(ch))){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+output:
+string contains only numeric digits: true
