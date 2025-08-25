@@ -34,3 +34,18 @@ class Main {
 
 output:
 Replace word in a string: Hello Java
+
+
+// Remove numbers in a string 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello123";
+        str = str.replaceAll("[0-9]","");
+        System.out.println(str);
+    }
+}
+
+output:
+Hello
