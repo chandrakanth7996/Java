@@ -1,0 +1,27 @@
+Check if Two Strings are Rotation of Each Other | Check if one string is a rotated version of another. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str1 = "waterbottle";
+        String str2 = "erbottlewat";
+        System.out.println("Rotating strings: "+ rotateString(str1,str2));
+    }
+    public static boolean rotateString(String str1,String str2){
+        if(str1.length()!=str2.length()){
+            return false;
+        }
+        String s = str1+str2;
+        return s.contains(str2);
+    }
+}
+
+output:
+Rotating strings: true
+
+explanation:
+For str1 = "waterbottle" and str2 = "erbottlewat", the process works as follows:
+The lengths of both strings are the same, so it moves forward.
+Concatenate str1 with itself: "waterbottlewaterbottle".
+Check if str2 ("erbottlewat") is a substring of "waterbottlewaterbottle".
+Since "erbottlewat" is indeed a substring, the method correctly returns true.
