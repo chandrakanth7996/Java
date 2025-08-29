@@ -1,0 +1,28 @@
+Find Most Frequent Character | Find the most frequently occurring character in a string. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Banana";
+        System.out.println("Frequency count of string: "+ frequencyCharacter(str));
+    }
+    public static char frequencyCharacter(String str){
+        Map<Character,Integer> hm = new HashMap<>();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+        }
+        char maxChar='\0';
+        int max=0;
+        for(Map.Entry<Character,Integer> entry : hm.entrySet()){
+            if(entry.getValue()>max){
+                max = entry.getValue();
+                maxChar = entry.getKey();
+            }
+        }
+        return maxChar;
+    }
+}
+
+output:
+Frequency count of string: a
