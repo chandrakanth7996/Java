@@ -1,0 +1,22 @@
+Remove Consecutive Duplicates | Remove consecutive duplicate characters from a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "aaabbbccdaa";
+        System.out.println("Remove consecutive characters in a string: "+ removeCharacters(str));
+    }
+    public static String removeCharacters(String str){
+        StringBuilder s = new StringBuilder();
+        char[] arr = str.toCharArray();
+       for(int i=0;i<arr.length;i++){
+          if(i==arr.length-1 || arr[i]!=arr[i+1]){                      // Append current char if it's the last one or different from the next one
+              s.append(arr[i]);
+          }
+       }
+       return s.toString();
+    }
+}
+
+output:
+Remove consecutive characters in a string: abcda
