@@ -1,0 +1,30 @@
+ Check if String is Pangram | Check if a string contains all letters of the alphabet. |
+
+A pangram is a sentence that contains every letter of the alphabet at least once.
+Example of a Pangram:
+“The quick brown fox jumps over the lazy dog”
+This sentence uses all 26 letters from a to z at least once.
+
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "The quick brown fox jumps over the lazy dog";
+        System.out.println("Pangram string: "+ isPangram(str));
+    }
+    public static boolean isPangram(String str){
+        str = str.toLowerCase().trim();
+        Set<Character> hs = new HashSet<>();
+        for(int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            if(ch>='a' && ch<='z'){
+                hs.add(ch);
+            }
+        }
+        
+        return hs.size()==26;
+    }
+}
+
+output:
+Pangram string: true
