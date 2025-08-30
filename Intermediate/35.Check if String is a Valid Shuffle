@@ -1,0 +1,37 @@
+Check if String is a Valid Shuffle | Check if a string is a valid shuffle of two given strings. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String a = "abc";
+        String b = "def";
+        String c = "adbcef";
+        System.out.println("valid shuffles: "+ validShuffle(a,b,c));
+    }
+    public static boolean validShuffle(String a,String b,String c){
+        String res = a + b;
+        if(c.length()!=res.length()){
+            return false;
+        }
+        
+        Map<Character,Integer> hm = new HashMap<>();
+        for(int i=0;i<res.length();i++){
+            char ch = res.charAt(i);
+            hm.put(ch,hm.getOrDefault(ch,0)+1);
+        }
+        
+        for(int i=0;i<c.length();i++){
+            char ch = c.charAt(i);
+            
+            if(!hm.containsKey(ch) || hm.get(ch)==0){
+                return false;
+            }
+            
+            hm.put(ch,hm.get(ch)-1);
+        }
+        return true;
+    }
+}
+
+output:
+valid shuffles: true
