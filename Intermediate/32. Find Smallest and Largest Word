@@ -1,0 +1,35 @@
+ Find Smallest and Largest Word | Find the smallest and largest word in a string. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "The quick brown fox jumps over the lazy dog";
+        System.out.println("Largest and smallest word in a string "+ lns(str));
+    }
+    public static String lns(String str){
+        
+        String[] words = str.split(" ");
+        int largest = 0;
+        int smallest = Integer.MAX_VALUE;
+        String largestWord = "";
+        String smallestWord = "";
+        for(String word : words){
+            int len = word.length();
+            if(len>largest){
+                largest = len;
+                largestWord = word;
+            }
+            if(len<smallest){
+                smallest = len;
+                smallestWord = word;
+            }
+        }
+        
+        return "\nLargest word: " + largestWord + " \nSmallest word: "+ smallestWord;
+    }
+}
+
+output:
+Largest and smallest word in a string 
+Largest word: quick 
+Smallest word: The
