@@ -1,0 +1,20 @@
+Sort Words in a Sentence | Sort words in a sentence alphabetically. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "The quick brown fox jumps over the lazy dog";
+        System.out.println("sort words in a string: "+ sortWords(str));
+    }
+    public static String sortWords(String str){
+        
+        String[] words = str.split(" ");            // Split the sentence into words
+        
+        Arrays.sort(words);                        // Sort the words in alphabetical order
+        
+        return String.join(" ",words);             // Join the sorted words back into a single string
+    }
+}
+
+output:
+sort words in a string: The brown dog fox jumps lazy over quick the
