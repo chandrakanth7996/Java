@@ -1,0 +1,14 @@
+Replace Character in String | Replace all occurrences of a given character with another character. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello world";
+        char ch = 'o';
+        char replaceCh = 'x';
+        System.out.println(str.replace(ch,replaceCh));
+    }
+}
+
+output:
+Hellx wxrld
