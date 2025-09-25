@@ -1,0 +1,16 @@
+Check if String Contains Only Digits | Verify if a string contains only numeric digits. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "123123";
+        if(str.matches("\\d+")){
+            System.out.println("true");
+        }else{
+            System.out.println("false");
+        }
+    }
+}
+
+output:
+true
