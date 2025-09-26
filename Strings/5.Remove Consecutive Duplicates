@@ -1,0 +1,22 @@
+Remove Consecutive Duplicates | Remove consecutive duplicate characters from a string. 
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "apple";
+        StringBuilder s = new StringBuilder();
+        char[] ch = str.toCharArray();
+        s.append(ch[0]);                              // Always include the first character
+        for(int i=1;i<ch.length;i++){
+            if(ch[i] == ch[i-1]){                      // If current char is not same as previous, append it
+                continue;
+            }else{
+                s.append(ch[i]);
+            }
+        }
+        System.out.println(s.toString());
+    }
+}
+
+output:
+aple
