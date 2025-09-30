@@ -1,0 +1,18 @@
+Sort Words in a Sentence | Sort words in a sentence alphabetically. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Banana apple Cherry";
+        String[] s = str.split(" ");                    // Step 1: Split the sentence into words based on spaces
+        List<String> list = new ArrayList<>();          // Step 2: Create a list to store the words
+        for(int i=0;i<s.length;i++){                    // Step 3: Add all words from the array to the list
+            list.add(s[i]);
+        }
+        Collections.sort(list);                          // Step 4: Sort the list alphabetically
+        System.out.println(String.join(" ", list));       // Step 5: Join it back into a single string separated by spaces
+    }
+}
+
+output:
+Banana Cherry apple
