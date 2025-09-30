@@ -1,0 +1,15 @@
+Sort Characters in a String | Sort the characters of a string in ascending order. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "hello";
+        char[] ch = str.toCharArray();      //Convert string to character array
+        Arrays.sort(ch);                    //Sort the character array
+        String s = new String(ch);          //Convert back to string
+        System.out.println(s);
+    }
+}
+
+output:
+ehllo
