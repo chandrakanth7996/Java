@@ -1,0 +1,20 @@
+Count Number of Sentences | Count the number of sentences in a given paragraph. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "Hello! How are you? I hope you're doing well.";
+        String[] s = str.split("[.!?]");                  // Step 1: Split by ., !, or ? using correct regex
+        int count=0;
+        for(String res : s){
+            res = res.trim();                             // Trim spaces from each sentence part
+            if(!(res.isEmpty())){                          // Count only non-empty sentences
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+output:
+3
