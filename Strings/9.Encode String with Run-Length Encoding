@@ -1,0 +1,26 @@
+Encode String with Run-Length Encoding | Implement run-length encoding for a given string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "aaaAAABBBB";
+        char[] ch = str.toCharArray();
+        StringBuilder s = new StringBuilder();
+        int count = 1;                                    // Start with 1 since the first character is already seen once
+        for(int i=0;i<str.length()-1;i++){
+            if(ch[i] == ch[i+1]){
+                count++;                                    // Increment count for consecutive same characters
+            }else{
+                s.append(ch[i]);                            // When the character changes, append the previous character and its count
+                s.append(count);
+                count = 1;                                  // Reset count for the new character
+            }
+        }
+        s.append(ch[ch.length-1]);                          // Append the last character and its count
+        s.append(count);
+        System.out.println(s.toString());
+    }
+}
+
+output:
+a3A3B4
