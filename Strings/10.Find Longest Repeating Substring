@@ -1,0 +1,35 @@
+Find Longest Repeating Substring | Find the longest repeating substring in a string. |
+
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str = "banana";
+        int n = str.length();
+        String[] suffix = new String[n];
+        for(int i=0;i<n;i++){                            // Step 1: Create all suffixes
+            char ch = str.charAt(i);
+            suffix[i] = str.substring(i);
+        }
+        Arrays.sort(suffix);                            // Step 2: Sort the suffixes lexicographically
+        
+        String longestRepeated = "";
+        for(int i=0;i<n-1;i++){                                    // Step 3: Find the longest common prefix between adjacent suffixes
+            String prefix = commonPrefix(suffix[i],suffix[i+1]);
+            if(prefix.length() > longestRepeated.length()){
+                longestRepeated = prefix;
+            }
+        }
+        System.out.println(longestRepeated);
+    }
+    public static String commonPrefix(String s1, String s2){                          // Function to find the longest common prefix of two strings
+        int len = Math.min(s1.length(),s2.length());
+        int i=0;
+        while(i<len && s1.charAt(i) == s2.charAt(i)){
+            i++;
+        }
+        return s1.substring(0,i);
+    }
+
+output:
+ana
+}
