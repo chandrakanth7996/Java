@@ -8,6 +8,10 @@ Example Input/Output:
 - Input: str1 = "abc", str2 = "ahbgdc"
 - Output: Yes
 
+For example:
+"abc" is a subsequence of "ahbgdc" because you can remove the characters 'h', 'g', and 'd' from "ahbgdc", leaving "abc" in the same order.
+"axc" is not a subsequence of "ahbgdc" because you cannot find the characters 'a', 'x', and 'c' in that order in "ahbgdc".
+
 - Input: str1 = "abc", str2 = "ahbgd"
 - Output: No
 
