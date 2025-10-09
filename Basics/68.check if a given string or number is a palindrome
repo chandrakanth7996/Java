@@ -12,14 +12,19 @@ class Main {
         int n = 12321;
         System.out.println(palindromeCheck(str,n));
     }
-    public static String palindromeCheck(String str,int n){
-        if(palindromeString(str)){
-            return str+" is a palindrome";
+    public static String palindromeCheck(String str, int n) {
+        boolean strPal = palindromeString(str);
+        boolean numPal = palindromeNumber(n);
+
+        if (strPal && numPal) {
+            return str + " and " + n + " are palindromes";
+        } else if (strPal) {
+            return str + " is a palindrome";
+        } else if (numPal) {
+            return n + " is a palindrome";
+        } else {
+            return "Neither";
         }
-        if(palindromeNumber(n)){
-            return n+" is a palindrome";
-        }
-        return "Neither";
     }
     public static boolean palindromeString(String str){
         StringBuilder s = new StringBuilder(str);
