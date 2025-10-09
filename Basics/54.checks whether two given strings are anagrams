@@ -58,5 +58,24 @@ class Main {
     }
 }
 
+//3rd method 
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        String str1 = "silent";
+        String str2 = "listen";
+        System.out.println(isAnagram(str1,str2));
+        
+    }
+    public static boolean isAnagram(String str1, String str2){
+        char[] s1 = str1.toCharArray();
+        char[] s2 = str2.toCharArray();
+        Arrays.sort(s1);
+        Arrays.sort(s2);
+        return Arrays.equals(s1,s2);
+    }  
+}
+
+
 output:
 true
