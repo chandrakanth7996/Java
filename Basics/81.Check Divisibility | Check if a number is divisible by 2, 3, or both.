@@ -5,11 +5,11 @@ class Main {
     public static void main(String[] args) {
        int n = 280;
        if(n%2==0 && n%3==0){
-           System.out.println("number is divisible by 2");
+           System.out.println("number is divisible by 2 and 3");
        }else if(n%3==0){
            System.out.println("number is divisible by 3");
        }else if(n%2==0){
-           System.out.println("number is divisible by 2 and 3");
+           System.out.println("number is divisible by 2");
        }else{
            System.out.println("Invalid number");
        }
@@ -20,4 +20,4 @@ Note: we should first check if the number is divisible by both 2 and 3, then che
 will never be reached because if n % 2 == 0 or n % 3 == 0, it already printed and exited.
 
 output:
-number is divisible by 2 and 3
+number is divisible by 2
